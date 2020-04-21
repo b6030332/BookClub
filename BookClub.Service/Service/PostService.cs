@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace BookClub.Service.Service
 {
@@ -49,7 +50,11 @@ namespace BookClub.Service.Service
 
         public Post GetPost(int id)
         {
-            throw new NotImplementedException();
+            return _context.Post.Where(post => post.Id == id)
+                .Include(post => post.ApplicationUser)
+                .Include(post => post.Replies.Select(reply => reply.ApplicationUser))
+                .Include(post => post.Discussion)
+                .First();
         }
 
         public IEnumerable<Post> GetPostsByDiscussion(int id)
