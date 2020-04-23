@@ -57,6 +57,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="DAO\BookDAO.cs" />
+    <Compile Include="IDAO\IBookDAO.cs" />
     <Compile Include="IDAO\IDiscussionDAO.cs" />
     <Compile Include="IDAO\IPostDAO.cs" />
     <Compile Include="Migrations\202004181601139_first migration.cs" />
@@ -70,6 +72,22 @@
     <Compile Include="Migrations\202004211348238_adding properties to ApplicationUser.cs" />
     <Compile Include="Migrations\202004211348238_adding properties to ApplicationUser.Designer.cs">
       <DependentUpon>202004211348238_adding properties to ApplicationUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004211729097_remove datetime.cs" />
+    <Compile Include="Migrations\202004211729097_remove datetime.Designer.cs">
+      <DependentUpon>202004211729097_remove datetime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004211731116_include datetime.cs" />
+    <Compile Include="Migrations\202004211731116_include datetime.Designer.cs">
+      <DependentUpon>202004211731116_include datetime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004231412568_adding collection of discussion to book.cs" />
+    <Compile Include="Migrations\202004231412568_adding collection of discussion to book.Designer.cs">
+      <DependentUpon>202004231412568_adding collection of discussion to book.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004231518033_adding bookid to discussion entity.cs" />
+    <Compile Include="Migrations\202004231518033_adding bookid to discussion entity.Designer.cs">
+      <DependentUpon>202004231518033_adding bookid to discussion entity.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Book.cs" />
@@ -88,10 +106,23 @@
     <EmbeddedResource Include="Migrations\202004211348238_adding properties to ApplicationUser.resx">
       <DependentUpon>202004211348238_adding properties to ApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004211729097_remove datetime.resx">
+      <DependentUpon>202004211729097_remove datetime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004211731116_include datetime.resx">
+      <DependentUpon>202004211731116_include datetime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004231412568_adding collection of discussion to book.resx">
+      <DependentUpon>202004231412568_adding collection of discussion to book.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004231518033_adding bookid to discussion entity.resx">
+      <DependentUpon>202004231518033_adding bookid to discussion entity.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,29 +1,52 @@
-﻿@model  BookClub.Models.Post.PostIndexModel
+﻿@model BookClub.Data.Models.Post
 
 <h2>@Model.Title</h2>
 
-<div>
-    Author: @Model.AuthorName (@Model.AuthorRating)
-    Created: @Model.Created
-</div>
 
 <div>
-    @Model.PostContent
+
+    Author: @Model.ApplicationUser.UserName (@Model.ApplicationUser.Rating)
+
+    Created: @Model.Created
+
 </div>
+
+
+<div>
+
+    @Model.Content
+
+</div>
+
 
 @if (Model.Replies.Any())
-{
-    foreach (var reply in Model.Replies)
-    {
-        <div>
-            <div>
-                Reply Author: @reply.AuthorName
-                Reply Created: @reply.Created
-            </div>
 
-            <div>
-                Reply: @reply.ReplyContent
-            </div>
-        </div>
-    }
+{
+
+    foreach (var reply in Model.Replies)
+
+    {
+
+<div>
+
+    <div>
+
+        Reply Author: @reply.ApplicationUser.UserName
+
+        Reply Created: @reply.Created
+
+    </div>
+
+
+    <div>
+
+        Reply: @reply.Content
+
+    </div>
+
+</div>
+
 }
+
+}
+

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BookClub.Data.Models.Book>
+
+@{
+    ViewBag.Title = "GetAllBooks";
+}
+
+<h2>Welcome To Digi Book Club</h2>
+
+<div class="alert alert-success">
+    <strong>Sign Up Today:</strong> @Html.ActionLink("Join Our Community", "GetAllDiscussions", "Book")
+</div>
+
+@*<div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+            Filter By
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a>@Html.ActionLink("New Releases", "NewReleases", "Book")</a></li>
+        </ul>
+    </div>*@
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Blurb</th>
+
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                <img src="@Html.DisplayFor(modelItem => item.Image)" class="imageCell" />
+            </td>
+            <td>
+                @Html.ActionLink(item.Title, "GetBookId",
+                   new { id = item.Id , Controller = "Book" })
+            </td>
+            <td></td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Blurb)
+            </td>
+        </tr>
+    }
+
+</table>
+

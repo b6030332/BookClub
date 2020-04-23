@@ -1,48 +1,71 @@
-﻿@model BookClub.Models.Discussion.DiscussionTopicModel
+﻿@model BookClub.Data.Models.Post
+
+<h2>Immerse yourself into the Discussion</h2>
 
 
-<h2>Immerse yourself into the @Model.Discussion.Name Discussion</h2>
+@if (Model.Discussion.Posts.Any())
 
-@if (Model.Posts.Any())
 {
-    <table class="table table-bordered table-hover"> 
-        <tbody>
-            @foreach (var post in Model.Posts)
-            {
-                <tr>
-                    <td>
-                        @Html.ActionLink(post.Title, "GetAllDiscussions",
 
-                    new { id = post.Id , Controller = "Post" })
-                       
-                    </td>
-                    <td>
-                        @post.AuthorName
-                    </td>
-                    <td>
-                        @post.DatePosted
-                    </td>
-                    <td>
-                        @post.ReplyCount
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+<table class="table table-bordered table-hover">
+    <tbody>
+        @foreach (var post in Model.Discussion.Posts)
+        {
+<tr>
+
+    <td>
+
+        @Html.ActionLink(post.Title, "GetPost",
+    new { id = post.Id , Controller = "Post" })
+
+
+    </td>
+    <td>
+        @post.ApplicationUser.UserName
+    </td>
+    <td>
+        @post.Created
+    </td>
+    <td>
+        @post.Replies.Count
+    </td>
+</tr>
+}
+    </tbody>
+</table>
+
 }
 
-else {
 
-    <div class="noPosts">
-        <h3>
-            Nothing to see here! <br />
 
-            Start a
-            @Html.ActionLink("discussion", "Create",
-                   new { id = Model.Discussion.Id , Controller = "Post" })
-            or check back later.
-        </h3>
-    </div>
+else
+{
+
+
+<div class="noPosts">
+
+    <h3>
+
+        Nothing to see here! <br />
+
+
+        Start a
+
+        @Html.ActionLink("discussion", "Create",
+
+               new { id = Model.Discussion.Id , Controller = "Post" })
+
+        or check back later.
+
+    </h3>
+
+</div>
+
+
+
 
 
 }
+
+
+

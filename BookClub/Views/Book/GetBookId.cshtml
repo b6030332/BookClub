@@ -1,0 +1,69 @@
+﻿@model BookClub.Data.Models.Book
+
+<div class="container">
+    <div class="page-header clearfix detailHeading">
+        <h2 class="text-muted">Book View</h2>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                <img class="detailImage" src="@Model.Image" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <p id="bookTitle">@Model.Title</p>
+            @*<p id="bookAuthor">@Model.Author.Name</p>*@
+            @*<p id="bookAuthor">@Model.Genre.Name</p>*@
+        </div>
+        <div class="col-md-4 detailInfo">
+            <table>
+                <tr>
+                    <td class="bookLabel">ISBN: </td>
+                    <td class="bookValue">@Model.ISBN </td>
+                </tr>
+                <tr>
+                    <td class="bookLabel">Price: </td>
+                    <td class="bookValue">@Model.Price </td>
+                </tr>
+                <tr>
+                    <td class="bookLabel">Publisher: </td>
+                    <td class="bookValue">@Model.Publisher </td>
+                </tr>
+                <tr>
+                    <td class="bookLabel">Format: </td>
+                    <td class="bookValue">@Model.Format </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-md-8">
+            <p id="bookBlurb">@Model.Blurb</p>
+        </div>
+    </div>
+
+
+
+    @* <p>
+                        @Html.ActionLink("Add Review", "AddReview",
+                              new { id = Model.Id, Controller = "Book" })
+                </p>
+            <p><input id="reviewButton" class="btn btn-lg btn-info" type="button" value="Add Review" asp-controller="Book" asp-action="AddReview" asp-route-id="@Model.Id" /></p>
+
+            <p>@Html.ActionLink("Reviews", "Details", "Book")</p>
+        </div>
+
+    @if (Model.Review.Count != 0)
+        {
+            <tr>
+                <td></td>
+                <td colspan="12">
+                    @Html.Partial("~/Views/Book/GetReviews.cshtml", Model.Review)
+                </td>
+            </tr>
+        }*@
+
+    @Html.ActionLink("See Discussion", "GetDiscussionsByBook",
+              new { id=Model.Id , Controller="Book" }) |

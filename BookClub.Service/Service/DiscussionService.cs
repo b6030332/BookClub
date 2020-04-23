@@ -36,9 +36,6 @@ namespace BookClub.Service.Service
         public IEnumerable<Discussion> GetAllDiscussions()
         {
             return _context.Discussion.Include(d => d.Posts);
-                
-                
-            
         }
 
         public Discussion GetDiscussionID(int id)
@@ -51,6 +48,7 @@ namespace BookClub.Service.Service
 
             return discussion;
         }
+
 
         public Task UpdateDiscussionDescription(int discussionId, string newDescription)
         {

@@ -43,3 +43,17 @@ F:\MyWork\Visual Studio 2017\BookClub\BookClub\BookClub.Service\obj\Debug\BookCl
 \\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6030332\MyWork\Visual Studio 2017\GitBC\BookClub.Service\obj\Debug\BookClub.Service.csproj.CopyComplete
 \\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6030332\MyWork\Visual Studio 2017\GitBC\BookClub.Service\obj\Debug\BookClub.Service.dll
 \\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6030332\MyWork\Visual Studio 2017\GitBC\BookClub.Service\obj\Debug\BookClub.Service.pdb
+F:\MyWork\Visual Studio 2017\GitBC\BookClub.Service\bin\Debug\BookClub.Service.dll
+F:\MyWork\Visual Studio 2017\GitBC\BookClub.Service\bin\Debug\BookClub.Service.pdb
+F:\MyWork\Visual Studio 2017\GitBC\BookClub.Service\bin\Debug\BookClub.Data.dll
+F:\MyWork\Visual Studio 2017\GitBC\BookClub.Service\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+F:\MyWork\Visual Studio 2017\GitBC\BookClub.Service\bin\Debug\BookClub.Data.pdb
+F:\MyWork\Visual Studio 2017\GitBC\BookClub.Service\bin\Debug\BookClub.Data.dll.config
+F:\MyWork\Visual Studio 2017\GitBC\BookClub.Service\bin\Debug\EntityFramework.xml
+F:\MyWork\Visual Studio 2017\GitBC\BookClub.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\MyWork\Visual Studio 2017\GitBC\BookClub.Service\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+F:\MyWork\Visual Studio 2017\GitBC\BookClub.Service\obj\Debug\BookClub.Service.csprojAssemblyReference.cache
+F:\MyWork\Visual Studio 2017\GitBC\BookClub.Service\obj\Debug\BookClub.Service.csproj.CoreCompileInputs.cache
+F:\MyWork\Visual Studio 2017\GitBC\BookClub.Service\obj\Debug\BookClub.Service.csproj.CopyComplete
+F:\MyWork\Visual Studio 2017\GitBC\BookClub.Service\obj\Debug\BookClub.Service.dll
+F:\MyWork\Visual Studio 2017\GitBC\BookClub.Service\obj\Debug\BookClub.Service.pdb

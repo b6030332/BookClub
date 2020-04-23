@@ -13,6 +13,8 @@ namespace BookClub.Data.Models
         public string Description { get; set; }
         public DateTime Created { get; set; }
         public string Image { get; set; }
+        public int? BookId { get; set; }
+
 
         public virtual ICollection<Post> Posts { get; set; }
         public virtual Book Books { get; set; }

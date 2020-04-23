@@ -1,57 +1,36 @@
 ﻿using BookClub.Data.IDAO;
 using BookClub.Data.Models;
-using BookClub.Models.PostReply;
 using BookClub.Service.Service;
-using BookClub.Models.Post;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Threading.Tasks;
+using BookClub.Data;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace BookClub.Controllers
 {
     public class PostController : Controller
     {
         private readonly IPostDAO _postService;
-        public PostController()
+        private readonly IDiscussionDAO _discussionService;
+        private static UserManager<ApplicationUser> _userManager;
+
+        public PostController(UserManager<ApplicationUser> userManager)
         {
             _postService = new PostService();
+            _discussionService = new DiscussionService();
+            _userManager = userManager;
         }
         // GET: Post
         public ActionResult GetPost(int id)
         {
             Post post = _postService.GetPost(id);
-            var replies = BuildPostReplies(post.Replies);
-
-            var model = new PostIndexModel
-            {
-                Id = post.Id,
-                Title = post.Title,
-                AuthorId = post.ApplicationUser.Id,
-                AuthorName = post.ApplicationUser.UserName,
-                AuthorImageURL = post.ApplicationUser.ProfileImage,
-                AuthorRating = post.ApplicationUser.Rating,
-                Created = post.Created,
-                PostContent = post.Content,
-                Replies = replies
-            };
-            return View(model);
+            return View("GetPost", post);
         }
-
-        private IEnumerable<PostReplyModel> BuildPostReplies(IEnumerable<PostReply> replies)
-        {
-            return replies.Select(reply => new PostReplyModel
-            {
-                Id = reply.Id,
-                AuthorName = reply.ApplicationUser.UserName,
-                AuthorId = reply.ApplicationUser.Id,
-                AuthorImageURL = reply.ApplicationUser.ProfileImage,
-                AuthorRating = reply.ApplicationUser.Rating,
-                Created = reply.Created,
-                ReplyContent = reply.Content
-            });
-            
-        }
+        
     }
 }

@@ -23,5 +23,7 @@ namespace BookClub.Data.Models
         [Required]
         public Int64 ISBN { get; set; }
 
+        public virtual ICollection<Discussion> Discussions { get; set; }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -13,12 +14,10 @@ namespace BookClub.Data
     {
         public int Rating { get; set; }
         public string ProfileImage { get; set; }
-        public DateTime MemberSince { get; set; }
+        public DateTime? MemberSince { get; set; }
         public bool IsActive { get; set; }
 
-
-
-
+        
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -44,5 +43,7 @@ namespace BookClub.Data
         {
             return new ApplicationDbContext();
         }
+
+       
     }
 }

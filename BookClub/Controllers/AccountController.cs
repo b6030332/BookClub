@@ -8,8 +8,8 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using BookClub.Models;
 using BookClub.Data;
+using BookClub.Models;
 
 namespace BookClub.Controllers
 {
@@ -203,6 +203,7 @@ namespace BookClub.Controllers
         {
             if (ModelState.IsValid)
             {
+               
                 var user = await UserManager.FindByNameAsync(model.Email);
                 if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
                 {

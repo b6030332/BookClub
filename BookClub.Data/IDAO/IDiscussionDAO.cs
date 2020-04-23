@@ -14,6 +14,8 @@ namespace BookClub.Data.IDAO
         IEnumerable<ApplicationUser> GetActiveUsers();
 
         Task Create(Discussion discussion);
+
+
         Task Delete(int discussionId);
         Task UpdateDiscussionTitle(int dicussionId, string newTitle);
         Task UpdateDiscussionDescription(int discussionId, string newDescription);
