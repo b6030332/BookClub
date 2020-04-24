@@ -19,11 +19,10 @@ namespace BookClub.Controllers
         private readonly IDiscussionDAO _discussionService;
         private static UserManager<ApplicationUser> _userManager;
 
-        public PostController(UserManager<ApplicationUser> userManager)
+        public PostController()
         {
             _postService = new PostService();
             _discussionService = new DiscussionService();
-            _userManager = userManager;
         }
         // GET: Post
         public ActionResult GetPost(int id)

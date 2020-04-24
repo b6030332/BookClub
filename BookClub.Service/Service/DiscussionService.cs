@@ -7,25 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using BookClub.Data.DAO;
 
 namespace BookClub.Service.Service
 {
     public class DiscussionService : IDiscussionDAO
     {
-        private readonly ApplicationDbContext _context;
+        private IDiscussionDAO _dao;
+
         public DiscussionService()
         {
-            _context = new ApplicationDbContext();
-        }
-
-        public Task Create(Discussion discussion)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Delete(int discussionId)
-        {
-            throw new NotImplementedException();
+            _dao = new DiscussionDAO();
         }
 
         public IEnumerable<ApplicationUser> GetActiveUsers()
@@ -35,29 +27,17 @@ namespace BookClub.Service.Service
 
         public IEnumerable<Discussion> GetAllDiscussions()
         {
-            return _context.Discussion.Include(d => d.Posts);
+            return _dao.GetAllDiscussions();
         }
 
         public Discussion GetDiscussionID(int id)
         {
-            Discussion discussion = _context.Discussion
-                 .Where(d => d.Id == id)
-                 .Include(d => d.Posts.Select(p => p.ApplicationUser))
-                 .Include(d => d.Posts.Select(p => p.Replies.Select(r => r.ApplicationUser)))
-                 .FirstOrDefault();
-
-            return discussion;
+           throw new NotImplementedException();
         }
 
-
-        public Task UpdateDiscussionDescription(int discussionId, string newDescription)
+        public IEnumerable<Post> GetPostsByDiscussion(int id)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateDiscussionTitle(int dicussionId, string newTitle)
-        {
-            throw new NotImplementedException();
+            return _dao.GetPostsByDiscussion(id);
         }
     }
 }

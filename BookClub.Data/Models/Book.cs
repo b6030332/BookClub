@@ -17,12 +17,14 @@ namespace BookClub.Data.Models
         public int Year { get; set; }
         public string Publisher { get; set; }
         public string Format { get; set; }
-        [Required]
+       
         public double Price { get; set; }
         public string Blurb { get; set; }
         [Required]
         public Int64 ISBN { get; set; }
 
+        public virtual Genre Genre { get; set; }
+        public virtual Author Author { get; set; }
         public virtual ICollection<Discussion> Discussions { get; set; }
 
     }

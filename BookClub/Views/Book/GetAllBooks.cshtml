@@ -4,7 +4,7 @@
     ViewBag.Title = "GetAllBooks";
 }
 
-<h2>Welcome To Digi Book Club</h2>
+<h2>Welcome To MyBookBuddy</h2>
 
 <div class="alert alert-success">
     <strong>Sign Up Today:</strong> @Html.ActionLink("Join Our Community", "GetAllDiscussions", "Book")
@@ -30,6 +30,7 @@
             <th></th>
             <th>Title</th>
             <th>Author</th>
+            <th>Genre</th>
             <th>Blurb</th>
 
         </tr>
@@ -37,20 +38,25 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+    <tr>
 
-            <td>
-                <img src="@Html.DisplayFor(modelItem => item.Image)" class="imageCell" />
-            </td>
-            <td>
-                @Html.ActionLink(item.Title, "GetBookId",
-                   new { id = item.Id , Controller = "Book" })
-            </td>
-            <td></td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Blurb)
-            </td>
-        </tr>
+        <td>
+            <img src="@Html.DisplayFor(modelItem => item.Image)" class="imageCell" />
+        </td>
+        <td>
+            @Html.ActionLink(item.Title, "GetBookId",
+               new { id = item.Id , Controller = "Book" })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Author.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genre.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Blurb)
+        </td>
+    </tr>
     }
 
 </table>

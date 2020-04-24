@@ -58,6 +58,8 @@
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="DAO\BookDAO.cs" />
+    <Compile Include="DAO\DiscussionDAO.cs" />
+    <Compile Include="DAO\PostDAO.cs" />
     <Compile Include="IDAO\IBookDAO.cs" />
     <Compile Include="IDAO\IDiscussionDAO.cs" />
     <Compile Include="IDAO\IPostDAO.cs" />
@@ -89,9 +91,19 @@
     <Compile Include="Migrations\202004231518033_adding bookid to discussion entity.Designer.cs">
       <DependentUpon>202004231518033_adding bookid to discussion entity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004231718203_adding author &amp; genre entities.cs" />
+    <Compile Include="Migrations\202004231718203_adding author &amp; genre entities.Designer.cs">
+      <DependentUpon>202004231718203_adding author &amp; genre entities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004231727509_sorting out genre table.cs" />
+    <Compile Include="Migrations\202004231727509_sorting out genre table.Designer.cs">
+      <DependentUpon>202004231727509_sorting out genre table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Discussion.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\PostReply.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,6 +129,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004231518033_adding bookid to discussion entity.resx">
       <DependentUpon>202004231518033_adding bookid to discussion entity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004231718203_adding author &amp; genre entities.resx">
+      <DependentUpon>202004231718203_adding author &amp; genre entities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004231727509_sorting out genre table.resx">
+      <DependentUpon>202004231727509_sorting out genre table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

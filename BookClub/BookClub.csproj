@@ -239,11 +239,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Discussion\GetAllDiscussions.cshtml" />
-    <Content Include="Views\Post\GetPost.cshtml" />
-    <Content Include="Views\Discussion\Topic.cshtml" />
     <Content Include="Views\Book\GetAllBooks.cshtml" />
     <Content Include="Views\Book\GetBookId.cshtml" />
     <Content Include="Views\Book\GetDiscussionsbyBook.cshtml" />
+    <Content Include="Views\Post\GetPost.cshtml" />
+    <Content Include="Views\Discussion\GetPostsByDiscussion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

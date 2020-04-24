@@ -13,12 +13,18 @@
         {
             <tr>
                 <td>
-                    @Html.ActionLink(item.Title, "Topic",
+                    @Html.ActionLink(item.Title, "GetPostsByDiscussion",
 
                     new { id = item.Id , Controller = "Discussion" })
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    
+                    @Html.ActionLink("View Book", "GetBookId", 
+
+                 new { id = item.Id , Controller = "Book" })
                 </td>
             </tr>
         }

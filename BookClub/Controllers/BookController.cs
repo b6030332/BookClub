@@ -30,6 +30,7 @@ namespace BookClub.Controllers
         
          public ActionResult GetDiscussionsbyBook(int id)
          {
+          
             IList<Discussion> discussions = _bookService.GetDiscussionsByBook(id);
             return View("GetDiscussionsByBook", discussions);
          }

@@ -1,52 +1,31 @@
 ﻿@model BookClub.Data.Models.Post
 
+
+
 <h2>@Model.Title</h2>
 
-
 <div>
-
     Author: @Model.ApplicationUser.UserName (@Model.ApplicationUser.Rating)
-
     Created: @Model.Created
 
 </div>
 
-
 <div>
-
     @Model.Content
-
 </div>
 
-
-@if (Model.Replies.Any())
-
+@if(Model.Replies.Any())
 {
-
-    foreach (var reply in Model.Replies)
-
+    foreach(var reply in Model.Replies)
     {
-
-<div>
-
-    <div>
-
-        Reply Author: @reply.ApplicationUser.UserName
-
-        Reply Created: @reply.Created
-
-    </div>
-
-
-    <div>
-
-        Reply: @reply.Content
-
-    </div>
-
-</div>
-
+        <div>
+            <div>
+                Reply Author: @reply.ApplicationUser.UserName
+                Reply Created: @reply.Created
+            </div>
+            <div>
+                Reply: @reply.Content
+            </div>
+        </div>
+    }
 }
-
-}
-

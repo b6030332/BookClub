@@ -7,35 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using BookClub.Data.DAO;
 
 namespace BookClub.Service.Service
 {
     public class PostService : IPostDAO
     {
-        private readonly ApplicationDbContext _context;
+        private IPostDAO _dao;
         public PostService()
         {
-            _context = new ApplicationDbContext();
-        }
-
-        public Task Add(Post post)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task AddReply(PostReply reply)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task EditPostContent(int id, string newContent)
-        {
-            throw new NotImplementedException();
+            _dao = new PostDAO();
         }
 
         public IEnumerable<Post> GetAllPosts()
@@ -43,29 +24,11 @@ namespace BookClub.Service.Service
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Post> GetFilteredPosts(string searchQuery)
-        {
-            throw new NotImplementedException();
-        }
-
         public Post GetPost(int id)
         {
-            return _context.Post.Where(post => post.Id == id)
-                .Include(post => post.ApplicationUser)
-                .Include(post => post.Replies.Select(reply => reply.ApplicationUser))
-                .Include(post => post.Discussion)
-                .First();
+            return _dao.GetPost(id);
         }
 
-        public IEnumerable<Post> GetPostsByDiscussion(int id)
-        {
-            IEnumerable<Post> posts = _context.Discussion
-                .Where(discussion => discussion.Id == id)
-                .First()
-                .Posts;
-
-            return posts;
-                
-        }
+      
     }
 }

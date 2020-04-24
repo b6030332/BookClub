@@ -82,3 +82,5 @@ F:\MyWork\Visual Studio 2017\GitBC\BookClub.Data\obj\Debug\BookClub.Data.dll
 F:\MyWork\Visual Studio 2017\GitBC\BookClub.Data\obj\Debug\BookClub.Data.pdb
 F:\MyWork\Visual Studio 2017\GitBC\BookClub.Data\obj\Debug\BookClub.Data.Migrations.addingcollectionofdiscussiontobook.resources
 F:\MyWork\Visual Studio 2017\GitBC\BookClub.Data\obj\Debug\BookClub.Data.Migrations.addingbookidtodiscussionentity.resources
+F:\MyWork\Visual Studio 2017\GitBC\BookClub.Data\obj\Debug\BookClub.Data.Migrations.addingauthorgenreentities.resources
+F:\MyWork\Visual Studio 2017\GitBC\BookClub.Data\obj\Debug\BookClub.Data.Migrations.sortingoutgenretable.resources

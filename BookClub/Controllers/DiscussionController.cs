@@ -14,7 +14,7 @@ namespace BookClub.Controllers
     public class DiscussionController : Controller
     {
         private readonly IDiscussionDAO _discussionService;
-        private readonly IPostDAO _postService;
+        //private readonly IPostDAO _postService;
         public DiscussionController()
         {
             _discussionService = new DiscussionService();
@@ -26,18 +26,14 @@ namespace BookClub.Controllers
             return View("GetAllDiscussions", discussions);
         }
 
-        public ActionResult Topic(int id)
+        public ActionResult GetPostsByDiscussion(int id)
         {
-            var discussion = _discussionService.GetDiscussionID(id);
-
-            //This lists posts under a specific discussion Id.
-            var posts = discussion.Posts;
-
-            return View();
             
+            IEnumerable<Post> posts = _discussionService.GetPostsByDiscussion(id);
+            return View("GetPostsByDiscussion", posts);
+           
         }
-
-      
+       
         }
     }
         

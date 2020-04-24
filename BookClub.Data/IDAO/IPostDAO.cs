@@ -11,13 +11,6 @@ namespace BookClub.Data.IDAO
     {
         Post GetPost(int id);
         IEnumerable<Post> GetAllPosts();
-        IEnumerable<Post> GetFilteredPosts(string searchQuery);
-        IEnumerable<Post> GetPostsByDiscussion(int id);
-
-        Task Add(Post post);
-        Task Delete(int id);
-        Task EditPostContent(int id, string newContent);
-        Task AddReply(PostReply reply);
         
     }
 }
