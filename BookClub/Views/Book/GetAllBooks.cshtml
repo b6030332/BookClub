@@ -48,7 +48,8 @@
                new { id = item.Id , Controller = "Book" })
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Author.Name)
+            @Html.ActionLink(item.Author.Name, "GetAuthor",
+              new { id = item.Id , Controller = "Author" })
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Genre.Name)

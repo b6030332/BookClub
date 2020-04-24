@@ -19,5 +19,11 @@ namespace BookClub.Data.DAO
         {
             return _context.Author.Find(id);
         }
+
+        public IEnumerable<Book> GetBooksByAuthor(int id)
+        {
+            Author author = _context.Author.Find(id);
+            return author.Books.ToList();
+        }
     }
 }

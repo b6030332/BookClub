@@ -1,0 +1,33 @@
+﻿@model BookClub.Data.Models.Author
+
+@{
+    ViewBag.Title = "GetAuthor";
+}
+
+<div class="container">
+    <div class="page-header clearfix detailHeading">
+        <h2 class="text-muted">Author View</h2>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                <img class="authorImage" src="@Model.Image" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <p id="authorName">@Model.Name</p>
+        </div>
+
+        <div class="col-md-4">
+            <p id="authorBio">@Model.Bio</p>
+        </div>
+    </div>
+
+    @Html.Partial("~/Views/Author/GetBooksbyAuthor.cshtml", Model.Books)
+
+
+</div>
+

@@ -10,5 +10,6 @@ namespace BookClub.Data.IDAO
     public interface IAuthorDAO
     {
         Author GetAuthor(int id);
+        IEnumerable<Book> GetBooksByAuthor(int id);
     }
 }

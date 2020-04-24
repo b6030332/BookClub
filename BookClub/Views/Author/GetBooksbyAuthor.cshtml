@@ -1,0 +1,12 @@
+﻿@model IEnumerable<BookClub.Data.Models.Book>
+
+@{
+    ViewBag.Title = "GetBooksbyAuthor";
+}
+
+<p>See More from this Author</p>
+@foreach (var item in Model)
+{
+    <img src="@Html.DisplayFor(modelItem => item.Image)" class="bookAuthorCell" />
+}
+

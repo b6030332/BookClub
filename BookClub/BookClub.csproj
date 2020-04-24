@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\DiscussionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -187,6 +188,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\InColdBlood.jpg" />
+    <Content Include="Content\images\mindhunter1.jpg" />
     <Content Include="Content\styles\custom.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -246,10 +249,11 @@
     <Content Include="Views\Post\GetPost.cshtml" />
     <Content Include="Views\Discussion\GetPostsByDiscussion.cshtml" />
     <Content Include="Views\Admin\AddPost.cshtml" />
+    <Content Include="Views\Author\GetAuthor.cshtml" />
+    <Content Include="Views\Author\GetBooksbyAuthor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

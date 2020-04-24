@@ -7,6 +7,12 @@
     width: 120px;
     padding: 10px;
 }
+.bookAuthorCell {
+    width: 90px;
+    padding: 10px;
+    border:solid;
+    height: 120px; 
+}
 
 #bookBlurb {
     font-size: 0.8em;
