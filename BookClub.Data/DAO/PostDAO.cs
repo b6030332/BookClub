@@ -17,6 +17,12 @@ namespace BookClub.Data.DAO
             _context = new ApplicationDbContext();
         }
 
+      //  public Task AddPost(Post post)
+      //  {
+      //      _context.Post.Add(post);
+      //      _context.SaveChanges();
+      //  }
+
         public IEnumerable<Post> GetAllPosts()
         {
             throw new NotImplementedException();
@@ -24,11 +30,12 @@ namespace BookClub.Data.DAO
 
         public Post GetPost(int id)
         {
-            return _context.Post.Where(post => post.Id == id)
-                .Include(post => post.ApplicationUser)
-                .Include(post => post.Replies.Select(reply => reply.ApplicationUser))
-                .Include(post => post.Discussion)
-                .First();
+            return _context.Post.Find(id);
+                //.Where(post => post.Id == id)
+                //.Include(post => post.ApplicationUser)
+                //.Include(post => post.Replies.Select(reply => reply.ApplicationUser))
+                //.Include(post => post.Discussion)
+                //.First();
         }
-    }
+    } 
 }

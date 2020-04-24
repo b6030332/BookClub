@@ -26,6 +26,7 @@ namespace BookClub.Data.DAO
         public IEnumerable<Discussion> GetAllDiscussions()
         {
             return _context.Discussion;
+                
                 //.Include(d => d.Posts);
         }
 

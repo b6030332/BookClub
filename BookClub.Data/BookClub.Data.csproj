@@ -57,9 +57,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="DAO\AuthorDAO.cs" />
     <Compile Include="DAO\BookDAO.cs" />
     <Compile Include="DAO\DiscussionDAO.cs" />
     <Compile Include="DAO\PostDAO.cs" />
+    <Compile Include="IDAO\IAuthorDAO.cs" />
     <Compile Include="IDAO\IBookDAO.cs" />
     <Compile Include="IDAO\IDiscussionDAO.cs" />
     <Compile Include="IDAO\IPostDAO.cs" />
@@ -99,6 +101,10 @@
     <Compile Include="Migrations\202004231727509_sorting out genre table.Designer.cs">
       <DependentUpon>202004231727509_sorting out genre table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004241608064_Update Context.cs" />
+    <Compile Include="Migrations\202004241608064_Update Context.Designer.cs">
+      <DependentUpon>202004241608064_Update Context.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004231727509_sorting out genre table.resx">
       <DependentUpon>202004231727509_sorting out genre table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004241608064_Update Context.resx">
+      <DependentUpon>202004241608064_Update Context.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

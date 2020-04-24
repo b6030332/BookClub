@@ -57,3 +57,17 @@ F:\MyWork\Visual Studio 2017\GitBC\BookClub.Service\obj\Debug\BookClub.Service.c
 F:\MyWork\Visual Studio 2017\GitBC\BookClub.Service\obj\Debug\BookClub.Service.csproj.CopyComplete
 F:\MyWork\Visual Studio 2017\GitBC\BookClub.Service\obj\Debug\BookClub.Service.dll
 F:\MyWork\Visual Studio 2017\GitBC\BookClub.Service\obj\Debug\BookClub.Service.pdb
+\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Service\bin\Debug\BookClub.Service.dll
+\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Service\bin\Debug\BookClub.Service.pdb
+\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Service\bin\Debug\BookClub.Data.dll
+\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Service\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Service\bin\Debug\BookClub.Data.pdb
+\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Service\bin\Debug\BookClub.Data.dll.config
+\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Service\bin\Debug\EntityFramework.xml
+\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Service\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Service\obj\Debug\BookClub.Service.csprojAssemblyReference.cache
+\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Service\obj\Debug\BookClub.Service.csproj.CoreCompileInputs.cache
+\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Service\obj\Debug\BookClub.Service.csproj.CopyComplete
+\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Service\obj\Debug\BookClub.Service.dll
+\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Service\obj\Debug\BookClub.Service.pdb

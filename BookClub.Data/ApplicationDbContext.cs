@@ -34,6 +34,8 @@ namespace BookClub.Data
         {
         }
 
+        public DbSet<Author> Author { get; set; }
+        public DbSet<Genre> Genre { get; set; }
         public DbSet<Book> Book { get; set; }
         public DbSet<Post> Post { get; set; }
         public DbSet<Discussion> Discussion { get; set; }

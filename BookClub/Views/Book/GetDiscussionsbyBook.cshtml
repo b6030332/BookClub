@@ -15,7 +15,7 @@
             @Html.DisplayNameFor(model => model.Books.Image)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            Forum
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
@@ -35,7 +35,10 @@
             @Html.DisplayFor(modelItem => item.Books.Image)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Title)
+            @*Html.DisplayFor(modelItem => item.Title)*@
+            @Html.ActionLink(item.Title, "GetPostsByDiscussion",
+
+                new { id = item.Id , Controller = "Discussion" })
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Description)

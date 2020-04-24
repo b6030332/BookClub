@@ -11,6 +11,6 @@ namespace BookClub.Data.IDAO
     {
         Post GetPost(int id);
         IEnumerable<Post> GetAllPosts();
-        
+      //  Task AddPost(Post post);
     }
 }
