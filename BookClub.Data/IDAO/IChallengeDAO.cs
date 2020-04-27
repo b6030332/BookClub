@@ -11,6 +11,6 @@ namespace BookClub.Data.IDAO
     {
         IList<Challenges> GetChallenges();
 
-        void AddChallenge(Challenges challenges);
+        void AddChallenge(Challenges challenges, ApplicationUser user);
     }
 }

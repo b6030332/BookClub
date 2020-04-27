@@ -252,6 +252,7 @@
     <Content Include="Views\Author\GetAuthor.cshtml" />
     <Content Include="Views\Author\GetBooksbyAuthor.cshtml" />
     <Content Include="Views\Challenge\GetChallenges.cshtml" />
+    <Content Include="Views\Challenge\AddChallenge.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

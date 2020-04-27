@@ -18,9 +18,9 @@ namespace BookClub.Service.Service
             _dao = new ChallengeDAO();
         }
 
-        public void AddChallenge(Challenges challenges)
+        public void AddChallenge(Challenges challenges, ApplicationUser user)
         {
-           _dao.AddChallenge(challenges);
+           _dao.AddChallenge(challenges, user);
         }
 
         public IList<Challenges> GetChallenges()
