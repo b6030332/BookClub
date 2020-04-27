@@ -40,6 +40,7 @@ namespace BookClub.Data
         public DbSet<Post> Post { get; set; }
         public DbSet<Discussion> Discussion { get; set; }
         public DbSet<PostReply> Replies { get; set; }
+        public DbSet<Challenges> Challenges { get; set; }
 
         public static ApplicationDbContext Create()
         {

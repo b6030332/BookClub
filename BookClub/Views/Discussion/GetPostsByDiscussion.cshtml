@@ -4,6 +4,8 @@
 <table class="table table-bordered table-hover">
     <tbody>
 
+        @Html.ActionLink("Add post", "Create", "Post")
+
         @foreach (var item in Model)
 
         {
@@ -31,7 +33,7 @@
 
     </tbody>
 </table>
-@Html.ActionLink("Add Post", "AddPost", "Admin")
+
 
 
 

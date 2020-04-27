@@ -46,6 +46,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\AuthorService.cs" />
     <Compile Include="Service\BookService.cs" />
+    <Compile Include="Service\ChallengeService.cs" />
     <Compile Include="Service\DiscussionService.cs" />
     <Compile Include="Service\PostService.cs" />
   </ItemGroup>

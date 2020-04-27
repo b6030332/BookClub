@@ -59,10 +59,12 @@
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="DAO\AuthorDAO.cs" />
     <Compile Include="DAO\BookDAO.cs" />
+    <Compile Include="DAO\ChallengeDAO.cs" />
     <Compile Include="DAO\DiscussionDAO.cs" />
     <Compile Include="DAO\PostDAO.cs" />
     <Compile Include="IDAO\IAuthorDAO.cs" />
     <Compile Include="IDAO\IBookDAO.cs" />
+    <Compile Include="IDAO\IChallengeDAO.cs" />
     <Compile Include="IDAO\IDiscussionDAO.cs" />
     <Compile Include="IDAO\IPostDAO.cs" />
     <Compile Include="Migrations\202004181601139_first migration.cs" />
@@ -105,9 +107,14 @@
     <Compile Include="Migrations\202004241608064_Update Context.Designer.cs">
       <DependentUpon>202004241608064_Update Context.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004271230178_Added Challenges Model.cs" />
+    <Compile Include="Migrations\202004271230178_Added Challenges Model.Designer.cs">
+      <DependentUpon>202004271230178_Added Challenges Model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\Challenges.cs" />
     <Compile Include="Models\Discussion.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Post.cs" />
@@ -144,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004241608064_Update Context.resx">
       <DependentUpon>202004241608064_Update Context.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004271230178_Added Challenges Model.resx">
+      <DependentUpon>202004271230178_Added Challenges Model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

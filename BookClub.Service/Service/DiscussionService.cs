@@ -32,7 +32,8 @@ namespace BookClub.Service.Service
 
         public Discussion GetDiscussionID(int id)
         {
-           throw new NotImplementedException();
+            return _dao.GetDiscussionID(id);
+
         }
 
         public IEnumerable<Post> GetPostsByDiscussion(int id)
