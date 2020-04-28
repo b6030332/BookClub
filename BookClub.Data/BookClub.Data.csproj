@@ -68,49 +68,13 @@
     <Compile Include="IDAO\IChallengeDAO.cs" />
     <Compile Include="IDAO\IDiscussionDAO.cs" />
     <Compile Include="IDAO\IPostDAO.cs" />
-    <Compile Include="Migrations\202004181601139_first migration.cs" />
-    <Compile Include="Migrations\202004181601139_first migration.Designer.cs">
-      <DependentUpon>202004181601139_first migration.cs</DependentUpon>
+    <Compile Include="Migrations\202004281238476_Restarted migrations.cs" />
+    <Compile Include="Migrations\202004281238476_Restarted migrations.Designer.cs">
+      <DependentUpon>202004281238476_Restarted migrations.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004211238531_adding fk on post.cs" />
-    <Compile Include="Migrations\202004211238531_adding fk on post.Designer.cs">
-      <DependentUpon>202004211238531_adding fk on post.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004211348238_adding properties to ApplicationUser.cs" />
-    <Compile Include="Migrations\202004211348238_adding properties to ApplicationUser.Designer.cs">
-      <DependentUpon>202004211348238_adding properties to ApplicationUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004211729097_remove datetime.cs" />
-    <Compile Include="Migrations\202004211729097_remove datetime.Designer.cs">
-      <DependentUpon>202004211729097_remove datetime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004211731116_include datetime.cs" />
-    <Compile Include="Migrations\202004211731116_include datetime.Designer.cs">
-      <DependentUpon>202004211731116_include datetime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004231412568_adding collection of discussion to book.cs" />
-    <Compile Include="Migrations\202004231412568_adding collection of discussion to book.Designer.cs">
-      <DependentUpon>202004231412568_adding collection of discussion to book.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004231518033_adding bookid to discussion entity.cs" />
-    <Compile Include="Migrations\202004231518033_adding bookid to discussion entity.Designer.cs">
-      <DependentUpon>202004231518033_adding bookid to discussion entity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004231718203_adding author &amp; genre entities.cs" />
-    <Compile Include="Migrations\202004231718203_adding author &amp; genre entities.Designer.cs">
-      <DependentUpon>202004231718203_adding author &amp; genre entities.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004231727509_sorting out genre table.cs" />
-    <Compile Include="Migrations\202004231727509_sorting out genre table.Designer.cs">
-      <DependentUpon>202004231727509_sorting out genre table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004241608064_Update Context.cs" />
-    <Compile Include="Migrations\202004241608064_Update Context.Designer.cs">
-      <DependentUpon>202004241608064_Update Context.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004271230178_Added Challenges Model.cs" />
-    <Compile Include="Migrations\202004271230178_Added Challenges Model.Designer.cs">
-      <DependentUpon>202004271230178_Added Challenges Model.cs</DependentUpon>
+    <Compile Include="Migrations\202004281540100_Nullable Datetime in Challenges.cs" />
+    <Compile Include="Migrations\202004281540100_Nullable Datetime in Challenges.Designer.cs">
+      <DependentUpon>202004281540100_Nullable Datetime in Challenges.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
@@ -123,44 +87,23 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004181601139_first migration.resx">
-      <DependentUpon>202004181601139_first migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004211238531_adding fk on post.resx">
-      <DependentUpon>202004211238531_adding fk on post.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004211348238_adding properties to ApplicationUser.resx">
-      <DependentUpon>202004211348238_adding properties to ApplicationUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004211729097_remove datetime.resx">
-      <DependentUpon>202004211729097_remove datetime.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004211731116_include datetime.resx">
-      <DependentUpon>202004211731116_include datetime.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004231412568_adding collection of discussion to book.resx">
-      <DependentUpon>202004231412568_adding collection of discussion to book.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004231518033_adding bookid to discussion entity.resx">
-      <DependentUpon>202004231518033_adding bookid to discussion entity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004231718203_adding author &amp; genre entities.resx">
-      <DependentUpon>202004231718203_adding author &amp; genre entities.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004231727509_sorting out genre table.resx">
-      <DependentUpon>202004231727509_sorting out genre table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004241608064_Update Context.resx">
-      <DependentUpon>202004241608064_Update Context.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004271230178_Added Challenges Model.resx">
-      <DependentUpon>202004271230178_Added Challenges Model.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202004281238476_Restarted migrations.resx">
+      <DependentUpon>202004281238476_Restarted migrations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004281540100_Nullable Datetime in Challenges.resx">
+      <DependentUpon>202004281540100_Nullable Datetime in Challenges.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Custom_Scripts\jquery-1.8.0.intellisense.js" />
+    <Content Include="Custom_Scripts\jquery-1.8.0.js" />
+    <Content Include="Custom_Scripts\jquery-1.8.0.min.js" />
+    <Content Include="Custom_Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Custom_Scripts\jquery.unobtrusive-ajax.min.js" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

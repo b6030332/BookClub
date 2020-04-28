@@ -23,7 +23,12 @@ namespace BookClub.Service.Service
            _dao.AddChallenge(challenges, user);
         }
 
-        public IList<Challenges> GetChallenges()
+        public IEnumerable<Challenges> BuildChallengeTable()
+        {
+           return _dao.BuildChallengeTable();
+        }
+
+        public Challenges GetChallenges()
         {
             return _dao.GetChallenges();
         }

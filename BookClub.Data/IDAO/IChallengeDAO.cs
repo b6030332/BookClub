@@ -9,8 +9,10 @@ namespace BookClub.Data.IDAO
 {
     public interface IChallengeDAO
     {
-        IList<Challenges> GetChallenges();
+        Challenges GetChallenges();
 
+        IEnumerable<Challenges> BuildChallengeTable();
+        
         void AddChallenge(Challenges challenges, ApplicationUser user);
     }
 }

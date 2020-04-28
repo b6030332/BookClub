@@ -29,10 +29,26 @@ namespace BookClub.Data.DAO
             _context.SaveChanges();
         }
 
-            public IList<Challenges> GetChallenges()
+         public Challenges GetChallenges()
         {
-            return _context.Challenges.ToList();
+            //  string currentUserId = HttpContext.Current.User.Identity.GetUserId();
+            //  ApplicationUser currentUser = _context.Users.FirstOrDefault
+            //  (x=> x.Id == currentUserId);
+
+            //  return _context.Challenges.ToList().Where(x => x.User == currentUser);
+            return _context.Challenges.Find();
         }
+        public IEnumerable<Challenges> BuildChallengeTable()
+        {
+             string currentUserId = HttpContext.Current.User.Identity.GetUserId();
+             ApplicationUser currentUser = _context.Users.FirstOrDefault
+              (x => x.Id == currentUserId);
+
+             return _context.Challenges.ToList().Where(x=> x.User == currentUser);
+
+           // return _context.Challenges.ToList();
+        }
+
     }
 }
 
