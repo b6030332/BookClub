@@ -4,8 +4,7 @@
 <table class="table table-bordered table-hover">
     <tbody>
 
-        @Html.ActionLink("Add post", "Create", "Post")
-
+        
         @foreach (var item in Model)
 
         {
@@ -13,7 +12,7 @@
                 <td>
                     @Html.ActionLink(item.Title, "GetPost",
 
-                new { id = item.Id , Controller = "Post" })
+                 new { id = item.Id, Controller = "Post" })
 
                 </td>
                 <td>
@@ -28,8 +27,11 @@
                     @item.Replies.Count
                 </td>
             </tr>
-
+           
+            @Html.ActionLink("Add Post", "AddPost",
+           new { id = item.Discussion.Id, Controller = "Admin" }, null)
         }
+
 
     </tbody>
 </table>

@@ -10,7 +10,6 @@ namespace BookClub.Data.IDAO
     public interface IPostDAO
     {
         Post GetPost(int id);
-        IEnumerable<Post> GetAllPosts();
-      //  Task AddPost(Post post);
+        void AddPost(Post post, Discussion discussion);
     }
 }

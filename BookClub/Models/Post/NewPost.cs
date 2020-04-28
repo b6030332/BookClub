@@ -14,6 +14,5 @@ namespace BookClub.Models.Post
         public string Title { get; set; }
         public string Content { get; set; }
         
-        public ApplicationUser User { get; set; }
     }
 }

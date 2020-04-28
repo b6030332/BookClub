@@ -19,10 +19,10 @@ namespace BookClub.Service.Service
             _dao = new PostDAO();
         }
 
-      //  public Task AddPost(Post post)
-       // {
-        //    _dao.AddPost(post);
-        //}
+        public void AddPost(Post post, Discussion discussion)
+        {
+            _dao.AddPost(post, discussion);
+        }
 
         public IEnumerable<Post> GetAllPosts()
         {

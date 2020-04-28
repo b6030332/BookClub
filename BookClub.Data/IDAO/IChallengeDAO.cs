@@ -14,5 +14,6 @@ namespace BookClub.Data.IDAO
         IEnumerable<Challenges> BuildChallengeTable();
         
         void AddChallenge(Challenges challenges, ApplicationUser user);
+
     }
 }

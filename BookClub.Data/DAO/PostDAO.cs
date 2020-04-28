@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Web;
+using Microsoft.AspNet.Identity;
 
 namespace BookClub.Data.DAO
 {
@@ -17,16 +19,21 @@ namespace BookClub.Data.DAO
             _context = new ApplicationDbContext();
         }
 
-      //  public Task AddPost(Post post)
-      //  {
-      //      _context.Post.Add(post);
-      //      _context.SaveChanges();
-      //  }
-
-        public IEnumerable<Post> GetAllPosts()
+        public void AddPost(Post post, Discussion discussion)
         {
-            throw new NotImplementedException();
+            var currentDiscussion = _context.Discussion.FirstOrDefault(d => d.Id == discussion.Id);
+
+            string currentUserId = HttpContext.Current.User.Identity.GetUserId();
+            ApplicationUser currentUser = _context.Users.FirstOrDefault
+                (x => x.Id == currentUserId);
+
+            post.ApplicationUser = currentUser;
+            post.Discussion = currentDiscussion;
+
+            _context.Post.Add(post);
+            _context.SaveChanges();
         }
+        
 
         public Post GetPost(int id)
         {

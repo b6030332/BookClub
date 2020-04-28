@@ -34,7 +34,6 @@ namespace BookClub.Data.DAO
         {
             Discussion discussion = _context.Discussion
                  .Where(d => d.Id == id)
-                 .Include(d => d.Books.Title)
                  .Include(d => d.Posts.Select(p => p.ApplicationUser))
                  .Include(d => d.Posts.Select(p => p.Replies.Select(r => r.ApplicationUser)))
                  .FirstOrDefault();
