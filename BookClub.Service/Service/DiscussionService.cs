@@ -40,5 +40,9 @@ namespace BookClub.Service.Service
         {
             return _dao.GetPostsByDiscussion(id);
         }
+        public void AddDiscussion(Discussion discussion, Book book)
+        {
+            _dao.AddDiscussion(discussion, book);
+        }
     }
 }

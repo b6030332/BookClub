@@ -1,5 +1,13 @@
 ﻿@model IEnumerable<BookClub.Data.Models.Challenges>
 
+<div id="progressBarComplete">
+    <p>@(ViewBag.Percent)%</p>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar"
+             style="width:@(Html.AttributeEncode(ViewBag.Percent))%"></div>
+    </div>
+</div>
+
 <table class="table">
     <tr>
         <th>
@@ -25,10 +33,18 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @if (!item.Completed)
+                {
+                    @Html.DisplayFor(modelItem => item.Description)
+                }
+                else
+                {
+                <div class="completedChallenge">@Html.DisplayFor(modelItem => item.Description)</div>
+                }
+
             </td>
             <td>
-                @Html.CheckBoxFor(modelItem => item.Completed)
+                @Html.CheckBoxFor(modelItem => item.Completed, new { id=item.Id, @class = "ActiveCheck" })
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.From)
@@ -48,4 +64,6 @@
     }
 
 </table>
+
+<script src="~/Scripts/Custom_Scripts/AddCheckBoxListener.js"></script>
 

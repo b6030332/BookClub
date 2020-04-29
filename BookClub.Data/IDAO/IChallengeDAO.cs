@@ -17,5 +17,8 @@ namespace BookClub.Data.IDAO
 
         void EditChallenge(Challenges challenges);
 
+       // void AJAXEditChallenge(int? id, bool value);
+       
+
     }
 }

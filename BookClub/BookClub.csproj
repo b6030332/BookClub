@@ -180,6 +180,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Discussion\NewDiscussion.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Post\NewPost.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -194,6 +195,7 @@
     <Content Include="Content\images\mindhunter1.jpg" />
     <Content Include="Content\styles\custom.css" />
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
+    <Content Include="Scripts\Custom_Scripts\AddCheckBoxListener.js" />
     <Content Include="Scripts\Custom_Scripts\ChallengeTable.js" />
     <Content Include="Scripts\jquery-1.8.0.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
@@ -262,6 +264,7 @@
     <Content Include="Views\Challenge\AddChallenge.cshtml" />
     <Content Include="Views\Challenge\_ChallengeTable.cshtml" />
     <Content Include="Views\Admin\AddPost.cshtml" />
+    <Content Include="Views\Admin\AddDiscussion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

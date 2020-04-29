@@ -46,3 +46,6 @@
 .icon-wrapper {
     display: table-cell;
 }
+.completedChallenge{
+    text-decoration: line-through; 
+}

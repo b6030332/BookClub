@@ -23,6 +23,11 @@ namespace BookClub.Service.Service
            _dao.AddChallenge(challenges, user);
         }
 
+       // public void AJAXEditChallenge(int? id, bool value)
+       // {
+        //    _dao.AJAXEditChallenge(id, value);
+       // }
+
         public IEnumerable<Challenges> BuildChallengeTable()
         {
            return _dao.BuildChallengeTable();
@@ -30,13 +35,15 @@ namespace BookClub.Service.Service
 
         public void EditChallenge(Challenges challenges)
         {
-            throw new NotImplementedException();
+            _dao.EditChallenge(challenges);
         }
 
         public Challenges GetChallenges()
         {
             return _dao.GetChallenges();
         }
+        
+        
 
     }
 }
