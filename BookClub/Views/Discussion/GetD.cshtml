@@ -1,0 +1,41 @@
+﻿@model BookClub.Models.DiscussionPostModel
+
+<table class="table table-bordered table-hover">
+    <tbody>
+
+        <h3>Welcome to the @Model.Discussion.Title</h3>
+
+
+        @Html.ActionLink("Add Post", "AddPost",
+                  new { id = Model.Discussion.Id, Controller = "Admin" }, null)
+
+        @foreach (var post in Model.Posts)
+
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(post.Title, "GetPost",
+
+                 new { id = post.Id, Controller = "Post" })
+
+                </td>
+                <td>
+                    @post.AuthorName
+                </td>
+
+                <td>
+                    @post.DatePosted
+                </td>
+
+                <td>
+                    @post.RepliesCount
+                </td>
+            </tr>
+
+
+        }
+
+
+    </tbody>
+</table>
+

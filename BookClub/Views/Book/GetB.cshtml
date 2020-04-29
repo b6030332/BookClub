@@ -1,0 +1,56 @@
+﻿@model BookClub.Models.BookDiscussionModel
+
+<h2>View What's being said about this Book | @Model.Book.Title</h2>
+
+
+    <p>
+        <img src="@Model.Book.BookImage" class="imageCell" />
+    </p>
+
+
+
+    <p>
+        @Html.ActionLink("Create New", "AddDiscussion", "Admin", new { id = Model.Book.Id }, null)
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Forum
+            </th>
+            <th>
+                Descrition
+            </th>
+            <th>
+                Created
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var discussion in Model.Discussions)
+        {
+            <tr>
+                <td>
+
+                    @Html.ActionLink(discussion.Title, "GetD",
+
+                        new { id = discussion.Id , Controller = "Discussion" })
+                </td>
+                <td>
+                    @discussion.Content
+                </td>
+                <td>
+                    @discussion.DatePosted
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = discussion.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = discussion.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = discussion.Id })
+                </td>
+                <td></td>
+            </tr>
+        }
+
+
+    </table>
+

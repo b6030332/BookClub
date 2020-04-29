@@ -180,8 +180,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\JointViews\BookDiscussionModel.cs" />
+    <Compile Include="Models\Book\NewBook.cs" />
+    <Compile Include="Models\JointViews\DiscussionPostModel.cs" />
+    <Compile Include="Models\Discussion\ListofDiscussions.cs" />
     <Compile Include="Models\Discussion\NewDiscussion.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Post\ListofPosts.cs" />
     <Compile Include="Models\Post\NewPost.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -264,6 +269,9 @@
     <Content Include="Views\Challenge\_ChallengeTable.cshtml" />
     <Content Include="Views\Admin\AddPost.cshtml" />
     <Content Include="Views\Admin\AddDiscussion.cshtml" />
+    <Content Include="Views\Practice\AddPost.cshtml" />
+    <Content Include="Views\Discussion\GetD.cshtml" />
+    <Content Include="Views\Book\GetB.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

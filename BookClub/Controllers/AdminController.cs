@@ -38,9 +38,10 @@ namespace BookClub.Controllers
                 post.Title = model.Title;
                 post.Content = model.Content;
                 post.Created = DateTime.Now;
+                
 
                 _postService.AddPost(post, discussion);
-                return RedirectToAction("GetPostsByDiscussion", "Discussion", new { id = discussion.Id });
+                return RedirectToAction("GetD", "Discussion", new { id = discussion.Id });
             }
             return View(model);
             
@@ -64,14 +65,14 @@ namespace BookClub.Controllers
                 discussion.Title = model.Title;
                 discussion.Description = model.Content;
                 discussion.Created = DateTime.Now;
-                //discussion.BookId = book.Id;
+               
 
 
                 _discussionService.AddDiscussion(discussion, book);
 
 
 
-                return RedirectToAction("GetDiscussionsByBook", "Book", new { id = discussion.BookId });
+                return RedirectToAction("GetB", "Book", new { id = discussion.BookId });
             }
 
             return View(model);

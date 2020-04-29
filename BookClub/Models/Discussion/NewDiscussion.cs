@@ -7,6 +7,7 @@ namespace BookClub.Models.Discussion
 {
     public class NewDiscussion
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
         public string BookId { get; set; }
