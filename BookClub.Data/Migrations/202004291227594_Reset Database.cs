@@ -3,7 +3,7 @@ namespace BookClub.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Restartedmigrations : DbMigration
+    public partial class ResetDatabase : DbMigration
     {
         public override void Up()
         {
@@ -173,8 +173,8 @@ namespace BookClub.Data.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Description = c.String(),
                         Completed = c.Boolean(nullable: false),
-                        From = c.DateTime(nullable: false),
-                        Until = c.DateTime(nullable: false),
+                        From = c.DateTime(),
+                        Until = c.DateTime(),
                         Book_Id = c.Int(),
                         User_Id = c.String(maxLength: 128),
                     })

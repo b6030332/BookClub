@@ -31,11 +31,6 @@ namespace BookClub.Data.DAO
 
          public Challenges GetChallenges()
         {
-            //  string currentUserId = HttpContext.Current.User.Identity.GetUserId();
-            //  ApplicationUser currentUser = _context.Users.FirstOrDefault
-            //  (x=> x.Id == currentUserId);
-
-            //  return _context.Challenges.ToList().Where(x => x.User == currentUser);
             return _context.Challenges.Find();
         }
         public IEnumerable<Challenges> BuildChallengeTable()
@@ -46,11 +41,13 @@ namespace BookClub.Data.DAO
 
              return _context.Challenges.ToList().Where(x=> x.User == currentUser);
 
-           // return _context.Challenges.ToList();
         }
-
         
-
+       
+        public void EditChallenge(Challenges challenges)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

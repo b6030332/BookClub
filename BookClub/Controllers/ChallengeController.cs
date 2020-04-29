@@ -42,6 +42,7 @@ namespace BookClub.Controllers
             IEnumerable<Challenges> challenges = _challengeService.BuildChallengeTable();
             return PartialView("_ChallengeTable", GetMyChallenges());
         }
+       
         public ActionResult AddChallenge()
         {
           
@@ -76,5 +77,10 @@ namespace BookClub.Controllers
             }
             return PartialView("_ChallengeTable", GetMyChallenges());
         }
+      //  [HttpPost]
+      //  public ActionResult AJAXEdit(int? id, bool value)
+      //  {
+
+       // }
     }
 }

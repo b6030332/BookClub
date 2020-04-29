@@ -28,9 +28,15 @@ namespace BookClub.Service.Service
            return _dao.BuildChallengeTable();
         }
 
+        public void EditChallenge(Challenges challenges)
+        {
+            throw new NotImplementedException();
+        }
+
         public Challenges GetChallenges()
         {
             return _dao.GetChallenges();
         }
+
     }
 }

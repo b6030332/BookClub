@@ -127,6 +127,5 @@ F:\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.cspr
 F:\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.csproj.CopyComplete
 F:\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.dll
 F:\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.pdb
-F:\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.Migrations.Restartedmigrations.resources
+F:\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.Migrations.ResetDatabase.resources
 F:\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.csproj.GenerateResource.cache
-F:\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.Migrations.NullableDatetimeinChallenges.resources
