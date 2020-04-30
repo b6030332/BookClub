@@ -96,21 +96,11 @@ F:\MyWork\Visual Studio 2017\GitBC\BookClub.Data\obj\Debug\BookClub.Data.Migrati
 \\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 \\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 \\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.csprojAssemblyReference.cache
-\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.Migrations.firstmigration.resources
-\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.Migrations.addingfkonpost.resources
-\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.Migrations.addingpropertiestoApplicationUser.resources
-\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.Migrations.removedatetime.resources
-\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.Migrations.includedatetime.resources
-\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.Migrations.addingcollectionofdiscussiontobook.resources
-\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.Migrations.addingbookidtodiscussionentity.resources
-\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.Migrations.addingauthorgenreentities.resources
-\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.Migrations.sortingoutgenretable.resources
 \\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.csproj.GenerateResource.cache
 \\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.csproj.CoreCompileInputs.cache
 \\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.csproj.CopyComplete
 \\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.dll
 \\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.pdb
-\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.Migrations.UpdateContext.resources
 F:\MyWork\Visual Studio 2017\BookClub\BookClub.Data\bin\Debug\BookClub.Data.dll.config
 F:\MyWork\Visual Studio 2017\BookClub\BookClub.Data\bin\Debug\BookClub.Data.dll
 F:\MyWork\Visual Studio 2017\BookClub\BookClub.Data\bin\Debug\BookClub.Data.pdb
@@ -147,3 +137,4 @@ F:\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.cspr
 \\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6030332\MyWork\Visual Studio 2017\GitHubBookClub\BookClub.Data\obj\Debug\BookClub.Data.csproj.CopyComplete
 \\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6030332\MyWork\Visual Studio 2017\GitHubBookClub\BookClub.Data\obj\Debug\BookClub.Data.dll
 \\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6030332\MyWork\Visual Studio 2017\GitHubBookClub\BookClub.Data\obj\Debug\BookClub.Data.pdb
+\\fs-stu-home.hallam.shu.ac.uk\FS-STU-HOME6\2\b6025922\MyWork\Visual Studio 2017\BookClub\BookClub.Data\obj\Debug\BookClub.Data.Migrations.ResetDatabase.resources
