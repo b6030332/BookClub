@@ -1,0 +1,10 @@
+.vs/
+
+BookClub/obj/
+BookClub/bin/
+
+BookClub.Data/obj/
+BookClub.Data/bin/
+
+BookClub.Service/obj/
+BookClub.Service/bin/
