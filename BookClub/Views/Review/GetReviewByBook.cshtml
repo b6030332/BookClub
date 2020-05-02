@@ -1,0 +1,24 @@
+﻿@model IEnumerable<BookClub.Models.Review.ReviewViewModel>
+
+@{
+    ViewBag.Title = "GetReview";
+}
+
+
+<h2>GetReview</h2>
+
+@foreach (var item in Model)
+{
+    @Html.Partial("_ReviewContentPartial", item)
+}
+<h3>Please enter your comments</h3>
+
+@using (Html.BeginForm("AddReview", "Review", FormMethod.Post, new { }))
+{
+    <textarea rows="6" cols="50" name="bookContent" id="txtBookContent"></textarea>
+    <span id="span1" class="glyphicon glyphicon-star-empty"></span>
+    <span id="span2" class="glyphicon glyphicon-star-empty"></span>
+    <span id="span3" class="glyphicon glyphicon-star-empty"></span>
+    <span id="span4" class="glyphicon glyphicon-star-empty"></span>
+    <span id="span5" class="glyphicon glyphicon-star-empty"></span>
+}

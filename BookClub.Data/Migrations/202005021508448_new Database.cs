@@ -3,7 +3,7 @@ namespace BookClub.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class ResetDatabase : DbMigration
+    public partial class newDatabase : DbMigration
     {
         public override void Up()
         {

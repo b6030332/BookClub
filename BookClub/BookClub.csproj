@@ -177,6 +177,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -184,12 +185,14 @@
     <Compile Include="Models\Community\CommunityModel.cs" />
     <Compile Include="Models\JointViews\BookDiscussionModel.cs" />
     <Compile Include="Models\Book\NewBook.cs" />
+    <Compile Include="Models\JointViews\BookReviewModel.cs" />
     <Compile Include="Models\JointViews\DiscussionPostModel.cs" />
     <Compile Include="Models\Discussion\ListofDiscussions.cs" />
     <Compile Include="Models\Discussion\NewDiscussion.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Post\ListofPosts.cs" />
     <Compile Include="Models\Post\NewPost.cs" />
+    <Compile Include="Models\Review\ReviewViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -276,6 +279,8 @@
     <Content Include="Views\Discussion\GetD.cshtml" />
     <Content Include="Views\Book\GetB.cshtml" />
     <Content Include="Views\Community\Index.cshtml" />
+    <Content Include="Views\Review\_ReviewContentPartial.cshtml" />
+    <Content Include="Views\Review\GetReviewByBook.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

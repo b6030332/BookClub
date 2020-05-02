@@ -41,6 +41,7 @@ namespace BookClub.Data
         public DbSet<Discussion> Discussion { get; set; }
         public DbSet<PostReply> Replies { get; set; }
         public DbSet<Challenges> Challenges { get; set; }
+        public DbSet<Review> Review { get; set; }
 
         public static ApplicationDbContext Create()
         {
