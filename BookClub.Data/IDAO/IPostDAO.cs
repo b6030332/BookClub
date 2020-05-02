@@ -11,5 +11,7 @@ namespace BookClub.Data.IDAO
     {
         Post GetPost(int id);
         void AddPost(Post post, Discussion discussion);
+        IEnumerable<Post> GetRecentPosts(int nofposts);
+        IEnumerable<Post> GetAllPosts();
     }
 }

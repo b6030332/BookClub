@@ -50,8 +50,8 @@ namespace BookClub.Controllers
                 RepliesCount = post.Replies.Count(),
                 DiscussionId = post.Discussion.Id,
                 DiscussionName = post.Discussion.Title,
-                DiscussionDescription = post.Discussion.Description
-
+                DiscussionDescription = post.Discussion.Description,
+                
             });
 
             var model = new DiscussionPostModel

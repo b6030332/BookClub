@@ -26,7 +26,7 @@ namespace BookClub.Service.Service
 
         public IEnumerable<Post> GetAllPosts()
         {
-            throw new NotImplementedException();
+            return _dao.GetAllPosts();
         }
 
         public Post GetPost(int id)
@@ -34,6 +34,9 @@ namespace BookClub.Service.Service
             return _dao.GetPost(id);
         }
 
-      
+        public IEnumerable<Post> GetRecentPosts(int nofposts)
+        {
+            return _dao.GetRecentPosts(nofposts);
+        }
     }
 }

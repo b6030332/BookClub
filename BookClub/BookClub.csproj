@@ -172,6 +172,7 @@
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\ChallengeController.cs" />
+    <Compile Include="Controllers\CommunityController.cs" />
     <Compile Include="Controllers\DiscussionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -180,6 +181,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Community\CommunityModel.cs" />
     <Compile Include="Models\JointViews\BookDiscussionModel.cs" />
     <Compile Include="Models\Book\NewBook.cs" />
     <Compile Include="Models\JointViews\DiscussionPostModel.cs" />
@@ -273,6 +275,7 @@
     <Content Include="Views\Practice\AddPost.cshtml" />
     <Content Include="Views\Discussion\GetD.cshtml" />
     <Content Include="Views\Book\GetB.cshtml" />
+    <Content Include="Views\Community\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
