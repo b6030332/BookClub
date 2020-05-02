@@ -17,6 +17,11 @@ namespace BookClub.Service.Service
             _dao = new ReviewDAO();
         }
 
+        public void AddReview(Review review)
+        {
+            _dao.AddReview(review);
+        }
+
         public Review GetReviewByBook(int id)
         {
             return _dao.GetReviewByBook(id);

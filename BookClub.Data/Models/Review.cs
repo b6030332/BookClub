@@ -12,9 +12,10 @@ namespace BookClub.Data.Models
         public int Rating { get; set; }
         public string ReviewContent { get; set; }
 
-        public Nullable<System.DateTime> Created { get; set; }
+        public DateTime? Created { get; set; }
 
         public int BookId { get; set; }
+        public virtual Book Book { get; set; }
 
         public virtual ApplicationUser User { get; set; }
       
