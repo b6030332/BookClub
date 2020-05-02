@@ -1,0 +1,56 @@
+﻿@model BookClub.Models.Community.CommunityModel
+
+<div class="container body-content">
+    <div class="col-md-6 frontpage">
+        <div class="frontheading">Welcome to our BookClub Community</div>
+        <p class="subheading">Join the latest discussions about the books you love</p>
+
+            <form asp-controller="Search" asp-action"Search" method="post">
+                <input asp-for="SearchQuery" type="text" class="communitySearch" placeholder="Search..." />
+            </form>
+        </div>
+    </div>
+
+    <div class="row communityContent">
+        <h3>Recent Posts</h3>
+    <table class="table table-hover" id="recentPostsTable">
+        <tbody>
+
+            @foreach(var post in Model.RecentPosts)
+            {
+                <tr>
+                    <td>
+                        <div class="forumLogo" style="background-image: url(@post.BookImage); background-size=100%"></div>
+                        <div class="postTitle">
+
+                            @Html.ActionLink(@post.Title, "GetPost",
+                   new { id = post.Id, Controller = "Post" })
+
+                        </div>
+                        <div class="postSubTitle">
+                             @if(post.RepliesCount == 1)
+                             {
+                                 <span>@post.RepliesCount Reply</span>
+                             }
+                             @if(post.RepliesCount == 0)
+                             {
+                                 <span>No Replies</span>
+                             }
+                             else
+                             {
+                                 <span>@post.RepliesCount Replies</span>
+                             }
+                        <span class="postUser">
+                                     @Html.ActionLink(@post.AuthorName, "Detail",
+                           new { id = post.AuthorId, Controller = "Profile" })
+                                 </span>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    </div>
+
+

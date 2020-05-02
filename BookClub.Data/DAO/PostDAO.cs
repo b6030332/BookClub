@@ -33,7 +33,11 @@ namespace BookClub.Data.DAO
             _context.Post.Add(post);
             _context.SaveChanges();
         }
-        
+
+        public IEnumerable<Post> GetAllPosts()
+        {
+            return _context.Post.ToList();
+        }
 
         public Post GetPost(int id)
         {
@@ -43,6 +47,11 @@ namespace BookClub.Data.DAO
                 //.Include(post => post.Replies.Select(reply => reply.ApplicationUser))
                 //.Include(post => post.Discussion)
                 //.First();
+        }
+
+        public IEnumerable<Post> GetRecentPosts(int nofposts)
+        {
+            return GetAllPosts().OrderByDescending(post => post.Created).Take(nofposts);
         }
     } 
 }

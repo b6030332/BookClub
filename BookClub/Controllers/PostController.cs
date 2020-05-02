@@ -12,7 +12,7 @@ namespace BookClub.Controllers
     public class PostController : Controller
     {
         private readonly IPostDAO _postService;
-        //private readonly IPostDAO _postService;
+        
         public PostController()
         {
             _postService = new PostService();
