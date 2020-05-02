@@ -26,6 +26,7 @@ namespace BookClub.Data.Models
         public virtual Genre Genre { get; set; }
         public virtual Author Author { get; set; }
         public virtual ICollection<Discussion> Discussions { get; set; }
+        public virtual ICollection<Review> Reviews { get; set; }
 
     }
 }

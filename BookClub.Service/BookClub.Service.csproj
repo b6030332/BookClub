@@ -49,6 +49,7 @@
     <Compile Include="Service\ChallengeService.cs" />
     <Compile Include="Service\DiscussionService.cs" />
     <Compile Include="Service\PostService.cs" />
+    <Compile Include="Service\ReviewService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BookClub.Data\BookClub.Data.csproj">

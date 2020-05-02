@@ -7,13 +7,13 @@ namespace BookClub.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class ResetDatabase : IMigrationMetadata
+    public sealed partial class newDatabase : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ResetDatabase));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(newDatabase));
         
         string IMigrationMetadata.Id
         {
-            get { return "202004291227594_Reset Database"; }
+            get { return "202005021508448_new Database"; }
         }
         
         string IMigrationMetadata.Source

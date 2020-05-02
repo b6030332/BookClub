@@ -45,25 +45,30 @@
     </div>
 
 
+    @Html.ActionLink("See Reviews", "GetReviewByBook",
+              new { id=Model.Id , Controller="Review" })
+
+
 
     @* <p>
-                        @Html.ActionLink("Add Review", "AddReview",
-                              new { id = Model.Id, Controller = "Book" })
-                </p>
-            <p><input id="reviewButton" class="btn btn-lg btn-info" type="button" value="Add Review" asp-controller="Book" asp-action="AddReview" asp-route-id="@Model.Id" /></p>
+                            @Html.ActionLink("Add Review", "AddReview",
+                                  new { id = Model.Id, Controller = "Book" })
+                    </p>
+                <p><input id="reviewButton" class="btn btn-lg btn-info" type="button" value="Add Review" asp-controller="Book" asp-action="AddReview" asp-route-id="@Model.Id" /></p>
 
-            <p>@Html.ActionLink("Reviews", "Details", "Book")</p>
-        </div>
+                <p>@Html.ActionLink("Reviews", "Details", "Book")</p>
+            </div>
 
-    @if (Model.Review.Count != 0)
-        {
-            <tr>
-                <td></td>
-                <td colspan="12">
-                    @Html.Partial("~/Views/Book/GetReviews.cshtml", Model.Review)
-                </td>
-            </tr>
-        }*@
+        @if (Model.Review.Count != 0)
+            {
+                <tr>
+                    <td></td>
+                    <td colspan="12">
+                        @Html.Partial("~/Views/Book/GetReviews.cshtml", Model.Review)
+                    </td>
+                </tr>
+            }*@
 
     @Html.ActionLink("See Discussion", "GetB",
-              new { id=Model.Id , Controller="Book" }) |
+              new { id=Model.Id , Controller="Book" })
+</div>
