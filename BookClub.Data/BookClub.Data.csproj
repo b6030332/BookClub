@@ -82,6 +82,10 @@
     <Compile Include="Migrations\202005021613291_Added collection of reviews in Book.Designer.cs">
       <DependentUpon>202005021613291_Added collection of reviews in Book.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005021933541_Added Virtual Book Book to Review.cs" />
+    <Compile Include="Migrations\202005021933541_Added Virtual Book Book to Review.Designer.cs">
+      <DependentUpon>202005021933541_Added Virtual Book Book to Review.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
@@ -113,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005021613291_Added collection of reviews in Book.resx">
       <DependentUpon>202005021613291_Added collection of reviews in Book.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005021933541_Added Virtual Book Book to Review.resx">
+      <DependentUpon>202005021933541_Added Virtual Book Book to Review.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,7 +9,9 @@ namespace BookClub.Models.Review
     {
         public int Id { get; set; }
         public int BookId { get; set; }
+        public string BookName { get; set; }
         public string UserId { get; set; }
+        public string AuthorName { get; set; }
         public string ReviewContent { get; set; }
         public int Rating { get; set; }
         public DateTime DateCreated { get; set; } 
