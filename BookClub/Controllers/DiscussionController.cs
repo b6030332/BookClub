@@ -39,6 +39,7 @@ namespace BookClub.Controllers
             
             var posts = discussion.Posts;
 
+            //Map values given in new model to respective values in raw entities
             var listofPosts = posts.Select(post => new ListofPosts
             {
                 Id = post.Id,
@@ -54,21 +55,26 @@ namespace BookClub.Controllers
                 
             });
 
+            //Use custom model to grab a collection of the "ListofPosts" model & use NewDiscussion model from earlier to map values
             var model = new DiscussionPostModel
             {
+                //Map values given in custom models
                 Posts = listofPosts,
                 Discussion = BuildNewDiscussion(discussion)
 
             };
 
+            //return the model to be accessed in viewpage
             return View(model);
         }
 
+        //
         private NewDiscussion BuildNewDiscussion(Discussion discussion)
         {
+            //Map values in NewDiscussion model to raw Discussion entity
             return new NewDiscussion
             {
-                Id = discussion.Id,
+               Id = discussion.Id,
                 Title = discussion.Title,
                 Content = discussion.Description,
             };
