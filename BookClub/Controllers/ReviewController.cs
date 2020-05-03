@@ -25,9 +25,13 @@ namespace BookClub.Controllers
         // GET: Review
         public ActionResult GetReviewByBook(int id)
         {
+            //First, finding the Id of a Book needed to add a Review.
+
             var book = _bookService.GetBookId(id);
 
             var reviews = book.Reviews;
+
+            // Maps the the values from new custom model (ReviewViewModel) to Review entity model. 
 
             var listofReviews = reviews.Select(review => new ReviewViewModel
             {
@@ -36,7 +40,7 @@ namespace BookClub.Controllers
                 BookName = review.Book.Title,
                 ReviewContent = review.ReviewContent,
                 AuthorName = review.User.UserName,
-                DateCreated = DateTime.Now,
+                DateCreated = review.Created.ToString(),
                 Rating = review.Rating,
             });
 
@@ -44,10 +48,14 @@ namespace BookClub.Controllers
 
             return View(listofReviews);
         }
-
+        
         [HttpPost]
+
+        //The parameters passed here are the names of the input types and text area in GetReviewByBook
         public ActionResult AddReview(int id, int rating, string bookContent)
         {
+            // Mapping values from Review Entity to new values in GetReviewsByBook
+            
                 Review review = new Review();
                 review.BookId = id;
                 review.ReviewContent = bookContent;
