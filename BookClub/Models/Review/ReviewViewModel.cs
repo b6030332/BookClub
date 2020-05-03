@@ -14,7 +14,7 @@ namespace BookClub.Models.Review
         public string AuthorName { get; set; }
         public string ReviewContent { get; set; }
         public int Rating { get; set; }
-        public DateTime DateCreated { get; set; } 
+        public string DateCreated { get; set; } 
     }
 
 }
