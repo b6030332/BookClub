@@ -11,5 +11,6 @@ namespace BookClub.Models
     {
        public IEnumerable<ListofPosts> Posts { get; set; }
        public NewDiscussion Discussion { get; set; }
+       public string SearchQuery { get; set; }
     }
 }

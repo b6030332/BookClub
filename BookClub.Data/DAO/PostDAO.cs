@@ -21,14 +21,20 @@ namespace BookClub.Data.DAO
 
         public void AddPost(Post post, Discussion discussion)
         {
+            //Find the firstordefault instance of Disccusion, passing the Id
             var currentDiscussion = _context.Discussion.FirstOrDefault(d => d.Id == discussion.Id);
 
+            //Find the firstordefault instance of User through identity framework, given with MVC startup
             string currentUserId = HttpContext.Current.User.Identity.GetUserId();
             ApplicationUser currentUser = _context.Users.FirstOrDefault
                 (x => x.Id == currentUserId);
 
+            //Map the values above to their respective properties in Post entity 
+
             post.ApplicationUser = currentUser;
             post.Discussion = currentDiscussion;
+
+            //Push and save values to database 
 
             _context.Post.Add(post);
             _context.SaveChanges();
@@ -49,8 +55,10 @@ namespace BookClub.Data.DAO
                 //.First();
         }
 
+        //Grab a collection of recent posts to display
         public IEnumerable<Post> GetRecentPosts(int nofposts)
         {
+            //Order them by descencing using the date attribute in Post table
             return GetAllPosts().OrderByDescending(post => post.Created).Take(nofposts);
         }
     } 
