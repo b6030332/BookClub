@@ -1,44 +1,135 @@
-﻿@model IEnumerable<BookClub.Data.Models.Post>
+﻿@model BookClub.Models.DiscussionPostModel
 
+<div class="container body-content">
+    <div class="row sectionHeader">
+        <span>@Model.Discussion.Title Discussion</span>
+        <div class="sectionHeading">
+        @*If the user is verified as a memeber, give them the ability to add a new post, by showing the post button*@
 
-<table class="table table-bordered table-hover">
-    <tbody>
-
- <h3>Welcome to the </h3>
-        
-        @foreach (var item in Model)
-
+        @if (Context.User.Identity.IsAuthenticated)
         {
-            <tr>
-                <td>
-                    @Html.ActionLink(item.Title, "GetPost",
+            <span id="headingBtn">
+                @Html.ActionLink("Add Post", "AddPost",
+                             new { id = Model.Discussion.Id, Controller = "Admin" }, null)
+            </span>
 
-                 new { id = item.Id, Controller = "Post" })
-
-                </td>
-                <td>
-                    @item.ApplicationUser.UserName
-                </td>
-
-                <td>
-                    @item.Created
-                </td>
-
-                <td>
-                    @item.Replies.Count
-                </td>
-            </tr>
-           
-            @Html.ActionLink("Add Post", "AddPost",
-           new { id = item.Discussion.Id, Controller = "Practice" }, null)
         }
 
+        @*The search function, user can search through posts on a partiular discussion*@
 
-    </tbody>
-</table>
+            @using (Html.BeginForm("Search", "Discussion", FormMethod.Post))
+            {
+
+                @*@Html.TextBox("SearchQuery")*@ 
+                <input type="text" name="submit" value="Search" placeholder="Search..." class="searchBar" onfocus="clearThis(this)" />
+                <button type="submit" class="btn btn-discussionSearch">
+                <i class="material-icons">search</i>
+                </button>
+
+                <input asp-for="@Model.Discussion.Id" name="id" type="hidden" />
+
+                }
+
+           
+        </div>
+
+        <div class="sectionDescription">
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <p>
+                    <span>
+                        You must be a
+                        @Html.ActionLink("registered member", "Register", "Account")
+                        to create a new post
+                    </span>
+                </p>
+
+            }
+        </div>
+    </div>
+
+    <div class="discussionContent">
+        @if (Model.Posts.Any())
+        {
+
+        <table class="table table-hover table-bordered" id="discussionPage">
+            <tbody>
+                @foreach (var post in Model.Posts)
+
+                {
+                    <tr>
+                        <td>
+                            <div class="postData">
+                                <div class="postTitle">
+                                    @Html.ActionLink(post.Title, "GetPost",
+
+new { id = post.Id, Controller = "Post" })
+                                </div>
+
+                                <div class="discusionSubtitle">
+                                    <div>
+
+                                        <span class="postAuthor">
+                                            @Html.ActionLink(post.AuthorName, "Detail",
+
+new { id = post.AuthorId, Controller = "Profile" })
+                                        </span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="discussionPostCount">
+                             Replies: @post.RepliesCount
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="postDate">@post.DatePosted</div>
+
+                        </td>
+                    </tr>
 
 
+                }
 
 
+            </tbody>
+
+        </table>
+        }
+
+        else
+        {
+            <div class="noPosts">
+                <i class="material-icons md-72">question_asnwer</i>
+            </div>
+            <h4>
+                It looks like there are no @Model.Discussion.Title posts yet. <br />
+                Why not
+
+                @Html.ActionLink("Create", "AddPost",
+                 new { id = Model.Discussion.Id, Controller = "Admin" }, null)
+
+                one?
+            </h4>
+        }
+        </div>
 
 
+</div>
+
+
+@section Scripts{
+    <script>
+
+        function clearThis(target) {
+            target.value = "";
+        }
+
+        </script>
+    } 
+
+        

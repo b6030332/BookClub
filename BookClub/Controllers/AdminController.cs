@@ -45,7 +45,7 @@ namespace BookClub.Controllers
                 //logic for adding post with user and discussion id is processed in the POSTDAO 
 
                 _postService.AddPost(post, discussion);
-                return RedirectToAction("GetD", "Discussion", new { id = discussion.Id });
+                return RedirectToAction("GetPostsByDiscussion", "Discussion", new { id = discussion.Id });
             }
             return View(model);
             
