@@ -90,6 +90,10 @@
     <Compile Include="Migrations\202005031054497_Removed Nullable Datetime in Review.Designer.cs">
       <DependentUpon>202005031054497_Removed Nullable Datetime in Review.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005031732553_Removed Book_Id from Challenge.cs" />
+    <Compile Include="Migrations\202005031732553_Removed Book_Id from Challenge.Designer.cs">
+      <DependentUpon>202005031732553_Removed Book_Id from Challenge.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
@@ -127,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005031054497_Removed Nullable Datetime in Review.resx">
       <DependentUpon>202005031054497_Removed Nullable Datetime in Review.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005031732553_Removed Book_Id from Challenge.resx">
+      <DependentUpon>202005031732553_Removed Book_Id from Challenge.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

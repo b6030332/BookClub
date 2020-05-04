@@ -9,13 +9,17 @@ namespace BookClub.Data.IDAO
 {
     public interface IChallengeDAO
     {
-        Challenges GetChallenges();
 
-        IEnumerable<Challenges> BuildChallengeTable();
+        IList<Challenges> GetChallenges();
+
+        IEnumerable<Challenges> GetMyChallenges();
+        void AJAXAddChallenge(Challenges challenges, ApplicationUser User);
 
         void AddChallenge(Challenges challenges, ApplicationUser user);
 
         void EditChallenge(Challenges challenges);
+
+        void DeleteChallenge(Challenges challenges);
 
         // void AJAXEditChallenge(int? id, bool value);
 

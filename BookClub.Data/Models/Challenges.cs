@@ -13,7 +13,6 @@ namespace BookClub.Data.Models
         public bool Completed { get; set; }
         public DateTime? From { get; set; }
         public DateTime? Until { get; set; }
-        public virtual Book Book { get; set; }
         public virtual ApplicationUser User { get; set; }
 
 
