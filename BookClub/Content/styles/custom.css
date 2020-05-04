@@ -86,3 +86,27 @@ h4 {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px rgba(0, 0, 0, 0.3);
 
 }
+
+/*Get PostsByDiscussion Page*/
+
+.btn-discussionSearch{
+    background: none!important;
+    border: none;
+    padding: 0 !important;
+    font: inherit;
+}
+
+.searchBar{
+    padding: 3px, 5px, 2px, 12px;
+    margin: 8px;
+    background-color: white;
+    width: 10%;
+    transition: ease .3s;
+    border: none;
+}
+
+.searchBar:focus{
+    color: black;
+    width: 60%;
+    background-color: #fff;
+    }

@@ -10,10 +10,14 @@ namespace BookClub.Data.IDAO
     public interface IDiscussionDAO
     {
         Discussion GetDiscussionID(int id);
+
         IEnumerable<Discussion> GetAllDiscussions();
-        IEnumerable<Post> GetPostsByDiscussion(int id);
         IEnumerable<ApplicationUser> GetActiveUsers();
 
         void AddDiscussion(Discussion discussion, Book book);
+
+        
+        IEnumerable<Post> GetPostsByDiscussion(int id);
+        //IEnumerable<Post> GetSearchedPosts(int id, string searchQuery);
     }
 }

@@ -29,16 +29,16 @@ namespace BookClub.Data.DAO
         {
             return _context.Discussion;
                 
-                //.Include(d => d.Posts);
+                
         }
 
         public Discussion GetDiscussionID(int id)
         {
-            Discussion discussion = _context.Discussion
-                 .Where(d => d.Id == id)
-                 .Include(d => d.Posts.Select(p => p.ApplicationUser))
-                 .Include(d => d.Posts.Select(p => p.Replies.Select(r => r.ApplicationUser)))
-                 .FirstOrDefault();
+            Discussion discussion = _context.Discussion.Find(id);
+                 //.Where(d => d.Id == id)
+                 //.Include(d => d.Posts.Select(p => p.ApplicationUser))
+                 //.Include(d => d.Posts.Select(p => p.Replies.Select(r => r.ApplicationUser)))
+                 //.FirstOrDefault();
 
             return discussion;
         }
@@ -63,5 +63,17 @@ namespace BookClub.Data.DAO
             _context.Discussion.Add(discussion);
             _context.SaveChanges();
         }
+
+        //public IEnumerable<Post> GetSearchedPosts(int id, string searchQuery)
+        //{
+        //    var discussion = _context.Discussion.Find(id);
+
+        //    //if search query returns null, display posts or if fullfilled, find content
+        //    return string.IsNullOrEmpty(searchQuery)
+        //        ? discussion.Posts
+        //        : discussion.Posts
+        //        .Where(post => post.Title.Contains(searchQuery) 
+        //        || post.Content.Contains(searchQuery));
+        //}
     }
 }

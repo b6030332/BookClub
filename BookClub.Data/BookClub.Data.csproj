@@ -58,12 +58,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="DAO\ApplicationUserDAO.cs" />
     <Compile Include="DAO\AuthorDAO.cs" />
     <Compile Include="DAO\BookDAO.cs" />
     <Compile Include="DAO\ChallengeDAO.cs" />
     <Compile Include="DAO\DiscussionDAO.cs" />
     <Compile Include="DAO\PostDAO.cs" />
     <Compile Include="DAO\ReviewDAO.cs" />
+    <Compile Include="IDAO\IApplicationUserDAO.cs" />
     <Compile Include="IDAO\IAuthorDAO.cs" />
     <Compile Include="IDAO\IBookDAO.cs" />
     <Compile Include="IDAO\IChallengeDAO.cs" />
