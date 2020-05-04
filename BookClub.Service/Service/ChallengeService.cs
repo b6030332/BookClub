@@ -22,15 +22,24 @@ namespace BookClub.Service.Service
         {
             _dao.AddChallenge(challenges, user);
         }
+        public void AJAXAddChallenge(Challenges challenges, ApplicationUser user)
+        {
+            _dao.AJAXAddChallenge(challenges, user);
+        }
 
         // public void AJAXEditChallenge(int? id, bool value)
         // {
         //    _dao.AJAXEditChallenge(id, value);
         // }
 
-        public IEnumerable<Challenges> BuildChallengeTable()
+        //public IEnumerable<Challenges> BuildChallengeTable()
+        //{
+        //    return _dao.BuildChallengeTable();
+        //}
+
+        public void DeleteChallenge(Challenges challenges)
         {
-            return _dao.BuildChallengeTable();
+            _dao.DeleteChallenge(challenges);
         }
 
         public void EditChallenge(Challenges challenges)
@@ -38,10 +47,14 @@ namespace BookClub.Service.Service
             _dao.EditChallenge(challenges);
         }
 
-        public Challenges GetChallenges()
+        public IList<Challenges> GetChallenges()
         {
             return _dao.GetChallenges();
         }
-        
+        public IEnumerable<Challenges> GetMyChallenges()
+        {
+            return _dao.GetChallenges();
+        }
+
     }
 }

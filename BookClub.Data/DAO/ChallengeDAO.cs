@@ -31,25 +31,42 @@ namespace BookClub.Data.DAO
             _context.Challenges.Add(challenges);
             _context.SaveChanges();
         }
-
-        public Challenges GetChallenges()
-        {
-            return _context.Challenges.Find();
-        }
-        public IEnumerable<Challenges> BuildChallengeTable()
+        public void AJAXAddChallenge(Challenges challenges, ApplicationUser user)
         {
             string currentUserId = HttpContext.Current.User.Identity.GetUserId();
             ApplicationUser currentUser = _context.Users.FirstOrDefault
-             (x => x.Id == currentUserId);
+                (x => x.Id == currentUserId);
 
-            return _context.Challenges.ToList().Where(x => x.User == currentUser);
+            challenges.User = currentUser;
 
+            _context.Challenges.Add(challenges);
+            _context.SaveChanges();
+        }
+
+        public IList<Challenges> GetChallenges()
+        {
+            return _context.Challenges.ToList();
         }
 
         public void EditChallenge(Challenges challenges)
         {
             _context.Entry(challenges).State = EntityState.Modified;
             _context.SaveChanges();
+        }
+
+        public void DeleteChallenge(Challenges challenges)
+        {
+            _context.Challenges.Remove(challenges);
+            _context.SaveChanges();
+        }
+
+        public IEnumerable<Challenges> GetMyChallenges()
+        {
+            string currentUserId = HttpContext.Current.User.Identity.GetUserId();
+            ApplicationUser currentUser = _context.Users.FirstOrDefault
+             (x => x.Id == currentUserId);
+
+            return _context.Challenges.ToList().Where(x => x.User == currentUser);
         }
 
         // public void AJAXEditChallenge(int? id, bool value)

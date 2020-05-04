@@ -30,12 +30,11 @@ namespace BookClub.Controllers
         public ActionResult GetChallenges()
         {
             return View();
-
         }
 
-        private IEnumerable<Challenges> GetMyChallenges()
+        public IEnumerable<Challenges> GetMyChallenges()
         {
-            IEnumerable<Challenges> myChallenges = _challengeService.BuildChallengeTable();
+            IEnumerable<Challenges> myChallenges = _challengeService.GetMyChallenges();
 
             int completeCount = 0;
             foreach (Challenges challenges in myChallenges)
@@ -49,12 +48,10 @@ namespace BookClub.Controllers
 
             return myChallenges;
 
-            // return _challengeService.BuildChallengeTable();
         }
 
         public ActionResult BuildChallengeTable()
         {
-            IEnumerable<Challenges> challenges = _challengeService.BuildChallengeTable();
             return PartialView("_ChallengeTable", GetMyChallenges());
         }
 
@@ -65,7 +62,7 @@ namespace BookClub.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddChallenge([Bind(Include = "Id,Description,Completed,From,Until")]Challenges challenges, ApplicationUser user)
+        public ActionResult AddChallenge([Bind(Include = "Id,Description")]Challenges challenges, ApplicationUser user)
         {
             if (ModelState.IsValid)
             {
@@ -78,12 +75,11 @@ namespace BookClub.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AJAXAddChallenge([Bind(Include = "Id,Description,From,Until")]Challenges challenges, ApplicationUser user)
+        public ActionResult AJAXAddChallenge([Bind(Include = "Id,Description")]Challenges challenges, ApplicationUser user)
         {
             if (ModelState.IsValid)
             {
-
-                _challengeService.AddChallenge(challenges, user);
+                _challengeService.AJAXAddChallenge(challenges, user);
                 challenges.Completed = false;
                 challenges.From = null;
                 challenges.Until = null;
@@ -92,6 +88,7 @@ namespace BookClub.Controllers
             return PartialView("_ChallengeTable", GetMyChallenges());
         }
         [HttpGet]
+        [ValidateAntiForgeryToken]
         public ActionResult EditChallenge(Challenges challenges)
         {
             if (ModelState.IsValid)
@@ -117,13 +114,13 @@ namespace BookClub.Controllers
             else
             {
                 challenges.Completed = value;
-                // challenges.From = null;
-                // challenges.Until = null;
+                challenges.From = null;
+                challenges.Until = null;
                 _context.Entry(challenges).State = EntityState.Modified;
                 _context.SaveChanges();
-            }
-            return PartialView("_ChallengeTable", GetMyChallenges());
 
+                return PartialView("_ChallengeTable", GetMyChallenges());
+            }
         }
 
         // [HttpPost]
@@ -143,5 +140,32 @@ namespace BookClub.Controllers
         //  return PartialView("_ChallengeTable", GetMyChallenges());
 
         //  }
+
+        [HttpGet]
+        public ActionResult DeleteChallenge(int id)
+        {
+
+            return View(_context.Challenges.Find(id));
+        }
+        [HttpPost]
+        public ActionResult DeleteChallenge(int id, Challenges challenges)
+
+        {
+            Challenges _challenges = _context.Challenges.Find(id);
+
+            try
+            {
+                
+                _challengeService.DeleteChallenge(challenges);
+
+                return RedirectToAction("GetChallenges", "Challenge", new { id = challenges.Id });
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }
+    
+    
