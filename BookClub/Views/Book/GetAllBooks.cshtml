@@ -37,6 +37,7 @@
                     <th>Author</th>
                     <th>Genre</th>
                     <th>Blurb</th>
+                    <th></th>
 
                 </tr>
             </thead>
@@ -72,6 +73,12 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Blurb)
+                        </td>
+                        <td>
+                            @using (Html.BeginForm("AddBookToFavourites", "Favourites", new { id = item.Id }, FormMethod.Post))
+                            {
+                            <button type="submit"><i class="fab fa-gratipay fa-2x"></i></button>
+                            }
                         </td>
                     </tr>
                 }
