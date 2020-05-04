@@ -4,54 +4,54 @@
 <h2>View Discussions | @Model.Book.Title</h2>
 
 
-    <p>
+@* <p>
         <img src="@Model.Book.BookImage" class="imageCell" />
-    </p>
+    </p>*@
 
 
 
-    <p>
-        @Html.ActionLink("Create New", "AddDiscussion", "Admin", new { id = Model.Book.Id }, null)
-    </p>
-    <table class="table">
+<p>
+    @Html.ActionLink("Create New", "AddDiscussion", "Admin", new { id = Model.Book.Id }, null)
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Forum
+        </th>
+        <th>
+            Descrition
+        </th>
+        <th>
+            Created
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var discussion in Model.Discussions)
+    {
         <tr>
-            <th>
-                Forum
-            </th>
-            <th>
-                Descrition
-            </th>
-            <th>
-                Created
-            </th>
+            <td>
 
-            <th></th>
+                @Html.ActionLink(discussion.Title, "GetPostsByDiscussion",
+
+                    new { id = discussion.Id , Controller = "Discussion" })
+            </td>
+            <td>
+                @discussion.Content
+            </td>
+            <td>
+                @discussion.DatePosted
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = discussion.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = discussion.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = discussion.Id })
+            </td>
+            <td></td>
         </tr>
-
-        @foreach (var discussion in Model.Discussions)
-        {
-            <tr>
-                <td>
-
-                    @Html.ActionLink(discussion.Title, "GetPostsByDiscussion",
-
-                        new { id = discussion.Id , Controller = "Discussion" })
-                </td>
-                <td>
-                    @discussion.Content
-                </td>
-                <td>
-                    @discussion.DatePosted
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = discussion.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = discussion.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = discussion.Id })
-                </td>
-                <td></td>
-            </tr>
-        }
+    }
 
 
-    </table>
+</table>
 

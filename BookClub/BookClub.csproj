@@ -286,18 +286,12 @@
     <Content Include="Views\Challenge\_ChallengeTable.cshtml" />
     <Content Include="Views\Admin\AddPost.cshtml" />
     <Content Include="Views\Admin\AddDiscussion.cshtml" />
-    <Content Include="Views\Practice\AddPost.cshtml" />
     <Content Include="Views\Discussion\GetPostsByDiscussion.cshtml" />
     <Content Include="Views\Book\GetB.cshtml" />
     <Content Include="Views\Community\Index.cshtml" />
     <Content Include="Views\Review\_ReviewContentPartial.cshtml" />
     <Content Include="Views\Review\GetReviewByBook.cshtml" />
     <Content Include="Views\Challenge\DeleteChallenge.cshtml" />
-    <Content Include="Views\Challenges\Create.cshtml" />
-    <Content Include="Views\Challenges\Delete.cshtml" />
-    <Content Include="Views\Challenges\Details.cshtml" />
-    <Content Include="Views\Challenges\Edit.cshtml" />
-    <Content Include="Views\Challenges\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

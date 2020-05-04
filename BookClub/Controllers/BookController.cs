@@ -71,8 +71,8 @@ namespace BookClub.Controllers
                 DatePosted = discussion.Created.ToString(),
                 BookId = discussion.Books.Id,
                 BookName = discussion.Books.Title,
-                BookBlurb = discussion.Books.Blurb,
-                BookImage = discussion.Books.Image
+                BookBlurb = discussion.Books.Blurb
+                //BookImage = discussion.Books.Image
 
             });
 
