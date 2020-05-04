@@ -7,13 +7,13 @@ namespace BookClub.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class RemovedBook_IdfromChallenge : IMigrationMetadata
+    public sealed partial class newmigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RemovedBook_IdfromChallenge));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(newmigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202005031732553_Removed Book_Id from Challenge"; }
+            get { return "202005041529468_new migration"; }
         }
         
         string IMigrationMetadata.Source

@@ -176,7 +176,6 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AuthorController.cs" />
@@ -194,7 +193,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Favourites\FavouriteBooks.cs" />
     <Compile Include="Models\Community\CommunityModel.cs" />
     <Compile Include="Models\Favourites\FavouriteBooks.cs" />
     <Compile Include="Models\JointViews\BookDiscussionModel.cs" />

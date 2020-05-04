@@ -72,29 +72,9 @@
     <Compile Include="IDAO\IDiscussionDAO.cs" />
     <Compile Include="IDAO\IPostDAO.cs" />
     <Compile Include="IDAO\IReviewDAO.cs" />
-    <Compile Include="Migrations\202005021508448_new Database.cs" />
-    <Compile Include="Migrations\202005021508448_new Database.Designer.cs">
-      <DependentUpon>202005021508448_new Database.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005021541128_Added Review Model.cs" />
-    <Compile Include="Migrations\202005021541128_Added Review Model.Designer.cs">
-      <DependentUpon>202005021541128_Added Review Model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005021613291_Added collection of reviews in Book.cs" />
-    <Compile Include="Migrations\202005021613291_Added collection of reviews in Book.Designer.cs">
-      <DependentUpon>202005021613291_Added collection of reviews in Book.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005021933541_Added Virtual Book Book to Review.cs" />
-    <Compile Include="Migrations\202005021933541_Added Virtual Book Book to Review.Designer.cs">
-      <DependentUpon>202005021933541_Added Virtual Book Book to Review.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005031054497_Removed Nullable Datetime in Review.cs" />
-    <Compile Include="Migrations\202005031054497_Removed Nullable Datetime in Review.Designer.cs">
-      <DependentUpon>202005031054497_Removed Nullable Datetime in Review.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005031732553_Removed Book_Id from Challenge.cs" />
-    <Compile Include="Migrations\202005031732553_Removed Book_Id from Challenge.Designer.cs">
-      <DependentUpon>202005031732553_Removed Book_Id from Challenge.cs</DependentUpon>
+    <Compile Include="Migrations\202005041529468_new migration.cs" />
+    <Compile Include="Migrations\202005041529468_new migration.Designer.cs">
+      <DependentUpon>202005041529468_new migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
@@ -119,23 +99,8 @@
     <Content Include="Custom_Scripts\jquery.unobtrusive-ajax.min.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005021508448_new Database.resx">
-      <DependentUpon>202005021508448_new Database.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005021541128_Added Review Model.resx">
-      <DependentUpon>202005021541128_Added Review Model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005021613291_Added collection of reviews in Book.resx">
-      <DependentUpon>202005021613291_Added collection of reviews in Book.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005021933541_Added Virtual Book Book to Review.resx">
-      <DependentUpon>202005021933541_Added Virtual Book Book to Review.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005031054497_Removed Nullable Datetime in Review.resx">
-      <DependentUpon>202005031054497_Removed Nullable Datetime in Review.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005031732553_Removed Book_Id from Challenge.resx">
-      <DependentUpon>202005031732553_Removed Book_Id from Challenge.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005041529468_new migration.resx">
+      <DependentUpon>202005041529468_new migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
