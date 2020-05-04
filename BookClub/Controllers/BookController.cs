@@ -52,10 +52,10 @@ namespace BookClub.Controllers
             //IList<Discussion> discussions = _bookService.GetDiscussionsByBook(id);
            // return View("GetDiscussionsByBook", discussions);
          //}
-        public ActionResult Index(string searching)
-        {
-            return View(_context.Book.Where(b => b.Title.Contains(searching) || searching == null).ToList());
-        }
+        //public ActionResult Index(string searching)
+        //{
+        //    return View(_context.Book.Where(b => b.Title.Contains(searching) || searching == null).ToList());
+        //}
         public ActionResult GetB(int id)
         {
             var book = _bookService.GetBookId(id);

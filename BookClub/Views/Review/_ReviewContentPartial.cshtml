@@ -3,7 +3,8 @@
 <table style="width: 100%; border: 1px solid black">
     <tr>
         <td>
-            @Model.DateCreated.ToString("dd-MM-yyyy")
+           
+            @Model.DateCreated  @*.ToString("dd-MM-yyyy HH:mm")*@
         </td>
     </tr>
     <tr>
@@ -16,7 +17,10 @@
             @Model.AuthorName
         </td>
     </tr>
+
     <tr>
+        @*Displays the confirmed rating for each Users Review*@ 
+       
         <td>
             @for (int i = 0; i < @Model.Rating; i++)
             {

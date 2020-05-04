@@ -88,6 +88,10 @@
     <Compile Include="Migrations\202005021933541_Added Virtual Book Book to Review.Designer.cs">
       <DependentUpon>202005021933541_Added Virtual Book Book to Review.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005031054497_Removed Nullable Datetime in Review.cs" />
+    <Compile Include="Migrations\202005031054497_Removed Nullable Datetime in Review.Designer.cs">
+      <DependentUpon>202005031054497_Removed Nullable Datetime in Review.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
@@ -122,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005021933541_Added Virtual Book Book to Review.resx">
       <DependentUpon>202005021933541_Added Virtual Book Book to Review.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005031054497_Removed Nullable Datetime in Review.resx">
+      <DependentUpon>202005031054497_Removed Nullable Datetime in Review.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
