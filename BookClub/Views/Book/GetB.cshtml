@@ -1,5 +1,6 @@
 ﻿@model BookClub.Models.BookDiscussionModel
 
+
 <h2>View Discussions | @Model.Book.Title</h2>
 
 
@@ -32,7 +33,7 @@
             <tr>
                 <td>
 
-                    @Html.ActionLink(discussion.Title, "GetD",
+                    @Html.ActionLink(discussion.Title, "GetPostsByDiscussion",
 
                         new { id = discussion.Id , Controller = "Discussion" })
                 </td>

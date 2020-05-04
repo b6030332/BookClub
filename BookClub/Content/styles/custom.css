@@ -1,4 +1,20 @@
-﻿.detailImage {
+﻿body {
+    padding: 50px 0 20px 0;
+    background-color: #EEE;
+    background-image: url("/Content/images/try1.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+.navbar{
+    box-shadow: 0 5px 4px -6px #000;
+}
+h4 {
+    font-size: 0.8em;
+}
+
+.detailImage {
     width: 200px;
     padding: 6px;
 }
@@ -24,28 +40,73 @@
 #bookCatalogue {
     background: bottom right 15% no-repeat #555;
 }
-.demo-card-square.mdl-card {
-    width: 320px;
-    height: 320px;
-}
-.card-icon {
-    color: #777;
-    font-size: 40px;
-    padding: 24px;
-    -webkit-border-radius: 1100%;
-    -moz-border-radius: 100%;
-    border-radius: 100%;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-    vertical-align : middle;
-    width: 60px;
-    height: 60px;
-    -moz-transition: .5s;
-    -webkit-transition: .5s;
-    transition: .5s;
-}
-.icon-wrapper {
-    display: table-cell;
-}
 .completedChallenge {
     text-decoration: line-through;
 }
+#recentPosts{
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    margin: 4px 0 16px 0;
+}
+.postHeader{
+    background-color: #212121;
+    padding: 8px 0px 24px 24px;
+}
+.postTitle{
+    font-family: 'Microsoft Sans Serif';
+    font-weight: bold;
+    color: #FFFFFF;
+    font-size: 1.6em;
+}
+.postData{
+    display: inline-block;
+}
+
+.postDate {
+    color: #888;
+    font-family: 'Comic Sans MS';
+    font-size: 0.8em;   
+}
+.postAuthorContainer{
+    padding: 12px;
+    color: #444;
+    font-family: 'Comic Sans MS';
+    width: 190px;
+      
+}
+.postConentContainer{
+    font-family: 'Comic Sans MS';
+    color: #222;
+    padding: 22px;
+    border-left: 1px solid #ddd;
+}
+#postContent{
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px rgba(0, 0, 0, 0.3);
+
+}
+
+/*Get PostsByDiscussion Page*/
+
+.btn-discussionSearch{
+    background: none!important;
+    border: none;
+    padding: 0 !important;
+    font: inherit;
+}
+
+.searchBar{
+    padding: 3px, 5px, 2px, 12px;
+    margin: 8px;
+    background-color: white;
+    width: 10%;
+    transition: ease .3s;
+    border: none;
+}
+
+.searchBar:focus{
+    color: black;
+    width: 60%;
+    background-color: #fff;
+    }

@@ -28,17 +28,22 @@ namespace BookClub.Controllers
             return View("GetAllDiscussions", discussions);
         }
 
-      //  public ActionResult GetPostsByDiscussion(int id)
-      // {
-      //      IEnumerable<Post> posts = _discussionService.GetPostsByDiscussion(id);
-      //      return View("GetPostsByDiscussion", posts);
-      //  }
-        public ActionResult GetD(int id)
+      
+        public ActionResult GetPostsByDiscussion(int id)
         {
             var discussion = _discussionService.GetDiscussionID(id);
-            
+
             var posts = discussion.Posts;
 
+            //var posts = new List<Post>();
+
+            //if(!String.IsNullOrEmpty(searchQuery))
+            //{
+            //    posts = _discussionService.GetSearchedPosts(id, searchQuery).ToList();
+            //}
+            // posts = discussion.Posts.ToList();
+
+            //Map values given in new model to respective values in raw entities
             var listofPosts = posts.Select(post => new ListofPosts
             {
                 Id = post.Id,
@@ -54,25 +59,38 @@ namespace BookClub.Controllers
                 
             });
 
+            //Use custom model to grab a collection of the "ListofPosts" model & use NewDiscussion model from earlier to map values
             var model = new DiscussionPostModel
             {
+                //Map values given in custom models
                 Posts = listofPosts,
                 Discussion = BuildNewDiscussion(discussion)
 
             };
 
+            //return the model to be accessed in viewpage
             return View(model);
         }
 
+        
         private NewDiscussion BuildNewDiscussion(Discussion discussion)
         {
+            //Map values in NewDiscussion model to raw Discussion entity
             return new NewDiscussion
             {
-                Id = discussion.Id,
+               Id = discussion.Id,
                 Title = discussion.Title,
                 Content = discussion.Description,
             };
         }
+
+        //[HttpPost]
+        //public ActionResult Search(int id, string searchQuery)
+        //{
+        //    var discussion = _discussionService.GetDiscussionID(id);
+
+        //    return RedirectToAction("GetPostsByDiscussion", new { id, searchQuery });
+        //}
     }
 
 }

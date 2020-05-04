@@ -188,6 +188,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -279,7 +280,6 @@
     <Content Include="Views\Book\GetBookId.cshtml" />
     <Content Include="Views\Book\GetDiscussionsbyBook.cshtml" />
     <Content Include="Views\Post\GetPost.cshtml" />
-    <Content Include="Views\Discussion\GetPostsByDiscussion.cshtml" />
     <Content Include="Views\Author\GetAuthor.cshtml" />
     <Content Include="Views\Author\GetBooksbyAuthor.cshtml" />
     <Content Include="Views\Challenge\GetChallenges.cshtml" />
@@ -288,7 +288,7 @@
     <Content Include="Views\Admin\AddPost.cshtml" />
     <Content Include="Views\Admin\AddDiscussion.cshtml" />
     <Content Include="Views\Practice\AddPost.cshtml" />
-    <Content Include="Views\Discussion\GetD.cshtml" />
+    <Content Include="Views\Discussion\GetPostsByDiscussion.cshtml" />
     <Content Include="Views\Book\GetB.cshtml" />
     <Content Include="Views\Community\Index.cshtml" />
     <Content Include="Views\Review\_ReviewContentPartial.cshtml" />
@@ -302,7 +302,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Favourites\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

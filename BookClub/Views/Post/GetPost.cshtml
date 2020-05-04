@@ -1,31 +1,115 @@
 ﻿@model BookClub.Data.Models.Post
 
+<div class="containter body-content">
+    <div class="row postHeader">
+        <div class="postHeading">
+            <span class="postTitle">
+                @Model.Title
+            </span>
+            
+            <h4>
+                Go back to the
+                @Html.ActionLink(Model.Discussion.Title, "GetPostsByDiscussion",
+
+             new { id = Model.Discussion.Id, Controller = "Discussion" })
+                discussion
+            </h4>
+            
 
 
-<h2>@Model.Title</h2>
+        </div>
+    </div>
 
-<div>
-    Author: @Model.ApplicationUser.UserName (@Model.ApplicationUser.Rating)
-    Created: @Model.Created
+<div class="row" id="postContent">
+    <div class="col-md-3 postAuthorContainer">
+        @Html.ActionLink(Model.ApplicationUser.UserName, "Detail",
 
+           new { id = Model.ApplicationUser.Id, Controller = "Profile" })
+
+        <span class="postData">@Model.Created</span>
+        </div>
+
+    <div class="col-md-9 postContentContainer">
+        <div class="postContent">
+            @Html.Raw(Model.Content)
+        </div>
+    </div>
 </div>
 
-<div>
-    @Model.Content
-</div>
+<div class="row" id="replyDivide"></div>
+@if(User.Identity.IsAuthenticated)
+{
+<div class="row">
+    <span>
+        @Html.ActionLink("Post reply", "AddReply",
 
-@if(Model.Replies.Any())
+     new { id = Model.Id, Controller = "Reply" })
+    </span>
+
+</div>
+} 
+
+@if (Model.Replies.Any())
 {
     foreach(var reply in Model.Replies)
     {
-        <div>
-            <div>
-                Reply Author: @reply.ApplicationUser.UserName
-                Reply Created: @reply.Created
+<div class="row replyContent">
+    <div class="col-md-3 replyAuthorContainer">
+        <a>
+            @Html.ActionLink(reply.ApplicationUser.UserName, "Detail",
+
+    new { id = reply.ApplicationUser.Id, Controller = "Profile" })
+        </a>
+        <span>@reply.Created</span>
+    </div>
+
+    <div class="col-md-9 replyCotentContainer">
+        <div class="replypostContent"
+             @Html.Raw(reply.Content)
             </div>
-            <div>
-                Reply: @reply.Content
-            </div>
-        </div>
-    }
+    </div>
+
 }
+}
+else
+{
+<div class="noPosts">
+
+    <h3>
+        There are no replies to this post. <br />
+
+    </h3>
+
+</div>
+}
+</div>
+@*
+    <h1>@Model.Title</h1>
+
+
+    <div>
+        Author: @Model.ApplicationUser.UserName (@Model.ApplicationUser.Rating)
+        Created: @Model.Created
+
+    </div>
+
+    <div>
+        @Model.Content
+    </div>
+
+    @if (Model.Replies.Any())
+    {
+        foreach (var reply in Model.Replies)
+        {
+            <div>
+                <div>
+                    Reply Author: @reply.ApplicationUser.UserName
+                    Reply Created: @reply.Created
+                </div>
+                <div>
+                    Reply: @reply.Content
+                </div>
+            </div>
+        }
+    }
+*@
