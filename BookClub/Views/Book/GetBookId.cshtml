@@ -48,6 +48,9 @@
     @Html.ActionLink("See Reviews", "GetReviewByBook",
               new { id=Model.Id , Controller="Review" })
 
+    <div>
+        <input type="button" class="btn btn-primary active" name="favouritesButton" value="Add to Favourites" />
+    </div>
 
 
     @* <p>
@@ -68,6 +71,7 @@
                     </td>
                 </tr>
             }*@
+    <br />
 
     @Html.ActionLink("See Discussion", "GetB",
               new { id=Model.Id , Controller="Book" })
