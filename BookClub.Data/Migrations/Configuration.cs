@@ -9,7 +9,7 @@ namespace BookClub.Data.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(BookClub.Data.ApplicationDbContext context)

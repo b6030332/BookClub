@@ -196,6 +196,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Favourites\FavouriteBooks.cs" />
     <Compile Include="Models\Community\CommunityModel.cs" />
+    <Compile Include="Models\Favourites\FavouriteBooks.cs" />
     <Compile Include="Models\JointViews\BookDiscussionModel.cs" />
     <Compile Include="Models\Book\NewBook.cs" />
     <Compile Include="Models\JointViews\BookReviewModel.cs" />
