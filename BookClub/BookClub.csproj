@@ -178,10 +178,12 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
+    <Compile Include="Controllers\UserProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationUser\ProfileModel.cs" />
     <Compile Include="Models\Community\CommunityModel.cs" />
     <Compile Include="Models\JointViews\BookDiscussionModel.cs" />
     <Compile Include="Models\Book\NewBook.cs" />
@@ -281,6 +283,7 @@
     <Content Include="Views\Community\Index.cshtml" />
     <Content Include="Views\Review\_ReviewContentPartial.cshtml" />
     <Content Include="Views\Review\GetReviewByBook.cshtml" />
+    <Content Include="Views\UserProfile\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

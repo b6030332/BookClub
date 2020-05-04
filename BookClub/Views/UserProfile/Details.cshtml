@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNet.Identity
+@model BookClub.Models.ApplicationUser.ProfileModel
+
+<div class="container body-content">
+    <div class="row sectionHeader">
+        <div class="sectionHeading">
+            User Profile
+        </div>
+    </div>
+
+    <div class="row userProfile">
+        <div class="col-md-8">
+            <span id="username">@Model.Username</span>
+            @if (@Model.IsAdmin)
+            {
+                <span class="isAdmin">Admin</span>
+            }
+
+            <span id="userEmail">Email: @Model.Email</span>
+            <span id="memberSince">Member Since: @Model.MemberSince</span>
+        </div>
+    </div>
+</div>
+

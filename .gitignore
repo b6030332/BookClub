@@ -8,3 +8,4 @@ BookClub.Data/bin/
 
 BookClub.Service/obj/
 BookClub.Service/bin/
+/BookClub.Data/Migrations
