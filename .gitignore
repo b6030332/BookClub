@@ -8,7 +8,3 @@ BookClub.Data/bin/
 
 BookClub.Service/obj/
 BookClub.Service/bin/
-*.cs
-/packages/Microsoft.AspNet.WebApi.Client.5.2.3
-/packages
-/BookClub/Views/Challenges
