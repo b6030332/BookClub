@@ -8,6 +8,9 @@
 
 <div id="tableDiv"></div>
 <div id="challengeCreateForm">
+
+    @*Calls the 'AJAXAddChallenge' method in the Controller which replaces the contents of 'tableDiv'*@
+    
     @using (Ajax.BeginForm("AJAXAddChallenge", "Challenge", new AjaxOptions
     {
         InsertionMode = InsertionMode.Replace,
@@ -19,13 +22,13 @@
         <div class="form-group">
             @Html.AntiForgeryToken()
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-12">
+            <div>
                 @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        @* <div class="form-group">
+         @*<div class="form-group">
                 @Html.AntiForgeryToken()
                 @Html.LabelFor(model => model.From, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -41,12 +44,13 @@
                     @Html.EditorFor(model => model.Until, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Until, "", new { @class = "text-danger" })
                 </div>
-            </div> *@
-
-
+            </div>*@ 
+        
     }
 </div>
 
+
+ @*Scripts used to call J-Query function e.g. ChallengeTable.js*@
 
 @section Scripts {
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
