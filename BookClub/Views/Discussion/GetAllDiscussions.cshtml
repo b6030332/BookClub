@@ -1,31 +1,36 @@
 ﻿@model IEnumerable<BookClub.Data.Models.Discussion>
 
-@{
-    ViewBag.Title = "GetAllDiscussions";
-}
 
-<h2>Discussion Boards</h2>
+<div class="container body-content">
+    <div class="row allDiscussionsHeader">
+        <span class="discussionTitle">Discussion Boards</span>
+        </div>
 
+    <div class="discussionContent">
 
-<table class="table table-hover" id="discussionTable">
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.ActionLink(item.Title, "GetPostsByDiscussion",
+        <table class="table table-hover table-bordered"  id="discussionTable">
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <div class="allDiscussionTitle">
+                            @Html.ActionLink(item.Title, "GetPostsByDiscussion",
 
-                    new { id = item.Id , Controller = "Discussion" })
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.ActionLink("View Book", "GetBookId", 
+                            new { id = item.Id , Controller = "Discussion" })
+                                 </div>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.ActionLink("View Book", "GetBookId",
 
-                 new { id = item.Id , Controller = "Book" })
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                         new { id = item.Id , Controller = "Book" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

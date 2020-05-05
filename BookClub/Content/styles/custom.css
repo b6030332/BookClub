@@ -1,4 +1,10 @@
 ﻿
+/*GetBookId View*/
+.bookBlurb {
+    font-size:medium;
+    line-height: 50em;
+}
+
 .navbar{
     box-shadow: 0 5px 4px -6px #000;
 }
@@ -51,9 +57,9 @@ h4 {
     background-color: #E6E5E8;
     padding: 8px 0px 24px 24px;
 }
-.postTitle{
-    font-family: 'Microsoft Sans Serif';
-    font-weight: bold;
+.postTitle {
+    font-family: Candara;
+    font-weight: lighter;
     color: black;
     font-size: 1.6em;
 }
@@ -85,14 +91,14 @@ h4 {
 
 }
 
-/*Get PostsByDiscussion Page*/
+/*Get PostsByDiscussion View*/
 .sectionHeader {
     background-color: #E6E5E8;
     padding: 8px 0px 24px 24px;
 }
-.discussionTitle{
-    font-family: 'Microsoft Sans Serif';
-    font-weight: bold;
+.discussionTitle {
+    font-family: Microsoft Sans Serif;
+    font-weight: lighter;
     color: black;
     font-size: 1.6em;
 }
@@ -102,11 +108,6 @@ h4 {
     padding: 22px;
     border-left: 1px solid #ddd;
 }
-
-
-
-
-
 
 .btn-discussionSearch{
     background: none!important;
@@ -129,3 +130,16 @@ h4 {
     width: 60%;
     background-color: #fff;
     }
+
+/*Get All Discussions View*/
+
+.allDiscussionsHeader {
+    background-color: #E6E5E8;
+    padding: 8px 0px 24px 24px;
+}
+.allDiscussionTitle {
+    font-family: Microsoft Sans Serif;
+    font-weight: bold;
+    color: black;
+    font-size: 1.2em;
+}

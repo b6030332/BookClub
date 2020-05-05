@@ -25,11 +25,16 @@
                 @Html.ActionLink("MyBookPal", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <ul class="nav navbar-nav" style="font-weight: bold;">
                     <li>@Html.ActionLink("Book Catalogue", "GetAllBooks", "Book")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Community", "GetAllDiscussions", "Discussion")</li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Community<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                           <li> @Html.ActionLink("Discussions", "GetAllDiscussions", "Discussion")</li>
+                           <li>@Html.ActionLink("Recent Posts", "Index", "Community")</li>
+                        </ul>
+
                     <li>@Html.ActionLink("MyChallenges", "GetChallenges", "Challenge")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
