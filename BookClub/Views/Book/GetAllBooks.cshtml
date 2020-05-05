@@ -1,8 +1,5 @@
 ﻿@model IEnumerable<BookClub.Data.Models.Book>
 
-
-<h2>Welcome To MyBookBuddy</h2>
-
 <div class="alert alert-success">
     <strong>Sign Up Today:</strong> @Html.ActionLink("Join Our Community", "GetAllDiscussions", "Book")
 </div>
@@ -26,8 +23,6 @@
         @Html.TextBox("search") 
             <input type = "submit" name ="submit" value = "Search" />
  }
-
-
         <table class="table">
             <tr>
             <thead>
@@ -36,7 +31,6 @@
                     <th>Title</th>
                     <th>Author</th>
                     <th>Genre</th>
-                    <th>Blurb</th>
                     <th></th>
 
                 </tr>
@@ -56,7 +50,7 @@
                 foreach (var item in Model)
                 {
                     <tr>
-
+                        
                         <td>
                             <img src="@Html.DisplayFor(modelItem => item.Image)" class="imageCell" />
                         </td>
@@ -71,15 +65,12 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Genre.Name)
                         </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Blurb)
-                        </td>
-                        <td>
+                        @*<td>
                             @using (Html.BeginForm("AddBookToFavourites", "Favourites", new { id = item.Id }, FormMethod.Post))
                             {
                             <button type="submit"><i class="fab fa-gratipay fa-2x"></i></button>
                             }
-                        </td>
+                        </td>*@
                     </tr>
                 }
             }

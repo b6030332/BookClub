@@ -39,6 +39,7 @@
             </table>
         </div>
 
+        
         <div class="col-md-8">
             <p id="bookBlurb">@Model.Blurb</p>
         </div>
@@ -69,6 +70,6 @@
             }*@
 
 
-    @Html.ActionLink("See Discussion", "GetB",
-              new { id = Model.Id , Controller="Book" })
+    @Html.ActionLink("See Discussions", "GetPostsByDiscussion",
+              new { id = Model.Id , Controller="Discussion" })
 </div>

@@ -44,7 +44,9 @@ namespace BookClub.Controllers
                 DiscussionName = post.Discussion.Title,
                 DiscussionDescription = post.Discussion.Description,
                 RepliesCount = post.Replies.Count(),
-                BookImage = post.Discussion.Books.Image
+                BookId = post.Discussion.Books.Id,
+                BookImage = post.Discussion.Books.Image,
+                BookTitle = post.Discussion.Books.Title
 
                 
             });

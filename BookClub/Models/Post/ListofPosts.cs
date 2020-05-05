@@ -19,6 +19,8 @@ namespace BookClub.Models.Post
         public string DiscussionName { get; set; }
         public string DiscussionDescription { get; set; }
 
+        public int BookId { get; set; }
+        public string BookTitle { get; set; }
         public string BookImage { get; set; }
 
         public int RepliesCount { get; set; }

@@ -15,8 +15,6 @@
                 discussion
             </h4>
             
-
-
         </div>
     </div>
 
@@ -64,10 +62,11 @@
     </div>
 
     <div class="col-md-9 replyCotentContainer">
-        <div class="replypostContent"
-             @Html.Raw(reply.Content)
-            </div>
+        <div class="replypostContent">
+            @Html.Raw(reply.Content)
+        </div>
     </div>
+</div>
 
 }
 }

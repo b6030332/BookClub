@@ -1,12 +1,4 @@
-﻿body {
-    padding: 50px 0 20px 0;
-    background-color: #EEE;
-    background-image: url("/Content/images/try1.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-}
+﻿
 .navbar{
     box-shadow: 0 5px 4px -6px #000;
 }
@@ -20,7 +12,8 @@ h4 {
 }
 
 .imageCell {
-    width: 120px;
+    width: 140px;
+    height: 200px;
     padding: 10px;
 }
 .bookAuthorCell {
@@ -49,14 +42,19 @@ h4 {
     color: #333;
     margin: 4px 0 16px 0;
 }
-.postHeader{
-    background-color: #212121;
+
+
+
+/*GetPost View*/
+
+.postHeader {
+    background-color: #E6E5E8;
     padding: 8px 0px 24px 24px;
 }
 .postTitle{
     font-family: 'Microsoft Sans Serif';
     font-weight: bold;
-    color: #FFFFFF;
+    color: black;
     font-size: 1.6em;
 }
 .postData{
@@ -75,7 +73,7 @@ h4 {
     width: 190px;
       
 }
-.postConentContainer{
+.postContentContainer{
     font-family: 'Comic Sans MS';
     color: #222;
     padding: 22px;
@@ -88,6 +86,27 @@ h4 {
 }
 
 /*Get PostsByDiscussion Page*/
+.sectionHeader {
+    background-color: #E6E5E8;
+    padding: 8px 0px 24px 24px;
+}
+.discussionTitle{
+    font-family: 'Microsoft Sans Serif';
+    font-weight: bold;
+    color: black;
+    font-size: 1.6em;
+}
+.discussionContainer{
+    font-family: 'Comic Sans MS';
+    color: #222;
+    padding: 22px;
+    border-left: 1px solid #ddd;
+}
+
+
+
+
+
 
 .btn-discussionSearch{
     background: none!important;
