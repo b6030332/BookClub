@@ -37,7 +37,7 @@
 <div class="row" id="replyDivide"></div>
 @if(User.Identity.IsAuthenticated)
 {
-<div class="row">
+<div class="row" id="postReplyRow">
     <span>
         @Html.ActionLink("Post reply", "AddReply_",
 
@@ -46,34 +46,35 @@
 
 </div>
 } 
-
+    <br/>
+   
 @if (Model.Replies.Any())
 {
-    foreach(var reply in Model.Replies)
+    foreach (var reply in Model.Replies)
     {
-<div class="row replyContent">
+<div class="row" id="replyContent">
     <div class="col-md-3 replyAuthorContainer">
-        <a>
+        
             @Html.ActionLink(reply.ApplicationUser.UserName, "Detail",
 
-    new { id = reply.ApplicationUser.Id, Controller = "Profile" })
-        </a>
-        <span>@reply.Created</span>
-    </div>
-
+     new { id = reply.ApplicationUser.Id, Controller = "Profile" })
+       
+        <span class="postData">@reply.Created</span>
+        </div>
+    
 
     <div class="col-md-9 replyContentContainer">
         <div class="replypostContent">
             @Html.Raw(reply.Content)
         </div>
-
     </div>
+    
 </div>
+        }
 
-}
-}
-else
-{
+    }
+    else
+    {
 <div class="noPosts">
 
     <h3>

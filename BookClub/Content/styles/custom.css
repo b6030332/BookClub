@@ -90,7 +90,29 @@ h4 {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px rgba(0, 0, 0, 0.3);
 
 }
-
+.replyContentContainer {
+    font-family: 'Comic Sans MS';
+    color: #222;
+    padding: 22px;
+    border-left: 1px solid #ddd;
+}
+.replyAuthorContainer {
+    padding: 12px;
+    color: #444;
+    font-family: 'Comic Sans MS';
+    width: 190px;
+}
+#replyContent {
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px rgba(0, 0, 0, 0.3);
+    margin-left:30px;
+    border-bottom:dotted;
+}
+#postReplyRow {
+    background-color:lightcyan;
+    padding:8px;
+        
+}
 /*Get PostsByDiscussion View*/
 .sectionHeader {
     background-color: #E6E5E8;
@@ -143,3 +165,4 @@ h4 {
     color: black;
     font-size: 1.2em;
 }
+
