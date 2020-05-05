@@ -2,8 +2,9 @@
 
 <div class="container body-content">
     <div class="row sectionHeader">
-        <span>@Model.Discussion.Title Discussion</span>
+        <span class="discussionTitle">@Model.Discussion.Title Discussion</span>
         <div class="sectionHeading">
+            
         @*If the user is verified as a memeber, give them the ability to add a new post, by showing the post button*@
 
         @if (Context.User.Identity.IsAuthenticated)
@@ -30,9 +31,6 @@
 
                 }
 
-           
-        </div>
-
         <div class="sectionDescription">
             @if (!User.Identity.IsAuthenticated)
             {
@@ -47,6 +45,7 @@
             }
         </div>
     </div>
+  </div>
 
     <div class="discussionContent">
         @if (Model.Posts.Any())
@@ -63,16 +62,16 @@
                                 <div class="postTitle">
                                     @Html.ActionLink(post.Title, "GetPost",
 
-new { id = post.Id, Controller = "Post" })
+                                     new { id = post.Id, Controller = "Post" })
                                 </div>
 
-                                <div class="discusionSubtitle">
+                                <div class="discussionSubtitle">
                                     <div>
 
                                         <span class="postAuthor">
                                             @Html.ActionLink(post.AuthorName, "Detail",
 
-new { id = post.AuthorId, Controller = "Profile" })
+                                             new { id = post.AuthorId, Controller = "Profile" })
                                         </span>
 
                                     </div>
@@ -92,13 +91,12 @@ new { id = post.AuthorId, Controller = "Profile" })
                         </td>
                     </tr>
 
-
                 }
-
 
             </tbody>
 
         </table>
+        
         }
 
         else
@@ -118,9 +116,7 @@ new { id = post.AuthorId, Controller = "Profile" })
         }
         </div>
 
-
 </div>
-
 
 @section Scripts{
     <script>

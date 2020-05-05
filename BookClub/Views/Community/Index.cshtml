@@ -28,25 +28,31 @@
 
                         </div>
                         <div class="postSubTitle">
-                             @if(post.RepliesCount == 1)
-                             {
-                                 <span>@post.RepliesCount Reply</span>
-                             }
-                             @if(post.RepliesCount == 0)
-                             {
-                                 <span>No Replies</span>
-                             }
-                             else
-                             {
-                                 <span>@post.RepliesCount Replies</span>
-                             }
-                        <span class="postUser">
-                                     @Html.ActionLink(@post.AuthorName, "Detail",
-                           new { id = post.AuthorId, Controller = "Profile" })
-                                 </span>
+                            @if (post.RepliesCount == 1)
+                            {
+                                <span>@post.RepliesCount Reply</span>
+                            }
+                            @if (post.RepliesCount == 0)
+                            {
+                                <span>No Replies</span>
+                            }
+                            else
+                            {
+                                <span>@post.RepliesCount Replies</span>
+                            }
+                            <span class="postUser">
+                                @Html.ActionLink(@post.AuthorName, "Detail",
+                      new { id = post.AuthorId, Controller = "Profile" })
+                            </span>
+
+                        </div>
+                        <div class="bookTitle">
+                            @Html.ActionLink(@post.BookTitle, "GetBookId",
+                      new { id = post.BookId, Controller = "Book" })
                         </div>
                     </td>
                 </tr>
+                
             }
 
         </tbody>

@@ -1,57 +1,183 @@
 ﻿@model BookClub.Models.BookDiscussionModel
 
-
-<h2>View Discussions | @Model.Book.Title</h2>
-
-
-@* <p>
-        <img src="@Model.Book.BookImage" class="imageCell" />
-    </p>*@
+@*<h2>View Discussions | @Model.Book.Title</h2>
 
 
+     <p>
+            <img src="@Model.Book.BookImage" class="imageCell" />
+        </p>
 
-<p>
-    @Html.ActionLink("Create New", "AddDiscussion", "Admin", new { id = Model.Book.Id }, null)
-</p>
-<table class="table">
-    <tr>
-        <th>
-            Forum
-        </th>
-        <th>
-            Descrition
-        </th>
-        <th>
-            Created
-        </th>
 
-        <th></th>
-    </tr>
 
-    @foreach (var discussion in Model.Discussions)
-    {
+    <p>
+        @Html.ActionLink("Create New", "AddDiscussion", "Admin", new { id = Model.Book.Id }, null)
+    </p>
+    <table class="table">
         <tr>
-            <td>
+            <th>
+                Forum
+            </th>
+            <th>
+                Descrition
+            </th>
+            <th>
+                Created
+            </th>
 
-                @Html.ActionLink(discussion.Title, "GetPostsByDiscussion",
-
-                    new { id = discussion.Id , Controller = "Discussion" })
-            </td>
-            <td>
-                @discussion.Content
-            </td>
-            <td>
-                @discussion.DatePosted
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = discussion.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = discussion.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = discussion.Id })
-            </td>
-            <td></td>
+            <th></th>
         </tr>
-    }
+
+        @foreach (var discussion in Model.Discussions)
+        {
+            <tr>
+                <td>
+
+                    @Html.ActionLink(discussion.Title, "GetPostsByDiscussion",
+
+                        new { id = discussion.Id , Controller = "Discussion" })
+                </td>
+                <td>
+                    @discussion.Content
+                </td>
+                <td>
+                    @discussion.DatePosted
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = discussion.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = discussion.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = discussion.Id })
+                </td>
+                <td></td>
+            </tr>
+        }
 
 
-</table>
+    </table>*@
 
+<div class="container body-content">
+    <div class="row sectionHeader">
+        <span class="bookTitle">@Model.Book.Title Discussion</span>
+        <div class="sectionHeading">
+
+            @*If the user is verified as a memeber, give them the ability to add a new post, by showing the post button*@
+
+            @if (Context.User.Identity.IsAuthenticated)
+            {
+                <span id="headingBtn">
+                    @Html.ActionLink("Add Discussion", "AddDiscussion",
+                                 new { id = Model.Book.Id, Controller = "Admin" }, null)
+                </span>
+
+            }
+
+            @*The search function, user can search through posts on a partiular discussion*@
+
+            @using (Html.BeginForm("Search", "Discussion", FormMethod.Post))
+            {
+
+                @*@Html.TextBox("SearchQuery")*@
+                <input type="text" name="submit" value="Search" placeholder="Search..." class="searchBar" onfocus="clearThis(this)" />
+                <button type="submit" class="btn btn-discussionSearch">
+                    <i class="material-icons">search</i>
+                </button>
+
+                <input asp-for="@Model.Book.Id" name="id" type="hidden" />
+
+            }
+
+            <div class="sectionDescription">
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <p>
+                        <span>
+                            You must be a
+                            @Html.ActionLink("registered member", "Register", "Account")
+                            to create a new discussion
+                        </span>
+                    </p>
+
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="discussionContent">
+        @if (Model.Discussions.Any())
+        {
+
+            <table class="table table-hover table-bordered" id="discussionPage">
+                <tbody>
+                    @foreach (var discussion in Model.Discussions)
+
+                    {
+                        <tr>
+                            <td>
+                                <div class="postData">
+                                    <div class="postTitle">
+                                        @Html.ActionLink(discussion.Title, "GetPostsByDiscussion",
+
+                                         new { id = discussion.Id, Controller = "Discussion" })
+                                    </div>
+
+                                    <div class="discussionSubtitle">
+                                        <div>
+
+                                            <span class="discussionAuthor">
+                                                @Html.ActionLink(discussion.AuthorName, "Detail",
+
+                                                 new { id = discussion.AuthorId, Controller = "Profile" })
+                                            </span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="discussionContent">
+                                    @discussion.Content
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="discussionDate">@discussion.DatePosted</div>
+
+                            </td>
+                        </tr>
+
+                    }
+
+                </tbody>
+
+            </table>
+
+        }
+
+        else
+        {
+            <div class="noPosts">
+                <i class="material-icons md-72">question_asnwer</i>
+            </div>
+            <h4>
+                It looks like there are no @Model.Book.Title discussions yet. <br />
+                Why not
+
+                @Html.ActionLink("Add Discussion", "AddDiscussion",
+                 new { id = Model.Book.Id, Controller = "Admin" }, null)
+
+                one?
+            </h4>
+        }
+    </div>
+
+</div>
+
+@section Scripts{
+    <script>
+
+        function clearThis(target) {
+            target.value = "";
+        }
+
+    </script>
+}

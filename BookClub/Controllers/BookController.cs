@@ -66,6 +66,7 @@ namespace BookClub.Controllers
             {
                 Id = discussion.Id,
                 AuthorId = discussion.ApplicationUser.Id,
+                AuthorName = discussion.ApplicationUser.UserName,
                 Title = discussion.Title,
                 Content = discussion.Description,
                 DatePosted = discussion.Created.ToString(),

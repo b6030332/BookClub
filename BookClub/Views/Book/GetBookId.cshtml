@@ -7,12 +7,13 @@
 </div>
 
 <div class="jumbotron">
-    <div class="row">
+   <div class="row">
         <div class="col-md-4">
             <div>
                 <img class="detailImage" src="@Model.Image" />
             </div>
         </div>
+        
         <div class="col-md-4">
             <p id="bookTitle">@Model.Title</p>
             @*<p id="bookAuthor">@Model.Author.Name</p>*@
@@ -38,12 +39,17 @@
                 </tr>
             </table>
         </div>
-
+        
         <div class="col-md-8">
             <p id="bookBlurb">@Model.Blurb</p>
         </div>
-
     </div>
+    
+    
+        
+        
+           
+        
 
     @Html.ActionLink("See Reviews", "GetReviewByBook",
               new { id=Model.Id , Controller="Review" })
@@ -69,6 +75,6 @@
             }*@
 
 
-    @Html.ActionLink("See Discussion", "GetB",
-              new { id = Model.Id , Controller="Book" })
+    @Html.ActionLink("See Discussions", "GetPostsByDiscussion",
+              new { id = Model.Id , Controller="Discussion" })
 </div>
