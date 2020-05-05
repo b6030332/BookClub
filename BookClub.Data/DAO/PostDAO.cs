@@ -39,7 +39,7 @@ namespace BookClub.Data.DAO
             _context.Post.Add(post);
             _context.SaveChanges();
         }
-
+        
         public IEnumerable<Post> GetAllPosts()
         {
             return _context.Post.ToList();

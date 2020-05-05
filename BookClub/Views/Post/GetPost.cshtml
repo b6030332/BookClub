@@ -41,9 +41,9 @@
 {
 <div class="row">
     <span>
-        @Html.ActionLink("Post reply", "AddReply",
+        @Html.ActionLink("Post reply", "AddReply_",
 
-     new { id = Model.Id, Controller = "Reply" })
+     new { id = Model.Id, Controller = "Admin" })
     </span>
 
 </div>
@@ -62,12 +62,13 @@
         </a>
         <span>@reply.Created</span>
     </div>
-
+    
     <div class="col-md-9 replyCotentContainer">
-        <div class="replypostContent"
+        <div class="replypostContent">
              @Html.Raw(reply.Content)
             </div>
     </div>
+</div>
 
 }
 }

@@ -23,7 +23,7 @@ namespace BookClub.Service.Service
         {
             _dao.AddPost(post, discussion);
         }
-
+        
         public IEnumerable<Post> GetAllPosts()
         {
             return _dao.GetAllPosts();

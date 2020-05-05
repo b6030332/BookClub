@@ -64,6 +64,7 @@
     <Compile Include="DAO\ChallengeDAO.cs" />
     <Compile Include="DAO\DiscussionDAO.cs" />
     <Compile Include="DAO\PostDAO.cs" />
+    <Compile Include="DAO\ReplyDAO.cs" />
     <Compile Include="DAO\ReviewDAO.cs" />
     <Compile Include="IDAO\IApplicationUserDAO.cs" />
     <Compile Include="IDAO\IAuthorDAO.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="IDAO\IChallengeDAO.cs" />
     <Compile Include="IDAO\IDiscussionDAO.cs" />
     <Compile Include="IDAO\IPostDAO.cs" />
+    <Compile Include="IDAO\IReplyDAO.cs" />
     <Compile Include="IDAO\IReviewDAO.cs" />
     <Compile Include="Migrations\202005041529468_new migration.cs" />
     <Compile Include="Migrations\202005041529468_new migration.Designer.cs">
