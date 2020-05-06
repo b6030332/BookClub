@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "GetAllRoles";
+}
+
+<h2>List of Roles</h2>
+
+@foreach (var role in Model)
+{
+
+    <p>
+
+        @role.Name |
+        @Html.ActionLink("Edit", "EditRole", new { id = role.Id }) |
+        @Html.ActionLink("Delete", "DeleteRole", new { id = role.Id })
+
+    </p>
+}
+
+@Html.ActionLink("Add Role", "CreateRole")

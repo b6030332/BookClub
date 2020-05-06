@@ -190,6 +190,7 @@
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ReplyController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
+    <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -301,6 +302,12 @@
     <Content Include="Views\Challenge\DeleteChallenge.cshtml" />
     <Content Include="Views\Admin\AddReply_.cshtml" />
     <Content Include="Views\Profile\Detail.cshtml" />
+    <Content Include="Views\UserAdmin\GetAllUsers.cshtml" />
+    <Content Include="Views\UserAdmin\AddRole.cshtml" />
+    <Content Include="Views\UserAdmin\GetAllRoles.cshtml" />
+    <Content Include="Views\UserAdmin\ManageUserRoles.cshtml" />
+    <Content Include="Views\UserAdmin\GetRolesforUser.cshtml" />
+    <Content Include="Views\UserAdmin\GetRolesforUserConfirmed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
