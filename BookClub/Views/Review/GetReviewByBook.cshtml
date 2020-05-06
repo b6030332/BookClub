@@ -1,6 +1,9 @@
 ﻿@model IEnumerable<BookClub.Models.Review.ReviewViewModel>
 
-<h2>Reviews</h2>
+<div class="container-fluid">
+    <div class="reviewHeader">
+            <h3>Reviews</h3>
+    </div>
 
 <script type="text/javascript">
     function CRateOut(rating) {
@@ -43,8 +46,6 @@
     }
 </script>
 
-<h2>GetReview</h2>
-
 @foreach (var item in Model)
 {
     @Html.Partial("_ReviewContentPartial", item)
@@ -59,7 +60,7 @@
 
     @*Displays 5 stars which the user can click*@
 
-    <div onmouseout="CRateSelected()">
+    <div onmouseout="CRateSelected()" id="starRating">
         <span id="span1" onmouseout="CRateOut(1)" onmouseover="CRateOver(1)" onclick="CRateClick(1)" class="glyphicon glyphicon-star-empty"></span>
         <span id="span2" onmouseout="CRateOut(2)" onmouseover="CRateOver(2)" onclick="CRateClick(2)" class="glyphicon glyphicon-star-empty"></span>
         <span id="span3" onmouseout="CRateOut(3)" onmouseover="CRateOver(3)" onclick="CRateClick(3)" class="glyphicon glyphicon-star-empty"></span>
@@ -80,3 +81,4 @@
     </div>
 
 }
+    </div>
