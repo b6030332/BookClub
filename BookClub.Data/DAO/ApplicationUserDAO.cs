@@ -19,9 +19,9 @@ namespace BookClub.Data.DAO
             return _context.Users;
         }
 
-        public ApplicationUser GetApplicationUser(int id)
+        public ApplicationUser GetApplicationUser(string id)
         {
-            return _context.Users.Find(id);
+            return GetAllApplicationUsers().FirstOrDefault(user => user.Id == id);
         }
     }
 }

@@ -27,5 +27,6 @@ namespace BookClub.Controllers
             Post post = _postService.GetPost(id);
             return View("GetPost", post);
         }
+
     }
 }

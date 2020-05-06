@@ -204,6 +204,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Post\ListofPosts.cs" />
     <Compile Include="Models\Post\NewPost.cs" />
+    <Compile Include="Models\Profile\ProfileModel.cs" />
     <Compile Include="Models\Reply\ListofPostReply.cs" />
     <Compile Include="Models\Reply\NewPostReply.cs" />
     <Compile Include="Models\Review\ReviewViewModel.cs" />
@@ -299,6 +300,7 @@
     <Content Include="Views\Review\GetReviewByBook.cshtml" />
     <Content Include="Views\Challenge\DeleteChallenge.cshtml" />
     <Content Include="Views\Admin\AddReply_.cshtml" />
+    <Content Include="Views\Profile\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
