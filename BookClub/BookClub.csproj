@@ -300,7 +300,7 @@
     <Content Include="Views\Review\GetReviewByBook.cshtml" />
     <Content Include="Views\Challenge\DeleteChallenge.cshtml" />
     <Content Include="Views\Admin\AddReply_.cshtml" />
-    <Content Include="Views\Profile\Details.cshtml" />
+    <Content Include="Views\Profile\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
