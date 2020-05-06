@@ -166,3 +166,43 @@ h4 {
     font-size: 1.2em;
 }
 
+/*Add Reply View*/
+#replyTextArea {
+   
+}
+
+/*GetReviewByBook View*/
+
+#starRating {
+    color: yellow;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    font-size: 30px;
+}
+div.reviewContent {
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px rgba(0, 0, 0, 0.3);
+    margin-bottom:5px;
+    font:bold;
+}
+div.reviewHeader {
+    background-color: #E6E5E8;
+    padding: 8px 0px 24px 24px;
+    margin-bottom:5px;
+}
+.reviewComment {
+    font-family: 'Comic Sans MS';
+    font-size:15px;
+    margin-bottom: 20px;
+}
+.reviewAuthorName {
+    color: black;
+    font: bold;
+    font-family:'Comic Sans MS';
+    font-style:italic;
+    font-size:12px;
+}
+#partialReviewStar {
+    color: yellow;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
