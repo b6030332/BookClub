@@ -4,6 +4,7 @@ using BookClub.Data.Models;
 using BookClub.Models;
 using BookClub.Models.Book;
 using BookClub.Models.Discussion;
+using BookClub.Models.JointViews;
 using BookClub.Service.Service;
 using System;
 using System.Collections.Generic;
@@ -46,16 +47,7 @@ namespace BookClub.Controllers
             return View("GetBookId", books);
         }
         
-        // public ActionResult GetDiscussionsbyBook(int id)
-        // {
-          
-            //IList<Discussion> discussions = _bookService.GetDiscussionsByBook(id);
-           // return View("GetDiscussionsByBook", discussions);
-         //}
-        //public ActionResult Index(string searching)
-        //{
-        //    return View(_context.Book.Where(b => b.Title.Contains(searching) || searching == null).ToList());
-        //}
+        
         public ActionResult GetB(int id)
         {
             var book = _bookService.GetBookId(id);
@@ -98,6 +90,7 @@ namespace BookClub.Controllers
 
             };
         }
+       
         
     }
 }

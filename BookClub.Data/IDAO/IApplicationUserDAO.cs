@@ -8,7 +8,7 @@ namespace BookClub.Data.IDAO
 {
     public interface IApplicationUserDAO
     {
-        ApplicationUser GetApplicationUser(int id);
+        ApplicationUser GetApplicationUser(string id);
         IEnumerable<ApplicationUser> GetAllApplicationUsers();
     }
 }

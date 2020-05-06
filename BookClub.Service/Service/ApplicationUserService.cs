@@ -22,7 +22,7 @@ namespace BookClub.Service.Service
            return _dao.GetAllApplicationUsers();
         }
 
-        public ApplicationUser GetApplicationUser(int id)
+        public ApplicationUser GetApplicationUser(string id)
         {
             return _dao.GetApplicationUser(id);
         }
