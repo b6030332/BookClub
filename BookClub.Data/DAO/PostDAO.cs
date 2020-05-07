@@ -39,7 +39,12 @@ namespace BookClub.Data.DAO
             _context.Post.Add(post);
             _context.SaveChanges();
         }
-        
+        public void DeletePost(Post post)
+        {
+            _context.Post.Remove(post);
+            _context.SaveChanges();
+
+        }
         public IEnumerable<Post> GetAllPosts()
         {
             return _context.Post.ToList();
@@ -48,11 +53,7 @@ namespace BookClub.Data.DAO
         public Post GetPost(int id)
         {
             return _context.Post.Find(id);
-                //.Where(post => post.Id == id)
-                //.Include(post => post.ApplicationUser)
-                //.Include(post => post.Replies.Select(reply => reply.ApplicationUser))
-                //.Include(post => post.Discussion)
-                //.First();
+               
         }
 
         //Grab a collection of recent posts to display

@@ -74,6 +74,15 @@
                                              new { id = post.AuthorId, Controller = "Profile" })
                                         </span>
 
+                                        <div class="deletePost">
+                                            @if (!User.Identity.IsAuthenticated)
+                                                
+                                            {
+                                                @Html.ActionLink("Delete", "DeletePost",
+                                                         new { id = post.Id, Controller = "Post" })
+                                            }
+                                            </div>
+
                                     </div>
                                 </div>
                             </div>
