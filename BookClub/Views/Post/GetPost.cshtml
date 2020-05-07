@@ -67,21 +67,33 @@
         {
 <div class="row" id="replyContent">
     <div class="col-md-3 replyAuthorContainer">
-        
-            @Html.ActionLink(reply.ApplicationUser.UserName, "Detail",
 
-     new { id = reply.ApplicationUser.Id, Controller = "Profile" })
-       
+        @Html.ActionLink(reply.ApplicationUser.UserName, "Detail",
+
+ new { id = reply.ApplicationUser.Id, Controller = "Profile" })
+
         <span class="postData">@reply.Created</span>
-        </div>
-    
+    </div>
+
 
     <div class="col-md-9 replyContentContainer">
         <div class="replypostContent">
             @Html.Raw(reply.Content)
         </div>
     </div>
-    
+
+    <div class="row" id="deleteReply"></div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="row" id="deleteReplyRow">
+            <div>
+                @Html.ActionLink("Delete", "DeleteReply",
+
+          new { id = reply.Id , Controller = "Post" })
+            </div>
+        </div>
+    }
+
 </div>
         }
 

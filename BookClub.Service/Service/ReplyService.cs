@@ -21,5 +21,15 @@ namespace BookClub.Service.Service
         {
             _dao.AddReply(reply, post);
         }
+
+        public void DeleteReply(int id, PostReply reply)
+        {
+            _dao.DeleteReply(id, reply);
+        }
+
+        public PostReply GetReply(int id)
+        {
+            return _dao.GetReply(id);
+        }
     }
 }

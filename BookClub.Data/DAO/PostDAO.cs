@@ -39,10 +39,19 @@ namespace BookClub.Data.DAO
             _context.Post.Add(post);
             _context.SaveChanges();
         }
-        public void DeletePost(Post post)
+        public void DeletePost(int id, Post post)
         {
-            _context.Post.Remove(post);
-            _context.SaveChanges();
+            //find post instance of post to deleete
+            var deletePost = _context.Post.FirstOrDefault(p => p.Id == id);
+            
+            //if not null, delete post
+            if (deletePost != null)
+            {
+
+             //call remove & save changes on the post that is found above
+                _context.Post.Remove(deletePost);
+                _context.SaveChanges();
+            }
 
         }
         public IEnumerable<Post> GetAllPosts()

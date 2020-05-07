@@ -32,12 +32,12 @@ namespace BookClub.Controllers
         public ActionResult GetPostsByDiscussion(int id, string searchQuery)
         {
             var discussion = _discussionService.GetDiscussionID(id);
-            var posts = new List<Post>();
+            //var posts = new List<Post>();
             
-             posts = _discussionService.GetSearchedPosts(discussion, searchQuery).ToList();
+            // posts = _discussionService.GetSearchedPosts(discussion, searchQuery).ToList();
             
              
-            //var posts = discussion.Posts;
+            var posts = discussion.Posts;
 
             //var posts = new List<Post>();
 
