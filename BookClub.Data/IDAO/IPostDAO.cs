@@ -15,5 +15,6 @@ namespace BookClub.Data.IDAO
 
         void AddPost(Post post, Discussion discussion);
         void DeletePost(Post post);
+
     }
 }
