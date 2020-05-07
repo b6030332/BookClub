@@ -38,5 +38,23 @@ namespace BookClub.Data.DAO
             _context.Replies.Add(reply);
             _context.SaveChanges(); 
         }
+
+        public void DeleteReply(int id, PostReply reply)
+        {
+            var replytoDelete = _context.Replies.FirstOrDefault(r => r.Id == id);
+
+            if (replytoDelete != null)
+            {
+
+                _context.Replies.Remove(replytoDelete);
+                _context.SaveChanges();
+            }
+        }
+
+        public PostReply GetReply(int id)
+        {
+            return _context.Replies.Find(id);
+        }
+        
     }
 }

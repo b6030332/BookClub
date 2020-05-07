@@ -19,6 +19,6 @@ namespace BookClub.Data.IDAO
         
         IEnumerable<Post> GetPostsByDiscussion(int id);
 
-        IEnumerable<Post> GetSearchedPosts(Discussion discussion, string searchQuery);
+        //IEnumerable<Post> GetSearchedPosts(Discussion discussion, string searchQuery);
     }
 }

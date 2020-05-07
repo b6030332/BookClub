@@ -45,9 +45,9 @@ namespace BookClub.Service.Service
             _dao.AddDiscussion(discussion, book);
         }
 
-        public IEnumerable<Post> GetSearchedPosts(Discussion discussion, string searchQuery)
-        {
-            return _dao.GetSearchedPosts(discussion, searchQuery);
-        }
+        //public IEnumerable<Post> GetSearchedPosts(Discussion discussion, string searchQuery)
+        //{
+        //    return _dao.GetSearchedPosts(discussion, searchQuery);
+        //}
     }
 }
