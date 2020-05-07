@@ -4,6 +4,17 @@
     <strong>Sign Up Today:</strong> @Html.ActionLink("Join Our Community", "GetAllDiscussions", "Book")
 </div>
 
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="row" id="postReplyRow">
+        <span>
+            @Html.ActionLink("Add Book", "AddBook", "Admin")
+        </span>
+
+    </div>
+}
+
+
 @*<div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
             Filter By
@@ -17,64 +28,64 @@
 @using (Html.BeginForm("GetAllBooks", "Book", FormMethod.Get))
 {
     <b> Search By </b>
-        @Html.RadioButton("option", "Title") <text>Title</text>
-        @Html.RadioButton("option", "Genre") <text>Genre</text>
-        @Html.RadioButton("option", "Author")<text>Author</text> 
-        @Html.TextBox("search") 
-            <input type = "submit" name ="submit" value = "Search" />
- }
-        <table class="table">
+    @Html.RadioButton("option", "Title") <text>Title</text>
+    @Html.RadioButton("option", "Genre") <text>Genre</text>
+    @Html.RadioButton("option", "Author")<text>Author</text>
+    @Html.TextBox("search")
+    <input type="submit" name="submit" value="Search" />
+}
+<table class="table">
+    <tr>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th></th>
+
+        </tr>
+    </thead>
+
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td colspan="3" style="color:red" draggable="auto">
+                Not available at MyBookBuddy
+            </td>
+        </tr>
+    }
+
+    else
+    {
+        foreach (var item in Model)
+        {
             <tr>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Genre</th>
-                    <th></th>
 
-                </tr>
-            </thead>
+                <td>
+                    <img src="@Html.DisplayFor(modelItem => item.Image)" class="imageCell" />
+                </td>
+                <td>
+                    @Html.ActionLink(item.Title, "GetBookId",
+                        new { id = item.Id, Controller = "Book" })
+                </td>
+                <td>
+                    @Html.ActionLink(item.Author.Name, "GetAuthor",
+                       new { id = item.Id, Controller = "Author" })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre.Name)
+                </td>
+                @*<td>
+                        @using (Html.BeginForm("AddBookToFavourites", "Favourites", new { id = item.Id }, FormMethod.Post))
+                        {
+                        <button type="submit"><i class="fab fa-gratipay fa-2x"></i></button>
+                        }
+                    </td>*@
+            </tr>
+        }
+    }
 
-            @if (Model.Count() == 0)
-            {
-                <tr>
-                    <td colspan="3" style="color:red" draggable="auto">
-                        Not available at MyBookBuddy
-                    </td>
-                </tr>
-            }
 
-            else
-            {
-                foreach (var item in Model)
-                {
-                    <tr>
-                        
-                        <td>
-                            <img src="@Html.DisplayFor(modelItem => item.Image)" class="imageCell" />
-                        </td>
-                        <td>
-                            @Html.ActionLink(item.Title, "GetBookId",
-                                new { id = item.Id, Controller = "Book" })
-                        </td>
-                        <td>
-                            @Html.ActionLink(item.Author.Name, "GetAuthor",
-                               new { id = item.Id, Controller = "Author" })
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Genre.Name)
-                        </td>
-                        @*<td>
-                            @using (Html.BeginForm("AddBookToFavourites", "Favourites", new { id = item.Id }, FormMethod.Post))
-                            {
-                            <button type="submit"><i class="fab fa-gratipay fa-2x"></i></button>
-                            }
-                        </td>*@
-                    </tr>
-                }
-            }
-
-            
-        </table>
+</table>
 

@@ -16,6 +16,12 @@ namespace BookClub.Data.DAO
             _context = new ApplicationDbContext();
         }
 
+        public void AddBook(Book book)
+        {
+            _context.Book.Add(book);
+            _context.SaveChanges(); 
+        }
+
         public IList<Book> GetAllBooks()
         {
             return _context.Book.ToList();
