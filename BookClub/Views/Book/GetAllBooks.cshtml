@@ -86,6 +86,34 @@
         }
     }
 
+            else
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        
+                        <td>
+                            <img src="@item.Image" class="imageCell" />
+                        </td>
+                        <td>
+                            @Html.ActionLink(item.Title, "GetBookId",
+                                new { id = item.Id, Controller = "Book" })
+                        </td>
+                        <td>
+                            @Html.ActionLink(item.Author.Name, "GetAuthor",
+                               new { id = item.Author.Id, Controller = "Author" })
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Genre.Name)
+                        </td>
+                        @*<td>
+                            @using (Html.BeginForm("AddBookToFavourites", "Favourites", new { id = item.Id }, FormMethod.Post))
+                            {
+                            <button type="submit"><i class="fab fa-gratipay fa-2x"></i></button>
+                            }
+                        </td>*@
+                    </tr>
+                }
+            }
 
-</table>
 

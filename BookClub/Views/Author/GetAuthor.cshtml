@@ -10,24 +10,27 @@
     </div>
 </div>
 
-<div class="jumbotron">
-    <div class="row">
-        <div class="col-md-4">
-            <div>
-                <img class="authorImage" src="@Model.Image" />
-            </div>
-        </div>
-        <div class="col-md-4">
-            <p id="authorName">@Model.Name</p>
-        </div>
+    <div class="jumbotron">
+        <div class="row">
 
-        <div class="col-md-4">
-            <p id="authorBio">@Model.Bio</p>
-        </div>
+            <div class="col-md-4">
+                <div>
+                    <img src="@Model.Image" class="authorImage" />
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <p id="authorName">@Model.Name</p>
+            </div>
+            
+            <div class="col-md-8">
+                <p id="authorBio">@Model.Bio</p>
+            </div>
+         </div>
     </div>
 
-    @Html.Partial("~/Views/Author/GetBooksbyAuthor.cshtml", Model.Books)
+        @Html.Partial("~/Views/Author/GetBooksbyAuthor.cshtml", Model.Books)
 
-
-</div>
+        
+   
 

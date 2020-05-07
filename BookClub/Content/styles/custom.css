@@ -1,8 +1,8 @@
 ﻿
 /*GetBookId View*/
-.bookBlurb {
-    font-size:medium;
-    line-height: 50em;
+#bookBlurb {
+    font-size:18px;
+    line-height: 20px;
 }
 
 .navbar{
@@ -22,7 +22,7 @@ h4 {
     height: 200px;
     padding: 10px;
 }
-.bookAuthorCell {
+#bookAuthorCell {
     width: 90px;
     padding: 10px;
     border:solid;
@@ -206,3 +206,22 @@ div.reviewHeader {
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
+/*GetBookbyAuthor View*/
+
+.partViewTitle {
+    font-family:'Cambria Math'
+}
+/*GetAuthor View*/
+.authorImage {
+    width: 300px;
+    height: 280px;
+    padding: 10px;
+}
+#authorBio {
+    font-size:14px;
+    line-height:30px;
+    
+}
+.jumbotron {
+    border:solid 2px;
+}

@@ -17,6 +17,7 @@ namespace BookClub.Controllers
     {
         private readonly IDiscussionDAO _discussionService;
         //private readonly IPostDAO _postService;
+       
         public DiscussionController()
         {
             _discussionService = new DiscussionService();
@@ -27,13 +28,16 @@ namespace BookClub.Controllers
             IEnumerable<Discussion> discussions = _discussionService.GetAllDiscussions();
             return View("GetAllDiscussions", discussions);
         }
-
-      
-        public ActionResult GetPostsByDiscussion(int id)
+        
+        public ActionResult GetPostsByDiscussion(int id, string searchQuery)
         {
             var discussion = _discussionService.GetDiscussionID(id);
-
-            var posts = discussion.Posts;
+            var posts = new List<Post>();
+            
+             posts = _discussionService.GetSearchedPosts(discussion, searchQuery).ToList();
+            
+             
+            //var posts = discussion.Posts;
 
             //var posts = new List<Post>();
 
@@ -84,13 +88,11 @@ namespace BookClub.Controllers
             };
         }
 
-        //[HttpPost]
-        //public ActionResult Search(int id, string searchQuery)
-        //{
-        //    var discussion = _discussionService.GetDiscussionID(id);
-
-        //    return RedirectToAction("GetPostsByDiscussion", new { id, searchQuery });
-        //}
+        [HttpPost]
+        public ActionResult Search(int id, string searchQuery)
+        {
+            return RedirectToAction("GetPostsByDiscussion", new { id, searchQuery});
+        }
     }
 
 }
