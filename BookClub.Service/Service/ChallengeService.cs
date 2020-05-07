@@ -27,6 +27,11 @@ namespace BookClub.Service.Service
             _dao.AJAXAddChallenge(challenges, user);
         }
 
+        public IEnumerable<Challenges> BuildChallengeTable()
+        {
+            return _dao.BuildChallengeTable();
+        }
+
         // public void AJAXEditChallenge(int? id, bool value)
         // {
         //    _dao.AJAXEditChallenge(id, value);

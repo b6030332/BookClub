@@ -13,6 +13,7 @@ namespace BookClub.Data.IDAO
         IList<Challenges> GetChallenges();
 
         IEnumerable<Challenges> GetMyChallenges();
+        IEnumerable<Challenges> BuildChallengeTable();
         Challenges GetChallenge(int id);
         void AJAXAddChallenge(Challenges challenges, ApplicationUser User);
 

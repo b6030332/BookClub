@@ -45,6 +45,9 @@ namespace BookClub.Data.DAO
 
         public IList<Challenges> GetChallenges()
         {
+            string currentUserId = HttpContext.Current.User.Identity.GetUserId();
+            ApplicationUser currentUser = _context.Users.FirstOrDefault
+                (x => x.Id == currentUserId);
             return _context.Challenges.ToList();
         }
 
@@ -79,6 +82,15 @@ namespace BookClub.Data.DAO
         public Challenges GetChallenge(int id)
         {
             return _context.Challenges.Find(id);
+        }
+
+        public IEnumerable<Challenges> BuildChallengeTable()
+        {
+            string currentUserId = HttpContext.Current.User.Identity.GetUserId();
+            ApplicationUser currentUser = _context.Users.FirstOrDefault
+             (x => x.Id == currentUserId);
+
+            return _context.Challenges.ToList().Where(x => x.User == currentUser);
         }
 
         // public void AJAXEditChallenge(int? id, bool value)

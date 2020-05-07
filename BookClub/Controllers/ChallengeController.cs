@@ -34,7 +34,7 @@ namespace BookClub.Controllers
 
         public IEnumerable<Challenges> GetMyChallenges()
         {
-            IEnumerable<Challenges> myChallenges = _challengeService.GetMyChallenges();
+            IEnumerable<Challenges> myChallenges = _challengeService.BuildChallengeTable();
 
             int completeCount = 0;
             foreach (Challenges challenges in myChallenges)
@@ -52,6 +52,7 @@ namespace BookClub.Controllers
 
         public ActionResult BuildChallengeTable()
         {
+          
             return PartialView("_ChallengeTable", GetMyChallenges());
         }
 
