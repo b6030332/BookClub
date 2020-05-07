@@ -54,10 +54,17 @@ namespace BookClub.Data.DAO
             _context.SaveChanges();
         }
 
-        public void DeleteChallenge(Challenges challenges)
+        public void DeleteChallenge(int id, Challenges challenges)
         {
-            _context.Challenges.Remove(challenges);
-            _context.SaveChanges();
+            var deleteChallenge = _context.Challenges.FirstOrDefault(c => c.Id == id);
+
+            if (deleteChallenge != null)
+            {
+                _context.Challenges.Remove(deleteChallenge);
+                _context.SaveChanges();
+            }
+            
+            
         }
 
         public IEnumerable<Challenges> GetMyChallenges()
@@ -67,6 +74,11 @@ namespace BookClub.Data.DAO
              (x => x.Id == currentUserId);
 
             return _context.Challenges.ToList().Where(x => x.User == currentUser);
+        }
+
+        public Challenges GetChallenge(int id)
+        {
+            return _context.Challenges.Find(id);
         }
 
         // public void AJAXEditChallenge(int? id, bool value)

@@ -49,6 +49,8 @@ h4 {
     margin: 4px 0 16px 0;
 }
 
+/*GetAllBooks View*/
+
 
 
 /*GetPost View*/
@@ -224,4 +226,10 @@ div.reviewHeader {
 }
 .jumbotron {
     border:solid 2px;
+}
+
+/*_ChallengeTable View*/ 
+.progress {
+    background-color:white;
+    color:green;
 }

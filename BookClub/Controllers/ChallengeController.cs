@@ -145,26 +145,18 @@ namespace BookClub.Controllers
         public ActionResult DeleteChallenge(int id)
         {
 
-            return View(_context.Challenges.Find(id));
+            return View(_challengeService.GetChallenge(id));
         }
         [HttpPost]
         public ActionResult DeleteChallenge(int id, Challenges challenges)
 
         {
-            Challenges _challenges = _context.Challenges.Find(id);
+            var _challenges = new Challenges();
 
-            try
-            {
-                
-                _challengeService.DeleteChallenge(challenges);
-
-                return RedirectToAction("GetChallenges", "Challenge", new { id = challenges.Id });
-            }
-            catch
-            {
-                return View();
-            }
+            _challengeService.DeleteChallenge(id, challenges);
+            return RedirectToAction("GetChallenges", "Challenge", new { id = challenges.Id });
         }
+        
     }
 }
     

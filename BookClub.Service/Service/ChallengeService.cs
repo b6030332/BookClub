@@ -37,14 +37,19 @@ namespace BookClub.Service.Service
         //    return _dao.BuildChallengeTable();
         //}
 
-        public void DeleteChallenge(Challenges challenges)
+        public void DeleteChallenge(int id, Challenges challenges)
         {
-            _dao.DeleteChallenge(challenges);
+            _dao.DeleteChallenge(id, challenges);
         }
 
         public void EditChallenge(Challenges challenges)
         {
             _dao.EditChallenge(challenges);
+        }
+
+        public Challenges GetChallenge(int id)
+        {
+            return _dao.GetChallenge(id);
         }
 
         public IList<Challenges> GetChallenges()
@@ -55,6 +60,6 @@ namespace BookClub.Service.Service
         {
             return _dao.GetChallenges();
         }
-
+        
     }
 }
