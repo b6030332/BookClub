@@ -49,6 +49,7 @@
     <Compile Include="Service\BookService.cs" />
     <Compile Include="Service\ChallengeService.cs" />
     <Compile Include="Service\DiscussionService.cs" />
+    <Compile Include="Service\GenreService.cs" />
     <Compile Include="Service\PostService.cs" />
     <Compile Include="Service\ReplyService.cs" />
     <Compile Include="Service\ReviewService.cs" />

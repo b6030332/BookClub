@@ -17,6 +17,12 @@ namespace BookClub.Service.Service
         {
             _dao = new BookDAO();
         }
+
+        public void AddBook(Book book)
+        {
+            _dao.AddBook(book);
+        }
+
         public IList<Book> GetAllBooks()
         {
             return _dao.GetAllBooks();

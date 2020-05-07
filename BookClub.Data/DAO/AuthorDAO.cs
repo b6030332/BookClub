@@ -15,6 +15,12 @@ namespace BookClub.Data.DAO
         {
             _context = new ApplicationDbContext();
         }
+
+        public IList<Author> GetAllAuthors()
+        {
+            return _context.Author.ToList();
+        }
+
         public Author GetAuthor(int id)
         {
             return _context.Author.Find(id);

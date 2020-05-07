@@ -22,6 +22,8 @@ namespace BookClub.Data.Models
         public string Blurb { get; set; }
         [Required]
         public Int64 ISBN { get; set; }
+        public int? GenreId { get; set; }
+        public int? AuthorId { get; set; }
 
         public virtual Genre Genre { get; set; }
         public virtual Author Author { get; set; }
