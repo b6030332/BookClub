@@ -4,9 +4,11 @@
     ViewBag.Title = "GetBooksbyAuthor";
 }
 
-<p>See More from this Author</p>
+<h3 class="partViewTitle">Books from this Author</h3>
 @foreach (var item in Model)
 {
-    <img src="@Html.DisplayFor(modelItem => item.Image)" class="bookAuthorCell" />
+    <img src="@item.Image" id="bookAuthorCell" onclick="location.href='@Url.Action("GetBookId", "Book", new { id = item.Id })';return false;" />
+    
+    @*<img src="@Html.DisplayFor(modelItem => item.Image)" class="bookAuthorCell" />*@
 }
 

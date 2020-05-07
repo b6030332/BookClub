@@ -64,16 +64,19 @@ namespace BookClub.Data.DAO
             _context.SaveChanges();
         }
 
-        //public IEnumerable<Post> GetSearchedPosts(int id, string searchQuery)
-        //{
-        //    var discussion = _context.Discussion.Find(id);
+        public IEnumerable<Post> GetSearchedPosts(Discussion discussion, string searchQuery)
+        {
+            
+            return string.IsNullOrEmpty(searchQuery)
+                ? discussion.Posts 
+                : discussion.Posts
+                .Where(post => post.Title.Contains(searchQuery)
+                || post.Content.Contains(searchQuery));
+                
+                
 
-        //    //if search query returns null, display posts or if fullfilled, find content
-        //    return string.IsNullOrEmpty(searchQuery)
-        //        ? discussion.Posts
-        //        : discussion.Posts
-        //        .Where(post => post.Title.Contains(searchQuery) 
-        //        || post.Content.Contains(searchQuery));
-        //}
+            //if search query returns null, display posts or if fullfilled, find content
+             
+        }
     }
 }

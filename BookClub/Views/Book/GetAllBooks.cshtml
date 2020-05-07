@@ -52,7 +52,7 @@
                     <tr>
                         
                         <td>
-                            <img src="@Html.DisplayFor(modelItem => item.Image)" class="imageCell" />
+                            <img src="@item.Image" class="imageCell" />
                         </td>
                         <td>
                             @Html.ActionLink(item.Title, "GetBookId",
@@ -60,7 +60,7 @@
                         </td>
                         <td>
                             @Html.ActionLink(item.Author.Name, "GetAuthor",
-                               new { id = item.Id, Controller = "Author" })
+                               new { id = item.Author.Id, Controller = "Author" })
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Genre.Name)

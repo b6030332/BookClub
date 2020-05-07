@@ -216,6 +216,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\authors\johnDouglas.jpg" />
     <Content Include="Content\images\books\dead_simple.jpg" />
     <Content Include="Content\images\books\harry_potter_askaban.jpg" />
     <Content Include="Content\images\books\killing_floor.jpg" />
