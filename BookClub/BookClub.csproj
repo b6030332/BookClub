@@ -310,6 +310,7 @@
     <Content Include="Views\UserAdmin\GetRolesforUser.cshtml" />
     <Content Include="Views\UserAdmin\GetRolesforUserConfirmed.cshtml" />
     <Content Include="Views\Admin\AddBook.cshtml" />
+    <Content Include="Views\Post\DeletePost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

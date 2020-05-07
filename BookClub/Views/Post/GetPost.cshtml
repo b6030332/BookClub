@@ -18,21 +18,30 @@
         </div>
     </div>
 
-<div class="row" id="postContent">
-    <div class="col-md-3 postAuthorContainer">
-        @Html.ActionLink(Model.ApplicationUser.UserName, "Detail",
+    <div class="row" id="postContent">
+        <div class="col-md-3 postAuthorContainer">
+            @Html.ActionLink(Model.ApplicationUser.UserName, "Detail",
 
-           new { id = Model.ApplicationUser.Id, Controller = "Profile" })
+               new { id = Model.ApplicationUser.Id, Controller = "Profile" })
 
-        <span class="postData">@Model.Created</span>
+            <span class="postData">@Model.Created</span>
         </div>
 
-    <div class="col-md-9 postContentContainer">
-        <div class="postContent">
-            @Html.Raw(Model.Content)
+        <div class="col-md-9 postContentContainer">
+            <div class="postContent">
+                @Html.Raw(Model.Content)
+            </div>
+        </div>
+
+        <div class="deletePost">
+            @if (User.Identity.IsAuthenticated)
+
+            {
+                @Html.ActionLink("Delete", "DeletePost",
+                         new { id = Model.Id, Controller = "Post" })
+            }
         </div>
     </div>
-</div>
 
 <div class="row" id="replyDivide"></div>
 @if(User.Identity.IsAuthenticated)
