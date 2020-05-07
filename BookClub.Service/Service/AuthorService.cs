@@ -17,6 +17,11 @@ namespace BookClub.Service.Service
             _dao = new AuthorDAO();
         }
 
+        public IList<Author> GetAllAuthors()
+        {
+            return _dao.GetAllAuthors();
+        }
+
         public Author GetAuthor(int id)
         {
             return _dao.GetAuthor(id);

@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace BookClub.Data.IDAO
 {
-    public interface IAuthorDAO
+    public interface IGenreDAO 
     {
-        Author GetAuthor(int id);
-        IEnumerable<Book> GetBooksByAuthor(int id);
-        IList<Author> GetAllAuthors();
+        IEnumerable<Genre> GetAllGenres();
     }
 }

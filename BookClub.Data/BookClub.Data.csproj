@@ -63,6 +63,7 @@
     <Compile Include="DAO\BookDAO.cs" />
     <Compile Include="DAO\ChallengeDAO.cs" />
     <Compile Include="DAO\DiscussionDAO.cs" />
+    <Compile Include="DAO\GenreDAO.cs" />
     <Compile Include="DAO\PostDAO.cs" />
     <Compile Include="DAO\ReplyDAO.cs" />
     <Compile Include="DAO\ReviewDAO.cs" />
@@ -71,12 +72,25 @@
     <Compile Include="IDAO\IBookDAO.cs" />
     <Compile Include="IDAO\IChallengeDAO.cs" />
     <Compile Include="IDAO\IDiscussionDAO.cs" />
+    <Compile Include="IDAO\IGenreDAO.cs" />
     <Compile Include="IDAO\IPostDAO.cs" />
     <Compile Include="IDAO\IReplyDAO.cs" />
     <Compile Include="IDAO\IReviewDAO.cs" />
     <Compile Include="Migrations\202005041529468_new migration.cs" />
     <Compile Include="Migrations\202005041529468_new migration.Designer.cs">
       <DependentUpon>202005041529468_new migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005071337015_added genre_id.cs" />
+    <Compile Include="Migrations\202005071337015_added genre_id.Designer.cs">
+      <DependentUpon>202005071337015_added genre_id.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005071401102_added author_id to book.cs" />
+    <Compile Include="Migrations\202005071401102_added author_id to book.Designer.cs">
+      <DependentUpon>202005071401102_added author_id to book.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005071402559_changed fk in book.cs" />
+    <Compile Include="Migrations\202005071402559_changed fk in book.Designer.cs">
+      <DependentUpon>202005071402559_changed fk in book.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
@@ -103,6 +117,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202005041529468_new migration.resx">
       <DependentUpon>202005041529468_new migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005071337015_added genre_id.resx">
+      <DependentUpon>202005071337015_added genre_id.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005071401102_added author_id to book.resx">
+      <DependentUpon>202005071401102_added author_id to book.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005071402559_changed fk in book.resx">
+      <DependentUpon>202005071402559_changed fk in book.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
