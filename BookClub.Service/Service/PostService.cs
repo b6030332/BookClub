@@ -23,7 +23,6 @@ namespace BookClub.Service.Service
         {
             _dao.AddPost(post, discussion);
         }
-
         public void DeletePost(int id, Post post)
         {
             _dao.DeletePost(id, post);
@@ -42,6 +41,20 @@ namespace BookClub.Service.Service
         public IEnumerable<Post> GetRecentPosts(int nofposts)
         {
             return _dao.GetRecentPosts(nofposts);
+        }
+        public IEnumerable<PostReply> BuildPostTable()
+        {
+            return _dao.BuildPostTable();
+        }
+
+        public Post AjaxPost(int id)
+        {
+            return _dao.AjaxPost(id);
+        }
+
+        public void AJAXAddReply(PostReply replies)
+        {
+            _dao.AJAXAddReply(replies);
         }
     }
 }
