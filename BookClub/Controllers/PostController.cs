@@ -61,7 +61,35 @@ namespace BookClub.Controllers
 
                 return RedirectToAction("GetPost", "Post", new { id = reply.Id });
         }
-           
+        public ActionResult AjaxPost(int id)
+        {
+            Post post = _postService.AjaxPost(id);
+            return View("GetPost", post);
+           // return View();
+        }
+        public ActionResult BuildPostTable()
+        {
+            return PartialView("_postTable", BuildPostTable());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AJAXAddReply([Bind(Include = "Id,Content,Created")]PostReply replies)
+        {
+            if (ModelState.IsValid)
+            {
+                //PostReply reply = new PostReply();
+                
+                replies.Created = DateTime.Now;
+
+
+                _postService.AJAXAddReply(replies);
+                
+                // return RedirectToAction("GetChallenges");
+            }
+            return PartialView("_ChallengeTable", BuildPostTable());
+        }
+
 
 
 

@@ -83,8 +83,8 @@ namespace BookClub.Controllers
             return new NewDiscussion
             {
                Id = discussion.Id,
-                Title = discussion.Title,
-                Content = discussion.Description,
+               Title = discussion.Title,
+               Content = discussion.Description,
             };
         }
 
