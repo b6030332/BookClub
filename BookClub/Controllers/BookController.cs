@@ -4,14 +4,10 @@ using BookClub.Data.Models;
 using BookClub.Models;
 using BookClub.Models.Book;
 using BookClub.Models.Discussion;
-using BookClub.Models.JointViews;
 using BookClub.Service.Service;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+using BookClub.ViewModels.Book;
+using BookClub.ViewModels.JointViewModels;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace BookClub.Controllers
@@ -44,7 +40,20 @@ namespace BookClub.Controllers
         public ActionResult GetBookId(int id)
         {
             Book books = _bookService.GetBookId(id);
-            return View("GetBookId", books);
+
+            BookDetailViewModel bookDetail = new BookDetailViewModel()
+            {
+                Id = books.Id,
+                BookTitle = books.Title,
+                BookImage = books.Image,
+                ISBN = books.ISBN,
+                Price = books.Price,
+                Publisher = books.Publisher,
+                Format = books.Format,
+                Blurb = books.Blurb
+            };
+
+            return View(bookDetail);
         }
         
         
@@ -69,7 +78,7 @@ namespace BookClub.Controllers
 
             });
 
-            var model = new BookDiscussionModel
+            var model = new BookDiscussionViewModel
             {
                 Discussions = listofDiscussions,
                 Book = BuildNewBook(book)

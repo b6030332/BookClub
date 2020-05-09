@@ -1,11 +1,8 @@
 ﻿using BookClub.Data.IDAO;
-using BookClub.Models.Community;
-using BookClub.Models.Post;
 using BookClub.Service.Service;
-using System;
-using System.Collections.Generic;
+using BookClub.ViewModels.Community;
+using BookClub.ViewModels.Post;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace BookClub.Controllers
@@ -26,13 +23,13 @@ namespace BookClub.Controllers
             return View(model);
         }
 
-        private CommunityModel BuildCommunityModel()
+        private CommunityViewModel BuildCommunityModel()
         {
             //Get selection of recent posts
             var recentPosts = _postService.GetRecentPosts(10);
             
             //Map values of entity rows into new post model to display in custom view
-            var posts = recentPosts.Select(post => new ListofPosts
+            var posts = recentPosts.Select(post => new ListPostsModel
             {
                 Id = post.Id,
                 Title = post.Title,
@@ -51,7 +48,7 @@ namespace BookClub.Controllers
                 
             });
             //return the new  model for community page 
-            return new CommunityModel
+            return new CommunityViewModel
             {
                 RecentPosts = posts,
                 SearchQuery = ""

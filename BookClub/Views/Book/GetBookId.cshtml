@@ -1,5 +1,4 @@
-﻿@model BookClub.Data.Models.Book
-   
+﻿@model BookClub.ViewModels.Book.BookDetailViewModel
 
 <div class="container">
     <div class="page-header clearfix detailHeading">
@@ -11,12 +10,12 @@
     <div class="row">
         <div class="col-md-4">
             <div>
-                <img class="detailImage" src="@Model.Image" />
+                <img class="detailImage" src="@Model.BookImage" />
             </div>
         </div>
 
         <div class="col-md-4">
-            <p id="bookTitle">@Model.Title</p>
+            <p id="bookTitle">@Model.BookTitle</p>
             @*<p id="bookAuthor">@Model.Author.Name</p>*@
             @*<p id="bookAuthor">@Model.Genre.Name</p>*@
         </div>

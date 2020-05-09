@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BookClub.Models.Review
+namespace BookClub.ViewModels.Review
 {
     public class ReviewViewModel
     {
@@ -14,7 +14,6 @@ namespace BookClub.Models.Review
         public string AuthorName { get; set; }
         public string ReviewContent { get; set; }
         public int Rating { get; set; }
-        public string DateCreated { get; set; } 
+        public string DateCreated { get; set; }
     }
-
 }
