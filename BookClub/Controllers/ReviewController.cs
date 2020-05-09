@@ -1,15 +1,10 @@
 ﻿using BookClub.Data.IDAO;
 using BookClub.Data.Models;
-using BookClub.Models.Book;
-using BookClub.Models.JointViews;
-using BookClub.Models.Review;
 using BookClub.Service.Service;
+using BookClub.ViewModels.Review;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
 
 namespace BookClub.Controllers
 {
@@ -50,7 +45,6 @@ namespace BookClub.Controllers
         }
         
         [HttpPost]
-
         //The parameters passed here are the names of the input types and text area in GetReviewByBook
         public ActionResult AddReview(int id, int rating, string bookContent)
         {
@@ -67,25 +61,6 @@ namespace BookClub.Controllers
                 return RedirectToAction("GetReviewByBook","Review", new { id = review.BookId });
             
         }
-        
-        // var model = new BookReviewModel
-        //{
-        //    Reviews = listofReviews,
-        // Book = BuildNewBook(book)
-        /// };
-
-        //  return View(model);
-        // }
-        //private NewBook BuildNewBook(Book book)
-        //{
-        //    return new NewBook
-        //    {
-        //        Id = book.Id,
-        //        Title = book.Title,
-        //        Blurb = book.Blurb,
-        //        Genre = book.Genre.Name,
-        //        BookImage = book.Image
-        //    };
-        //}
+      
     }
 }

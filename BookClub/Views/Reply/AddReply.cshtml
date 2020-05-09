@@ -1,10 +1,13 @@
-﻿@model BookClub.Models.Reply.NewPostReply
+﻿@model BookClub.ViewModels.Reply.AddReplyViewModel
 
-@{
-    ViewBag.Title = "AddReply_";
-}
 
-<h2>AddReply_</h2>
+<h2>Replying to: @Model.PostTitle</h2>
+
+<div class="postreplyformContainer">
+    <div class="row replypostformContent">
+        @Model.PostContent
+    </div>
+</div>
 
 @using (Html.BeginForm()) 
 {
@@ -15,10 +18,10 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ReplyContent, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10" id="replyTextArea">
-                @Html.TextAreaFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                @Html.TextAreaFor(model => model.ReplyContent, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ReplyContent, "", new { @class = "text-danger" })
             </div>
         </div>
 

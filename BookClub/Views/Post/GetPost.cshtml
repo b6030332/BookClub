@@ -1,10 +1,10 @@
 ﻿@model BookClub.Data.Models.Post
 
-<div class="containter body-content" id="allPostDiv">
+<div class="containter body-content">
     <div class="row postHeader">
         <div class="postHeading">
             <span class="postTitle">
-                @Model.Title
+               @Model.Title
             </span>
             
             <h4>
@@ -49,9 +49,9 @@
 
 <div class="row" id="postReplyRow">
     <span>
-        @Html.ActionLink("Post reply", "AddReply_",
+        @Html.ActionLink("Post reply", "AddReply",
 
-  new { id = Model.Id, Controller = "Admin" })
+  new { id = Model.Id, Controller = "Reply" })
     </span>
 
 </div>
@@ -85,7 +85,7 @@
             <div>
                 @Html.ActionLink("Delete", "DeleteReply",
 
-          new { id = reply.Id , Controller = "Post" })
+          new { id = reply.Id , Controller = "Reply" })
             </div>
         </div>
     }

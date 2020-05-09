@@ -11,6 +11,6 @@ namespace BookClub.Data.IDAO
     {
         PostReply GetReply(int id);
         void AddReply(PostReply reply, Post post);
-        void DeleteReply(int id, PostReply reply);
+        void DeleteReply(int id, PostReply reply, Post posts);
     }
 }
