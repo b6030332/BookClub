@@ -39,9 +39,7 @@ h4 {
 #bookCatalogue {
     background: bottom right 15% no-repeat #555;
 }
-.completedChallenge {
-    text-decoration: line-through;
-}
+
 #recentPosts{
     font-size: 1.2em;
     font-weight: bold;
@@ -262,8 +260,51 @@ h4 {
 
 /*AddPost View*/
 b.discussionName {
-    color:aqua;
+    color:royalblue;
+}
+
+/*-ChallengeTable View*/
+
+.completedChallenge {
+    text-decoration: line-through;
+    background: #FFC6C1;
+    color: black;
+}
+
+#challengeTable {
+    margin: 0;
+    padding: 0;
+}
+
+.challengeList {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    list-style-type: none;
+    background: white;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+.challengeListContent {
+    padding: 12px 8px 12px 40px;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: Apple Chancery, cursive;
+}
+
+.challengeHeader {
+    background-color: #E6E5E8;
+    padding: 8px 0px 24px 24px;
+    margin-bottom: 5px;
+}
+
+.challengeHeading {
+    font-family: 'Comic Sans MS';
+    font-weight: lighter;
+    font:bold;
+    color: black;
+    font-size: 1.6em;
     
-        
 }
 
