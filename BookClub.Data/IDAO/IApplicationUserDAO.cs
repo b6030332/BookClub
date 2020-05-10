@@ -10,5 +10,6 @@ namespace BookClub.Data.IDAO
     {
         ApplicationUser GetApplicationUser(string id);
         IEnumerable<ApplicationUser> GetAllApplicationUsers();
+        void SetProfileImage(string id, Uri uri);
     }
 }
