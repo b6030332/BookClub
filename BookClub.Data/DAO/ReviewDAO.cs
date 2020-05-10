@@ -22,6 +22,7 @@ namespace BookClub.Data.DAO
         {
             var currentBook = _context.Book.FirstOrDefault(b => b.Id == review.Id);
 
+            //Finds the current logged-in user when adding a book
             string currentUserId = HttpContext.Current.User.Identity.GetUserId();
             ApplicationUser currentUser = _context.Users.FirstOrDefault
                 (x => x.Id == currentUserId);
@@ -29,6 +30,7 @@ namespace BookClub.Data.DAO
             review.User = currentUser;
             review.Book = currentBook;
 
+            //Adds new review to the database
             _context.Review.Add(review);
             _context.SaveChanges();
             
@@ -37,6 +39,19 @@ namespace BookClub.Data.DAO
         public Review GetReviewByBook(int id)
         {
             return _context.Review.Find(id);
+        }
+
+        public void DeleteReview(int id, Review review)
+        {
+            var deleteReview = _context.Review.FirstOrDefault(r => r.Id == id);
+
+            if (deleteReview != null)
+            {
+                _context.Review.Remove(deleteReview);
+                _context.SaveChanges();
+            }
+
+
         }
     }
 }

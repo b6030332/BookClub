@@ -37,11 +37,12 @@
 
         <div class="deletePost">
             @if (Model.Posts.UserId == User.Identity.GetUserId())
-                {
-                    @Html.ActionLink("Delete", "DeletePost",
-                             new { id = Model.Posts.PostId, Controller = "Post" })
-                }
-            </div>
+            {
+                @*@Html.ActionLink("Delete", "DeletePost",
+            new { id = Model.Posts.PostId, Controller = "Post" })*@
+                <a class="btn btn-danger btn-sm" onclick=Delete("+id+")><i class="fa fa-trash"></i>Delete</a>
+            }
+        </div>
     </div>
 
     <div class="row" id="replyDivide"></div>
@@ -107,4 +108,27 @@
         </div>
     }
 </div>
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+<script>
+    function Delete(id) {
+        if (confirm('Are you sure you want to delte this post'))
+        {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("DeletePost","Post")/' + id,
+                success: function (data) {
+                    if (data.success) {
+                        dataTable.ajax.reload();
+                        $.notify(data.message, {
+                            globalPosition: "top center",
+                            className: "success"
+                        })
+                    }
+                }
+            });
+        }
+    }
+</script>
 

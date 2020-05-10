@@ -5,20 +5,24 @@
         <div class="frontheading">Welcome to our BookClub Community</div>
         <p class="subheading">Join the latest discussions about the books you love</p>
 
-            <form asp-controller="Search" asp-action="Search" method="post">
-                <input asp-for="SearchQuery" type="text" class="communitySearch" placeholder="Search..." />
-            </form>
+        <div>
+            <input type="text" id="Search" value="Search" placeholder="Search..." class="searchBar" onfocus="clearThis(this)" />
+                <button type="submit" class="btn btn-discussionSearch">
+                    <i class="material-icons">search</i>
+                </button>
         </div>
-    </div>
 
-    <div class="row communityContent">
-        <h3>Recent Posts</h3>
+    </div>
+</div>
+
+<div class="row communityContent">
+    <h3>Recent Posts</h3>
     <table class="table table-hover" id="recentPostsTable">
         <tbody>
 
-            @foreach(var post in Model.RecentPosts)
+            @foreach (var post in Model.RecentPosts)
             {
-                <tr>
+                <tr class="Search">
                     <td>
                         <div class="forumLogo" style="background-image: url(@post.BookImage); background-size=100%"></div>
                         <div class="postTitle">
@@ -52,11 +56,41 @@
                         </div>
                     </td>
                 </tr>
-                
+
             }
 
         </tbody>
     </table>
-    </div>
+</div>
 
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        function Contains(text_one, text_two) {
+            if (text_one.indexOf(text_two) != -1)
+                return true;
+        }
+        $("#Search").keyup(function () {
+            var searchText = $("#Search").val().toLowerCase();
+            $(".Search").each(function () {
+                if (!Contains($(this).text().toLowerCase(), searchText)) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            })
+
+        })
+    });
+</script>
+@section Scripts{
+    <script>
+
+        function clearThis(target) {
+            target.value = "";
+        }
+
+    </script>
+}
 

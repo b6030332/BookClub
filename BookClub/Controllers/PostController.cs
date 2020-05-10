@@ -124,7 +124,8 @@ namespace BookClub.Controllers
 
             _postService.DeletePost(post);
 
-            return RedirectToAction("GetAllDiscussions", "Discussion");
+            //return RedirectToAction("GetAllDiscussions", "Discussion");
+            return Json(new { success = true, message = "Deleted successfully" }, JsonRequestBehavior.AllowGet);
         }
         public ActionResult AjaxPost(int id)
         {

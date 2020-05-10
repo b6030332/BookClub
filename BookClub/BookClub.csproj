@@ -320,11 +320,11 @@
     <Content Include="Views\Post\AjaxPost.cshtml" />
     <Content Include="Views\Post\_postTable.cshtml" />
     <Content Include="Views\Profile\UploadFile.cshtml" />
+    <Content Include="Views\Review\DeleteReview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="UploadedFiles\" />
-    <Folder Include="Views\Reply\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
