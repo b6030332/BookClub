@@ -15,17 +15,12 @@
 
             }
 
-         
         <input type="text" id="Search" value="Search" placeholder="Search..." class="searchBar" onfocus="clearThis(this)" />
-        <button type="submit" class="btn btn-discussionSearch">
-        <i class="material-icons">search</i>
-        </button>
+            <button type="submit" class="btn btn-discussionSearch">
+                <i class="material-icons">search</i>
+            </button>
 
         <input asp-for="@Model.Discussion.Id" name="id" type="hidden" />
-
-            @*}*@
-
-
 
             <div class="sectionDescription">
                 @if (!User.Identity.IsAuthenticated)
@@ -37,7 +32,6 @@
                             to create a new post
                         </span>
                     </p>
-
                 }
             </div>
         </div>
@@ -76,6 +70,7 @@
                                             {
                                                 @Html.ActionLink("Delete", "DeletePost",
                                                          new { id = post.Id, Controller = "Post" })
+                                               
                                             }
                                             </div>
 

@@ -11,5 +11,6 @@ namespace BookClub.Data.IDAO
     {
         Review GetReviewByBook(int id);
         void AddReview(Review review);
+        void DeleteReview(int id, Review review);
     }
 }

@@ -1,37 +1,44 @@
 ﻿@model BookClub.ViewModels.Review.ReviewViewModel
 
 <div class="reviewContent">
-<table style="width: 100%; border: 1px solid black">
-    <tr>
-        <td>
-            @Model.DateCreated  @*.ToString("dd-MM-yyyy HH:mm")*@
-        </td>
-    </tr>
-    <tr>
-        <td class="reviewComment">
-                 @Model.ReviewContent
-        </td>
-    </tr>
-    <tr>
-        <td class="reviewAuthorName">
-            @Model.AuthorName
-        </td>
-    </tr>
+    <table style="width: 100%; border: 1px solid black">
+        <tr>
+            <td>
+                @Model.DateCreated  @*.ToString("dd-MM-yyyy HH:mm")*@
+            </td>
+        </tr>
+        <tr>
+            <td class="reviewComment">
+                @Model.ReviewContent
+            </td>
+        </tr>
+        <tr>
+            <td class="reviewAuthorName">
+                @Model.AuthorName
+            </td>
+        </tr>
 
-    <tr>
-        @*Displays the confirmed rating for each Users Review*@ 
-       
-        <td>
-            @for (int i = 0; i < @Model.Rating; i++)
-            {
-                <span class="glyphicon glyphicon-star" id="partialReviewStar"></span>
-            }
-            @for (int i = @Model.Rating; i < 5; i++)
-            {
-                <span class="glyphicon glyphicon-star-empty" id="partialReviewStar"></span>
-            }
-        </td>
-    </tr>
 
-</table>
+        <tr>
+            @*Displays the confirmed rating for each Users Review*@
+
+            <td>
+                @for (int i = 0; i < @Model.Rating; i++)
+                {
+                    <span class="glyphicon glyphicon-star" id="partialReviewStar"></span>
+                }
+                @for (int i = @Model.Rating; i < 5; i++)
+                {
+                    <span class="glyphicon glyphicon-star-empty" id="partialReviewStar"></span>
+                }
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <i class="glyphicon glyphicon-trash" onclick="location.href='@Url.Action("DeleteReview", "Review", new { id = Model.Id })';return false;" />
+            </td>
+        </tr>
+
+    </table>
 </div>
