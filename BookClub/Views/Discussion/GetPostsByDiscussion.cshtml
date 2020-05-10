@@ -3,47 +3,38 @@
     <div class="row sectionHeader">
         <span class="discussionTitle">@Model.Discussion.Title Discussion</span>
         <div class="sectionHeading">
-            
-        @*If the user is verified as a memeber, give them the ability to add a new post, by showing the post button*@
 
-        @if (Context.User.Identity.IsAuthenticated)
-        {
-            <span id="headingBtn">
-                @Html.ActionLink("Add Post", "AddPost",
-                             new { id = Model.Discussion.Id, Controller = "Post" }, null)
-            </span>
+            @*If the user is verified as a memeber, give them the ability to add a new post, by showing the post button*@
 
-        }
-
-        @*The search function, user can search through posts on a partiular discussion*@
-
-            @using (Html.BeginForm("Search", "Discussion", FormMethod.Post))
+            @if (Context.User.Identity.IsAuthenticated)
             {
-
-                @*@Html.TextBox("SearchQuery")*@ 
-                <input type="text" name="search" value="Search" placeholder="Search..." class="searchBar" onfocus="clearThis(this)" />
-                <button type="submit" class="btn btn-discussionSearch">
-                <i class="material-icons">search</i>
-                </button>
-
-                <input asp-for="@Model.Discussion.Id" name="id" type="hidden" />
-
-                }
-
-        <div class="sectionDescription">
-            @if (!User.Identity.IsAuthenticated)
-            {
-                <p>
-                    <span>
-                        You must be a
-                        @Html.ActionLink("registered member", "Register", "Account")
-                        to create a new post
-                    </span>
-                </p>
+                <span id="headingBtn">
+                    @Html.ActionLink("Add Post", "AddPost",
+                                 new { id = Model.Discussion.Id, Controller = "Post" }, null)
+                </span>
 
             }
+
+        <input type="text" id="Search" value="Search" placeholder="Search..." class="searchBar" onfocus="clearThis(this)" />
+            <button type="submit" class="btn btn-discussionSearch">
+                <i class="material-icons">search</i>
+            </button>
+
+        <input asp-for="@Model.Discussion.Id" name="id" type="hidden" />
+
+            <div class="sectionDescription">
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <p>
+                        <span>
+                            You must be a
+                            @Html.ActionLink("registered member", "Register", "Account")
+                            to create a new post
+                        </span>
+                    </p>
+                }
+            </div>
         </div>
-    </div>
   </div>
 
     <div class="discussionContent">
@@ -55,7 +46,7 @@
                 @foreach (var post in Model.Posts)
 
                 {
-                    <tr>
+                    <tr class="Search">
                         <td>
                             <div class="postData">
                                 <div class="postTitle">
@@ -79,6 +70,7 @@
                                             {
                                                 @Html.ActionLink("Delete", "DeletePost",
                                                          new { id = post.Id, Controller = "Post" })
+                                               
                                             }
                                             </div>
 
@@ -126,6 +118,27 @@
 
 </div>
 
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        function Contains(text_one, text_two) {
+            if (text_one.indexOf(text_two) != -1)
+                return true;
+        }
+        $("#Search").keyup(function () {
+            var searchText = $("#Search").val().toLowerCase();
+            $(".Search").each(function () {
+                if (!Contains($(this).text().toLowerCase(), searchText)) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            })
+
+        })
+    });
+</script>
 @section Scripts{
     <script>
 

@@ -22,7 +22,7 @@ namespace BookClub.Controllers
         {
             //First, finding the Id of a Book needed to add a Review.
 
-            var book = _bookService.GetBookId(id);
+           var book =  _bookService.GetBookId(id);
 
             var reviews = book.Reviews;
 
@@ -61,6 +61,20 @@ namespace BookClub.Controllers
                 return RedirectToAction("GetReviewByBook","Review", new { id = review.BookId });
             
         }
-      
+        [HttpGet]
+        public ActionResult DeleteReview(int id)
+        {
+            return View(_reviewService.GetReviewByBook(id));
+        }
+        [HttpPost]
+        public ActionResult DeleteReview(int id, Review review, Book book)
+
+        {
+            var _reviews = new Review();
+
+            _reviewService.DeleteReview(id, review);
+            return RedirectToAction("GetReviewByBook", "Review", new { id = book.Id});
+        }
+
     }
 }

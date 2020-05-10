@@ -324,6 +324,7 @@
     <Content Include="Views\Post\AjaxPost.cshtml" />
     <Content Include="Views\Post\_postTable.cshtml" />
     <Content Include="Views\Profile\UploadFile.cshtml" />
+    <Content Include="Views\Review\DeleteReview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
