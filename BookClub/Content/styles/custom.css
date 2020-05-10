@@ -169,9 +169,7 @@ h4 {
 }
 
 /*Add Reply View*/
-#replyTextArea {
-   
-}
+
 
 /*GetReviewByBook View*/
 
@@ -180,13 +178,13 @@ h4 {
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
     font-size: 30px;
 }
-div.reviewContent {
+.reviewContent {
     background-color: white;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px rgba(0, 0, 0, 0.3);
     margin-bottom:5px;
     font:bold;
 }
-div.reviewHeader {
+.reviewHeader {
     background-color: #E6E5E8;
     padding: 8px 0px 24px 24px;
     margin-bottom:5px;
@@ -234,9 +232,38 @@ div.reviewHeader {
     color:green;
 }
 
+/*User Profile View (Detail)*/
+#userEmail, #userCreated {
+    display: block;
+    color: #444;
+    font-family: 'Roboto';
+    padding-top: 3px;
+}
+
+#userName {
+    display: block;
+    color: #2569d5;
+    font-family: 'Roboto';
+    font-size: 1.7em;
+
+}
+
+.profileSectionHeading {
+    background-color: #E6E5E8;
+    padding: 8px 0px 24px 24px;
+    
+}
+
+.userProfile {
+    padding: 32px 0 64px 24px;
+    background-color: #C9FEFE;
+    border: ridge;
+}
+
 /*AddPost View*/
 b.discussionName {
     color:aqua;
     
         
 }
+

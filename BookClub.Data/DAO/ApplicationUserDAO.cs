@@ -24,5 +24,13 @@ namespace BookClub.Data.DAO
             return _context.Users.Find(id);
                 
         }
+
+        public void SetProfileImage(string id, Uri uri)
+        {
+            var user = GetApplicationUser(id);
+            user.ProfileImage = uri.AbsoluteUri;
+            _context.Users.Add(user);
+            _context.SaveChangesAsync();
+        }
     }
 }

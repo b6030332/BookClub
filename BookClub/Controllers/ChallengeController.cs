@@ -145,7 +145,6 @@ namespace BookClub.Controllers
         [HttpGet]
         public ActionResult DeleteChallenge(int id)
         {
-
             return View(_challengeService.GetChallenge(id));
         }
         [HttpPost]
