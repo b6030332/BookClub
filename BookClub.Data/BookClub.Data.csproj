@@ -96,6 +96,10 @@
     <Compile Include="Migrations\202005100941584_remove datetime from user.Designer.cs">
       <DependentUpon>202005100941584_remove datetime from user.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005101235139_post_id to PostReply.cs" />
+    <Compile Include="Migrations\202005101235139_post_id to PostReply.Designer.cs">
+      <DependentUpon>202005101235139_post_id to PostReply.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
@@ -133,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005100941584_remove datetime from user.resx">
       <DependentUpon>202005100941584_remove datetime from user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005101235139_post_id to PostReply.resx">
+      <DependentUpon>202005101235139_post_id to PostReply.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

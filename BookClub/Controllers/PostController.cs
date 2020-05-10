@@ -9,6 +9,7 @@ using System.Data.Entity;
 using System.Linq;
 using BookClub.ViewModels.JointViewModels;
 using Microsoft.AspNet.Identity;
+using System.Collections.Generic;
 
 namespace BookClub.Controllers
 {
@@ -24,55 +25,90 @@ namespace BookClub.Controllers
             _discussionService = new DiscussionService();
         }
         // GET: Post
-        public ActionResult Index()
-        {
-            return View();
-        }
+        
         public ActionResult GetPost(int id)
         {
             Post post = _postService.GetPost(id);
 
-            var replies = post.Replies;
+            var replies = BuildPostReplies(post.Replies);
 
-            var listofReplies = replies.Select(reply => new NewPostReplyModel
-            {
-                Id = reply.Id,
-                ReplyPosted = reply.Created,
-                ReplyContent = reply.Content,
-                ReplyUserId = reply.ApplicationUser.Id,
-                ReplyUserName = reply.ApplicationUser.UserName
-                
-            });
-
-            var model = new GetPostViewModel
-            {
-
-                Replies = listofReplies,
-                Posts = BuildNewPost(post)
-            };
-
-            return View(model);
-            
-            //return View("GetPost", post);
-            
-        }
-
-        private NewPostModel BuildNewPost(Post post)
-        {
-            return new NewPostModel
+            var model = new GetPostViewModel()
             {
                 PostId = post.Id,
-                PostContent = post.Content,
                 PostTitle = post.Title,
+                PostContent = post.Content,
                 DatePosted = post.Created.ToString(),
                 DiscussionName = post.Discussion.Title,
                 DiscussionId = post.Discussion.Id,
                 UserId = post.ApplicationUser.Id,
                 UserName = post.ApplicationUser.UserName,
+
+                //links BuildPostReplies & Collection of Replies in GetPostViewModel
+                Replies = replies
                 
-                
+
             };
+            return View(model);
         }
+
+        private IEnumerable<NewPostReplyModel> BuildPostReplies(ICollection<PostReply> replies)
+        {
+        //return set of PostReply View Models back to GetPostViewModel so it can use Replies property
+            return replies.Select(reply => new NewPostReplyModel
+            {
+                Id = reply.Id,
+                ReplyUserId = reply.ApplicationUser.Id,
+                ReplyUserName = reply.ApplicationUser.UserName,
+                ReplyContent = reply.Content,
+                ReplyPosted = reply.Created,
+
+                    
+
+            });
+            
+        }
+
+        //    var replies = post.Replies;
+
+        //    var listofReplies = replies.Select(reply => new NewPostReplyModel
+        //    {
+        //        Id = reply.Id,
+        //        ReplyPosted = reply.Created,
+        //        ReplyContent = reply.Content,
+        //        ReplyUserId = reply.ApplicationUser.Id,
+        //        ReplyUserName = reply.ApplicationUser.UserName
+
+        //    });
+
+        //    var model = new GetPostViewModel
+        //    {
+
+        //        Replies = listofReplies,
+        //        Posts = BuildNewPost(post)
+        //    };
+
+        //    return View(model);
+
+        //    //return View("GetPost", post);
+
+        //}
+
+        //private NewPostModel BuildNewPost(Post post)
+        //{
+        //    return new NewPostModel
+        //    {
+        //        PostId = post.Id,
+        //        PostContent = post.Content,
+        //        PostTitle = post.Title,
+        //        DatePosted = post.Created.ToString(),
+        //        DiscussionName = post.Discussion.Title,
+        //        DiscussionId = post.Discussion.Id,
+        //        UserId = post.ApplicationUser.Id,
+        //        UserName = post.ApplicationUser.UserName,
+
+
+        //    };
+        //}
 
         [HttpGet]
         public ActionResult AddPost(int id)
