@@ -1,4 +1,5 @@
-﻿using BookClub.Data.IDAO;
+﻿using BookClub.Data;
+using BookClub.Data.IDAO;
 using BookClub.Data.Models;
 using BookClub.Service.Service;
 using BookClub.ViewModels.Discussion;
@@ -14,10 +15,12 @@ namespace BookClub.Controllers
     public class DiscussionController : Controller
     {
         private readonly IDiscussionDAO _discussionService;
+        private ApplicationDbContext _context;
         //private readonly IPostDAO _postService;
        
         public DiscussionController()
         {
+            _context = new ApplicationDbContext();
             _discussionService = new DiscussionService();
         }
         
@@ -31,10 +34,10 @@ namespace BookClub.Controllers
         {
             var discussion = _discussionService.GetDiscussionID(id);
             //var posts = new List<Post>();
-            
+
             // posts = _discussionService.GetSearchedPosts(discussion, searchQuery).ToList();
-            
-             
+           
+
             var posts = discussion.Posts;
 
             //var posts = new List<Post>();
@@ -61,6 +64,7 @@ namespace BookClub.Controllers
                 
             });
 
+
             //Use custom model to grab a collection of the "ListofPosts" model & use NewDiscussion model from earlier to map values
             var model = new DiscussionPostViewModel
             {
@@ -71,6 +75,7 @@ namespace BookClub.Controllers
             };
 
             //return the model to be accessed in viewpage
+            //return View(model);
             return View(model);
         }
 
