@@ -1,4 +1,4 @@
-﻿@model BookClub.Models.Community.CommunityModel
+﻿@model BookClub.ViewModels.Community.CommunityViewModel
 
 <div class="container body-content">
     <div class="col-md-6 frontpage">
@@ -24,7 +24,7 @@
                         <div class="postTitle">
 
                             @Html.ActionLink(@post.Title, "GetPost",
-                   new { id = post.Id, Controller = "Post" })
+                   new { id = post.Id , Controller = "Post" })
 
                         </div>
                         <div class="postSubTitle">

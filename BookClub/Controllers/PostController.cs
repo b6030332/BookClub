@@ -1,11 +1,8 @@
 ﻿using BookClub.Data.IDAO;
 using BookClub.Data.Models;
-using BookClub.Models.Post;
 using BookClub.Service.Service;
+using BookClub.ViewModels.Post;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace BookClub.Controllers
@@ -14,10 +11,12 @@ namespace BookClub.Controllers
     {
         private readonly IPostDAO _postService;
         private readonly IReplyDAO _replyService;
+        private readonly IDiscussionDAO _discussionService;
         public PostController()
         {
             _postService = new PostService();
             _replyService = new ReplyService();
+            _discussionService = new DiscussionService();
         }
         // GET: Post
         public ActionResult Index()
@@ -30,6 +29,37 @@ namespace BookClub.Controllers
             return View("GetPost", post);
         }
         [HttpGet]
+        public ActionResult AddPost(int id)
+        {
+            //Find the id of discussion we're posting in 
+            var discussion = _discussionService.GetDiscussionID(id);
+
+            AddPostViewModel addPost = new AddPostViewModel();
+            addPost.DicussionName = discussion.Title;
+
+            return View(addPost);
+        }
+        [HttpPost]
+        public ActionResult AddPost(AddPostViewModel model, Discussion discussion)
+        {
+            //Map the new post values for NewPost model to be pushed into database
+
+            if (ModelState.IsValid)
+            {
+                var post = new Post();
+                post.Title = model.Title;
+                post.Content = model.Content;
+                post.Created = DateTime.Now;
+
+                //logic for adding post with user and discussion id is processed in the POSTDAO 
+
+                _postService.AddPost(post, discussion);
+                return RedirectToAction("GetPost", "Post", new { id = post.Id });
+            }
+            return View(model);
+
+        }
+        [HttpGet]
         public ActionResult DeletePost(int id)
         {
            
@@ -37,29 +67,13 @@ namespace BookClub.Controllers
         }
         [HttpPost]
         public ActionResult DeletePost(int id, Post post)
-        {
+        {   
                 var posts = new Post();
               
                 _postService.DeletePost(id, post);
                 
                 return RedirectToAction("GetPostsByDiscussion", "Discussion", new { id = post.Id });
             
-        }
-        [HttpGet]
-        public ActionResult DeleteReply(int id)
-        {
-            
-            return View( _replyService.GetReply(id));
-        }
-        [HttpPost]
-        public ActionResult DeleteReply(int id, PostReply reply)
-        {
-
-                var replies = new PostReply();
-            
-                _replyService.DeleteReply(id, reply);
-
-                return RedirectToAction("GetPost", "Post", new { id = reply.Id });
         }
         public ActionResult AjaxPost(int id)
         {

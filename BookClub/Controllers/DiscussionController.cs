@@ -1,18 +1,16 @@
 ﻿using BookClub.Data.IDAO;
 using BookClub.Data.Models;
-using BookClub.Models;
-using BookClub.Models.Discussion;
-using BookClub.Models.Post;
 using BookClub.Service.Service;
-using System;
+using BookClub.ViewModels.Discussion;
+using BookClub.ViewModels.JointViewModels;
+using BookClub.ViewModels.Post;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace BookClub.Controllers
 {
-    
+
     public class DiscussionController : Controller
     {
         private readonly IDiscussionDAO _discussionService;
@@ -48,7 +46,7 @@ namespace BookClub.Controllers
             // posts = discussion.Posts.ToList();
 
             //Map values given in new model to respective values in raw entities
-            var listofPosts = posts.Select(post => new ListofPosts
+            var listofPosts = posts.Select(post => new ListPostsModel
             {
                 Id = post.Id,
                 AuthorId = post.ApplicationUser.Id,
@@ -64,7 +62,7 @@ namespace BookClub.Controllers
             });
 
             //Use custom model to grab a collection of the "ListofPosts" model & use NewDiscussion model from earlier to map values
-            var model = new DiscussionPostModel
+            var model = new DiscussionPostViewModel
             {
                 //Map values given in custom models
                 Posts = listofPosts,
@@ -77,10 +75,10 @@ namespace BookClub.Controllers
         }
 
         
-        private NewDiscussion BuildNewDiscussion(Discussion discussion)
+        private NewDiscussionModel BuildNewDiscussion(Discussion discussion)
         {
             //Map values in NewDiscussion model to raw Discussion entity
-            return new NewDiscussion
+            return new NewDiscussionModel
             {
                Id = discussion.Id,
                Title = discussion.Title,

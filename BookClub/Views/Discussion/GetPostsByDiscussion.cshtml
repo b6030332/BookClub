@@ -1,5 +1,4 @@
-﻿@model BookClub.Models.DiscussionPostModel
-
+﻿@model BookClub.ViewModels.JointViewModels.DiscussionPostViewModel
 <div class="container body-content">
     <div class="row sectionHeader">
         <span class="discussionTitle">@Model.Discussion.Title Discussion</span>
@@ -11,7 +10,7 @@
         {
             <span id="headingBtn">
                 @Html.ActionLink("Add Post", "AddPost",
-                             new { id = Model.Discussion.Id, Controller = "Admin" }, null)
+                             new { id = Model.Discussion.Id, Controller = "Post" }, null)
             </span>
 
         }

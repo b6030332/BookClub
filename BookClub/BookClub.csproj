@@ -195,22 +195,23 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Community\CommunityModel.cs" />
     <Compile Include="Models\JointViews\BookDiscussionModel.cs" />
-    <Compile Include="Models\Book\NewBook.cs" />
-    <Compile Include="Models\JointViews\BookReviewModel.cs" />
-    <Compile Include="Models\JointViews\DiscussionPostModel.cs" />
-    <Compile Include="Models\Discussion\ListofDiscussions.cs" />
-    <Compile Include="Models\Discussion\NewDiscussion.cs" />
+    <Compile Include="ViewModels\Book\NewBook.cs" />
+    <Compile Include="ViewModels\Community\CommunityViewModel.cs" />
+    <Compile Include="ViewModels\Discussion\ListofDiscussions.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Post\ListofPosts.cs" />
-    <Compile Include="Models\Post\NewPost.cs" />
     <Compile Include="Models\Profile\ProfileModel.cs" />
-    <Compile Include="Models\Reply\ListofPostReply.cs" />
-    <Compile Include="Models\Reply\NewPostReply.cs" />
-    <Compile Include="Models\Review\ReviewViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\Book\BookDetailViewModel.cs" />
+    <Compile Include="ViewModels\Discussion\AddDiscussionViewModel.cs" />
+    <Compile Include="ViewModels\Discussion\NewDiscussionModel.cs" />
+    <Compile Include="ViewModels\JointViewModels\BookDiscussionViewModel.cs" />
+    <Compile Include="ViewModels\JointViewModels\DiscussionPostViewModel.cs" />
+    <Compile Include="ViewModels\Post\AddPostViewModel.cs" />
+    <Compile Include="ViewModels\Post\ListPostsModel.cs" />
+    <Compile Include="ViewModels\Reply\AddReplyViewModel.cs" />
+    <Compile Include="ViewModels\Review\ReviewViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -294,7 +295,7 @@
     <Content Include="Views\Challenge\GetChallenges.cshtml" />
     <Content Include="Views\Challenge\AddChallenge.cshtml" />
     <Content Include="Views\Challenge\_ChallengeTable.cshtml" />
-    <Content Include="Views\Admin\AddPost.cshtml" />
+    <Content Include="Views\Post\AddPost.cshtml" />
     <Content Include="Views\Admin\AddDiscussion.cshtml" />
     <Content Include="Views\Discussion\GetPostsByDiscussion.cshtml" />
     <Content Include="Views\Book\GetB.cshtml" />
@@ -302,7 +303,7 @@
     <Content Include="Views\Review\_ReviewContentPartial.cshtml" />
     <Content Include="Views\Review\GetReviewByBook.cshtml" />
     <Content Include="Views\Challenge\DeleteChallenge.cshtml" />
-    <Content Include="Views\Admin\AddReply_.cshtml" />
+    <Content Include="Views\Reply\AddReply.cshtml" />
     <Content Include="Views\Profile\Detail.cshtml" />
     <Content Include="Views\UserAdmin\GetAllUsers.cshtml" />
     <Content Include="Views\UserAdmin\AddRole.cshtml" />
@@ -312,7 +313,7 @@
     <Content Include="Views\UserAdmin\GetRolesforUserConfirmed.cshtml" />
     <Content Include="Views\Admin\AddBook.cshtml" />
     <Content Include="Views\Post\DeletePost.cshtml" />
-    <Content Include="Views\Post\DeleteReply.cshtml" />
+    <Content Include="Views\Reply\DeleteReply.cshtml" />
     <Content Include="Views\Post\AjaxPost.cshtml" />
     <Content Include="Views\Post\_postTable.cshtml" />
     <Content Include="Views\Profile\UploadFile.cshtml" />

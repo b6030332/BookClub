@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using BookClub.Data.Models;
 
-namespace BookClub.Models.Post
+namespace BookClub.ViewModels.Post
 {
-    public class ListofPosts
+    public class ListPostsModel
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -24,8 +23,5 @@ namespace BookClub.Models.Post
         public string BookImage { get; set; }
 
         public int RepliesCount { get; set; }
-
-
-       
     }
 }
