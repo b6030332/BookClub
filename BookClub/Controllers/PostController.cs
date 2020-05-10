@@ -2,8 +2,13 @@
 using BookClub.Data.Models;
 using BookClub.Service.Service;
 using BookClub.ViewModels.Post;
+using BookClub.ViewModels.Reply;
 using System;
 using System.Web.Mvc;
+using System.Data.Entity;
+using System.Linq;
+using BookClub.ViewModels.JointViewModels;
+using Microsoft.AspNet.Identity;
 
 namespace BookClub.Controllers
 {
@@ -26,8 +31,49 @@ namespace BookClub.Controllers
         public ActionResult GetPost(int id)
         {
             Post post = _postService.GetPost(id);
-            return View("GetPost", post);
+
+            var replies = post.Replies;
+
+            var listofReplies = replies.Select(reply => new NewPostReplyModel
+            {
+                Id = reply.Id,
+                ReplyPosted = reply.Created,
+                ReplyContent = reply.Content,
+                ReplyUserId = reply.ApplicationUser.Id,
+                ReplyUserName = reply.ApplicationUser.UserName
+                
+            });
+
+            var model = new GetPostViewModel
+            {
+
+                Replies = listofReplies,
+                Posts = BuildNewPost(post)
+            };
+
+            return View(model);
+            
+            //return View("GetPost", post);
+            
         }
+
+        private NewPostModel BuildNewPost(Post post)
+        {
+            return new NewPostModel
+            {
+                PostId = post.Id,
+                PostContent = post.Content,
+                PostTitle = post.Title,
+                DatePosted = post.Created.ToString(),
+                DiscussionName = post.Discussion.Title,
+                DiscussionId = post.Discussion.Id,
+                UserId = post.ApplicationUser.Id,
+                UserName = post.ApplicationUser.UserName,
+                
+                
+            };
+        }
+
         [HttpGet]
         public ActionResult AddPost(int id)
         {
@@ -67,13 +113,18 @@ namespace BookClub.Controllers
         }
         [HttpPost]
         public ActionResult DeletePost(int id, Post post)
-        {   
-                var posts = new Post();
-              
-                _postService.DeletePost(id, post);
-                
-                return RedirectToAction("GetPostsByDiscussion", "Discussion", new { id = post.Id });
-            
+        {
+
+            Post posts = _postService.GetPost(id);
+
+            // if (posts.ApplicationUser.Id == HttpContext.User.Identity.GetUserId())
+            //{
+
+            //var posts = new Post();
+
+            _postService.DeletePost(post);
+
+            return RedirectToAction("GetAllDiscussions", "Discussion");
         }
         public ActionResult AjaxPost(int id)
         {

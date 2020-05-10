@@ -47,7 +47,6 @@ namespace BookClub.Controllers
                 UserId = user.Id,
                 Username = user.UserName,
                 Email = user.Email,
-                MemberSince = user.MemberSince,
                 IsAdmin = User.IsInRole("Admin"),
                 IsMember = User.IsInRole("Member")
 

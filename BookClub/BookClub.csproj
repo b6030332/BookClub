@@ -208,9 +208,12 @@
     <Compile Include="ViewModels\Discussion\NewDiscussionModel.cs" />
     <Compile Include="ViewModels\JointViewModels\BookDiscussionViewModel.cs" />
     <Compile Include="ViewModels\JointViewModels\DiscussionPostViewModel.cs" />
+    <Compile Include="ViewModels\JointViewModels\GetPostViewModel.cs" />
     <Compile Include="ViewModels\Post\AddPostViewModel.cs" />
     <Compile Include="ViewModels\Post\ListPostsModel.cs" />
+    <Compile Include="ViewModels\Post\NewPostModel.cs" />
     <Compile Include="ViewModels\Reply\AddReplyViewModel.cs" />
+    <Compile Include="ViewModels\Reply\NewPostReplyModel.cs" />
     <Compile Include="ViewModels\Review\ReviewViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

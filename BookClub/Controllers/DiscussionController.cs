@@ -77,6 +77,7 @@ namespace BookClub.Controllers
         
         private NewDiscussionModel BuildNewDiscussion(Discussion discussion)
         {
+
             //Map values in NewDiscussion model to raw Discussion entity
             return new NewDiscussionModel
             {

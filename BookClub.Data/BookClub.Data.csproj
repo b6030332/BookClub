@@ -92,6 +92,10 @@
     <Compile Include="Migrations\202005071402559_changed fk in book.Designer.cs">
       <DependentUpon>202005071402559_changed fk in book.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005100941584_remove datetime from user.cs" />
+    <Compile Include="Migrations\202005100941584_remove datetime from user.Designer.cs">
+      <DependentUpon>202005100941584_remove datetime from user.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
@@ -126,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005071402559_changed fk in book.resx">
       <DependentUpon>202005071402559_changed fk in book.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005100941584_remove datetime from user.resx">
+      <DependentUpon>202005100941584_remove datetime from user.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

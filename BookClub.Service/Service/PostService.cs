@@ -23,9 +23,9 @@ namespace BookClub.Service.Service
         {
             _dao.AddPost(post, discussion);
         }
-        public void DeletePost(int id, Post post)
+        public void DeletePost(Post post)
         {
-            _dao.DeletePost(id, post);
+            _dao.DeletePost(post);
         }
 
         public IEnumerable<Post> GetAllPosts()

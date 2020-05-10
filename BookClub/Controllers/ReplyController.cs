@@ -2,6 +2,7 @@
 using BookClub.Data.Models;
 using BookClub.Service.Service;
 using BookClub.ViewModels.Reply;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Web.Mvc;
 
@@ -19,6 +20,7 @@ namespace BookClub.Controllers
         [HttpGet]
         public ActionResult DeleteReply(int id)
         {
+            var reply = _replyService.GetReply(id);
             var post = _postService.GetPost(id);
 
             return View(_replyService.GetReply(id));
@@ -27,9 +29,17 @@ namespace BookClub.Controllers
         public ActionResult DeleteReply(int id, PostReply reply, Post posts)
         {
 
-            var replies = new PostReply();
+            var replies = _replyService.GetReply(id);
 
-            _replyService.DeleteReply(id, reply, posts);
+            if (replies.ApplicationUser.Id == HttpContext.User.Identity.GetUserId())
+            //{
+
+                _replyService.DeleteReply(id, reply, posts);
+
+            //}
+            //var replies = new PostReply();
+
+           
 
             return RedirectToAction("GetPost", "Post", new { id = posts.Id });
         }
