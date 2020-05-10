@@ -13,7 +13,7 @@ namespace BookClub.Data.IDAO
         IEnumerable<Post> GetRecentPosts(int nofposts);
         IEnumerable<Post> GetAllPosts();
         void AddPost(Post post, Discussion discussion);
-        void DeletePost(int id, Post post);
+        void DeletePost(Post post);
 
 
         //Ajax methods

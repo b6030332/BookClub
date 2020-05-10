@@ -14,6 +14,6 @@ namespace BookClub.Models.Profile
         public HttpPostedFile ImageFile { get; set; }
         public bool IsAdmin { get; set; }
         public bool IsMember { get; set; }
-        public DateTime? MemberSince { get; set; }
+       
     }
 }

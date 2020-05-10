@@ -29,7 +29,7 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm("DeleteReply", "Reply")){ @*FormMethod.Post, new { id = Model.Id })*@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

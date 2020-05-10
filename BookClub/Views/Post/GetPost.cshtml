@@ -1,109 +1,110 @@
-﻿@model BookClub.Data.Models.Post
+﻿@using Microsoft.AspNet.Identity
+
+@model BookClub.ViewModels.JointViewModels.GetPostViewModel
 
 <div class="containter body-content">
     <div class="row postHeader">
         <div class="postHeading">
             <span class="postTitle">
-               @Model.Title
+                @Model.Posts.PostTitle
             </span>
-            
+
             <h4>
                 Go back to the
-                @Html.ActionLink(Model.Discussion.Title, "GetPostsByDiscussion",
+                @Html.ActionLink(Model.Posts.DiscussionName, "GetPostsByDiscussion",
 
-             new { id = Model.Discussion.Id, Controller = "Discussion" })
+             new { id = Model.Posts.DiscussionId , Controller = "Discussion" })
                 discussion
             </h4>
-            
+
         </div>
     </div>
 
     <div class="row" id="postContent">
         <div class="col-md-3 postAuthorContainer">
-            @Html.ActionLink(Model.ApplicationUser.UserName, "Detail",
+            @Html.ActionLink(Model.Posts.UserName, "Detail",
 
-               new { id = Model.ApplicationUser.Id, Controller = "Profile" })
+               new { id = Model.Posts.UserId, Controller = "Profile" })
 
-            <span class="postData">@Model.Created</span>
+            <span class="postData">@Model.Posts.DatePosted</span>
         </div>
 
         <div class="col-md-9 postContentContainer">
             <div class="postContent">
-                @Html.Raw(Model.Content)
+                @Html.Raw(Model.Posts.PostContent)
             </div>
         </div>
 
         <div class="deletePost">
-            @if (User.Identity.IsAuthenticated)
-
-            {
-                @Html.ActionLink("Delete", "DeletePost",
-                         new { id = Model.Id, Controller = "Post" })
-            }
-        </div>
+            @if (Model.Posts.UserId == User.Identity.GetUserId())
+                {
+                    @Html.ActionLink("Delete", "DeletePost",
+                             new { id = Model.Posts.PostId, Controller = "Post" })
+                }
+            </div>
     </div>
 
-<div class="row" id="replyDivide"></div>
-@if(User.Identity.IsAuthenticated)
-{
-
-<div class="row" id="postReplyRow">
-    <span>
-        @Html.ActionLink("Post reply", "AddReply",
-
-  new { id = Model.Id, Controller = "Reply" })
-    </span>
-
-</div>
-} 
+    <div class="row" id="replyDivide"></div>
     
-@if (Model.Replies.Any())
+    @if (User.Identity.IsAuthenticated)
+    { 
+    <div class="row" id="postReplyRow">
+        <span>
+            @Html.ActionLink("Post reply", "AddReply",
+
+      new { id = Model.Posts.PostId, Controller = "Reply" })
+        </span>
+        
+    </div>
+    }
+
+    @if (Model.Replies.Any())
     {
         foreach (var reply in Model.Replies)
         {
-<div class="row" id="replyContent">
-    <div class="col-md-3 replyAuthorContainer">
+            <div class="row" id="replyContent">
+                <div class="col-md-3 replyAuthorContainer">
 
-        @Html.ActionLink(reply.ApplicationUser.UserName, "Detail",
+                    @Html.ActionLink(reply.ReplyUserName, "Detail",
 
- new { id = reply.ApplicationUser.Id, Controller = "Profile" })
+             new { id = reply.ReplyUserId, Controller = "Profile" })
 
-        <span class="postData">@reply.Created</span>
-    </div>
+                    <span class="postData">@reply.ReplyPosted</span>
+                </div>
 
 
-    <div class="col-md-9 replyContentContainer">
-        <div class="replypostContent">
-            @Html.Raw(reply.Content)
-        </div>
-    </div>
+                <div class="col-md-9 replyContentContainer">
+                    <div class="replypostContent">
+                        @Html.Raw(reply.ReplyContent)
+                    </div>
+                </div>
 
-    <div class="row" id="deleteReply"></div>
-    @if (User.Identity.IsAuthenticated)
-    {
-        <div class="row" id="deleteReplyRow">
-            <div>
-                @Html.ActionLink("Delete", "DeleteReply",
+                <div class="row" id="deleteReply"></div>
+                @if (reply.ReplyUserId == User.Identity.GetUserId())
+                {
+                    <div class="row" id="deleteReplyRow">
+                        <div>
+                            @Html.ActionLink("Delete", "DeleteReply",
 
-          new { id = reply.Id , Controller = "Reply" })
+                      new { id = reply.Id , Controller = "Reply" })
+                        </div>
+                    </div>
+                }
+
             </div>
-        </div>
-    }
-
-</div>
         }
 
     }
     else
     {
-<div class="noPosts">
+        <div class="noPosts">
 
-    <h3>
-        There are no replies to this post. <br />
+            <h3>
+                There are no replies to this post. <br />
 
-    </h3>
+            </h3>
 
-</div>
-}
+        </div>
+    }
 </div>
 
