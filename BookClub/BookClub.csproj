@@ -315,9 +315,11 @@
     <Content Include="Views\Post\DeleteReply.cshtml" />
     <Content Include="Views\Post\AjaxPost.cshtml" />
     <Content Include="Views\Post\_postTable.cshtml" />
+    <Content Include="Views\Profile\UploadFile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UploadedFiles\" />
     <Folder Include="Views\Reply\" />
   </ItemGroup>
   <ItemGroup>

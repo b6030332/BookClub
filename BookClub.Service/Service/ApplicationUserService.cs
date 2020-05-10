@@ -26,5 +26,10 @@ namespace BookClub.Service.Service
         {
             return _dao.GetApplicationUser(id);
         }
+
+        public void SetProfileImage(string id, Uri uri)
+        {
+            _dao.SetProfileImage(id,uri);
+        }
     }
 }
