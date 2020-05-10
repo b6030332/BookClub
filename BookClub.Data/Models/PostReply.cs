@@ -12,6 +12,7 @@ namespace BookClub.Data.Models
         public int Id { get; set; }
         public string Content { get; set; }
         public DateTime Created { get; set; }
+        public int? PostId { get; set; }
        
         public virtual Post Post { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }

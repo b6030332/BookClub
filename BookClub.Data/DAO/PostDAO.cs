@@ -41,8 +41,6 @@ namespace BookClub.Data.DAO
         }
         public void DeletePost(Post post)
         {
-            
-
             //find post instance of post to deleete
             var deletePost = _context.Post.FirstOrDefault(p => p.Id == post.Id);
             
@@ -64,8 +62,16 @@ namespace BookClub.Data.DAO
         public Post GetPost(int id)
         {
             return _context.Post.Find(id);
+
+                //.Where(p => p.Id == id)
+                //.Include(p => p.ApplicationUser)
+                //.Include(p => p.Replies)
+                //.Include(p => p.Discussion)
+                //.FirstOrDefault(p => p.Id == id);
+
                 
-               
+
+
         }
 
         //Grab a collection of recent posts to display

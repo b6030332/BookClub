@@ -228,7 +228,11 @@
     <Content Include="Content\images\books\mindhunter.jpg" />
     <Content Include="Content\images\books\the_handmaids_tale.jpg" />
     <Content Include="Content\images\books\the_shining.jpg" />
+    <Content Include="Content\images\home\bookShelf.jpg" />
+    <Content Include="Content\images\home\community.jpg" />
+    <Content Include="Content\images\home\members.jpg" />
     <Content Include="Content\styles\custom.css" />
+    <Content Include="Content\images\fonts\LibreBaskerville-Bold.ttf" />
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
     <Content Include="Scripts\Custom_Scripts\ChallengeTable.js" />
     <Content Include="Scripts\Custom_Scripts\CheckBoxListener.js" />
@@ -324,7 +328,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="UploadedFiles\" />
-    <Folder Include="Views\Reply\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -41,11 +41,10 @@ namespace BookClub.Data.DAO
 
         public void DeleteReply(int id, PostReply reply, Post posts)
         {
-           // if (reply.ApplicationUser.Id == HttpContext.Current.User.Identity.GetUserId())
-           // {
-                //var post = _context.Post.FirstOrDefault(p => p.Id == posts.Id);
 
-            
+                var currentPost = _context.Post.FirstOrDefault(p => p.Id == posts.Id);
+
+                reply.Post = currentPost;
 
                 var replytoDelete = _context.Replies.FirstOrDefault(r => r.Id == id);
 
@@ -56,7 +55,11 @@ namespace BookClub.Data.DAO
                     _context.SaveChanges();
                 }
          }
-        
+
+        public ICollection<PostReply> GetAllReplies()
+        {
+            return _context.Replies.ToArray();
+        }
 
         public PostReply GetReply(int id)
         {
