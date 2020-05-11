@@ -80,6 +80,10 @@
     <Compile Include="Migrations\202005111934011_empty.Designer.cs">
       <DependentUpon>202005111934011_empty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005111444482_added firstname and lastname.cs" />
+    <Compile Include="Migrations\202005111444482_added firstname and lastname.Designer.cs">
+      <DependentUpon>202005111444482_added firstname and lastname.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
@@ -105,6 +109,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202005111934011_empty.resx">
       <DependentUpon>202005111934011_empty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005111444482_added firstname and lastname.resx">
+      <DependentUpon>202005111444482_added firstname and lastname.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

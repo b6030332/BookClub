@@ -361,3 +361,27 @@ b.discussionName {
     
 }
 
+/*GetAllApplicationUsers View*/
+#userTable {
+    font-size: 1.3em;
+    
+}
+
+#userTable td {
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
+}
+
+#userTable tr:hover {
+    background-color: #eee;
+}
+.customTable td {
+    text-align: left;
+    font-size: 1.2em;
+}
+.customTable th {
+    text-align: left;
+    color: black;
+    font-size: 1.3em;
+}
+
