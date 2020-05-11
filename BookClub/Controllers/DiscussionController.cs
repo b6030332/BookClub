@@ -92,11 +92,7 @@ namespace BookClub.Controllers
             };
         }
 
-        [HttpPost]
-        public ActionResult Search(int id, string searchQuery)
-        {
-            return RedirectToAction("GetPostsByDiscussion", new { id, searchQuery});
-        }
+        
     }
 
 }

@@ -21,18 +21,18 @@ namespace BookClub.Controllers
         public ActionResult DeleteReply(int id)
         {
           
-            //var post = _postService.GetPost(id);
+           // var post = _postService.GetPost(id);
 
             return View(_replyService.GetReply(id));
         }
         [HttpPost]
-        public ActionResult DeleteReply(int id, PostReply reply, Post posts)
+        public ActionResult DeleteReply(int id, PostReply reply, Post post)
         {
             PostReply replies = new PostReply();
             
-            _replyService.DeleteReply(id, reply, posts);
-            
-            return RedirectToAction("GetPost", "Post", new { posts.Id });
+            _replyService.DeleteReply(id, reply, post);
+
+            return RedirectToAction("GetPost", "Post", new { id = post.Id });
         }
         [HttpGet]
         public ActionResult AddReply(int id)
