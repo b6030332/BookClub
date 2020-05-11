@@ -50,7 +50,8 @@ namespace BookClub.Controllers
                 Price = books.Price,
                 Publisher = books.Publisher,
                 Format = books.Format,
-                Blurb = books.Blurb
+                Blurb = books.Blurb,
+                Year = books.Year
             };
 
             return View(bookDetail);

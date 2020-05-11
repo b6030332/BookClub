@@ -82,5 +82,28 @@ namespace BookClub.Controllers
                 return View();
             }
         }
+
+        [HttpGet]
+        public ActionResult UpdateBook(int id)
+        {
+            Book book = _bookService.GetBookId(id);
+            ViewBag.AuthorId = new SelectList(_authorService.GetAllAuthors(), "ID", "Name", book.AuthorId);
+            ViewBag.GenreId = new SelectList(_genreService.GetAllGenres(), "ID", "Name", book.GenreId);
+
+            return View(book);
+        }
+        [HttpPost]
+        public ActionResult UpdateBook(int id, Book book)
+        {
+            try
+            {
+                _bookService.UpdateBook(book);
+                return RedirectToAction("GetAllBooks", "Book", new { id = book.Id });
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }
