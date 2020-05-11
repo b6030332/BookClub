@@ -196,6 +196,8 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\JointViews\BookDiscussionModel.cs" />
+    <Compile Include="ViewModels\AdminUsers\AllUsersViewModel.cs" />
+    <Compile Include="ViewModels\AdminUsers\NewUserModel.cs" />
     <Compile Include="ViewModels\Book\NewBook.cs" />
     <Compile Include="ViewModels\Community\CommunityViewModel.cs" />
     <Compile Include="ViewModels\Discussion\ListofDiscussions.cs" />
@@ -325,6 +327,7 @@
     <Content Include="Views\Post\_postTable.cshtml" />
     <Content Include="Views\Profile\UploadFile.cshtml" />
     <Content Include="Views\Review\DeleteReview.cshtml" />
+    <Content Include="Views\UserAdmin\GetAllApplicationUsers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
