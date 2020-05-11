@@ -31,5 +31,10 @@ namespace BookClub.Service.Service
         {
             return _dao.GetReply(id);
         }
+
+        public void UpdateReply(PostReply reply)
+        {
+            _dao.UpdateReply(reply);
+        }
     }
 }

@@ -65,6 +65,13 @@ namespace BookClub.Data.DAO
         {
             return _context.Replies.Find(id);
         }
-        
+
+        public void UpdateReply(PostReply reply)
+        {
+            PostReply _reply = GetReply(reply.Id);
+            _reply.Content = reply.Content;
+            _context.SaveChanges();
+        }
+
     }
 }

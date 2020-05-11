@@ -329,7 +329,7 @@
     <Content Include="Views\Review\DeleteReview.cshtml" />
     <Content Include="Views\Post\UpdatePost.cshtml" />
     <Content Include="Views\UserAdmin\GetAllApplicationUsers.cshtml" />
-
+    <Content Include="Views\Reply\UpdateReply.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
