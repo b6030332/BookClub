@@ -37,5 +37,21 @@ namespace BookClub.Data.DAO
             Book book = _context.Book.Find(id);
             return book.Discussions.ToList();
         }
+
+        public void UpdateBook(Book book)
+        {
+            Book _book = GetBookId(book.Id);
+            _book.Image = book.Image;
+            _book.Title = book.Title;
+            _book.Year = book.Year;
+            _book.Publisher = book.Publisher;
+            _book.Format = book.Format;
+            _book.Price = book.Price;
+            _book.Blurb = book.Blurb;
+            _book.ISBN = book.ISBN;
+            _book.GenreId = book.GenreId;
+            _book.AuthorId = book.AuthorId;
+            _context.SaveChanges();
+        }
     }
 }

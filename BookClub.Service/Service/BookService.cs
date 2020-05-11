@@ -39,5 +39,9 @@ namespace BookClub.Service.Service
             return discussions;
         }
 
+        public void UpdateBook(Book book)
+        {
+            _dao.UpdateBook(book);
+        }
     }
 }
