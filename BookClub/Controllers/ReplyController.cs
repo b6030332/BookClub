@@ -70,5 +70,25 @@ namespace BookClub.Controllers
 
             return View(model);
         }
+
+        [HttpGet]
+        public ActionResult UpdateReply(int id)
+        {
+            PostReply reply = _replyService.GetReply(id);
+            return View(reply);
+        }
+        [HttpPost]
+        public ActionResult UpdateReply(int id, PostReply reply, Post post)
+        {
+            try
+            {
+                _replyService.UpdateReply(reply);
+                return RedirectToAction("GetPost", "Post", new { id = reply.Id });
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }
