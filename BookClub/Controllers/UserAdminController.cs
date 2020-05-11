@@ -1,23 +1,62 @@
 ﻿using BookClub.Data;
+using BookClub.Data.DAO;
+using BookClub.Data.IDAO;
+using BookClub.Service.Service;
+using BookClub.ViewModels.AdminUsers;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace BookClub.Controllers
 {
     public class UserAdminController : Controller
     {
         private ApplicationDbContext _context;
-
+        private IApplicationUserDAO _userService;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         public UserAdminController()
         {
+            _userService = new ApplicationUserService();
             _context = new ApplicationDbContext();
+            _userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(_context));
+            _roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(_context));
         }
+        public ActionResult GetAllApplicationUsers()
+        {
+            var applicationUser = _userService.GetAllApplicationUsers();
+            //  string[] userId = _userManager.Users.Where(u => u.Id == Id)
+            //      .FirstOrDefault();
 
+          //  var userManager = Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
+            var userModel = applicationUser.Select(u => new NewUserModel
+            {
+                Id = u.Id,
+                FirstName = u.FirstName,
+                LastName = u.LastName,
+                UserName = u.UserName,
+               // Rolesforthisuser = _userManager.GetRoles(u.Id)
+
+            }).ToList();
+
+            var model = new AllUsersViewModel()
+            {
+
+                AppUsers = userModel,
+                //Rolesforthisuser = _userManager.GetRoles(User.Identity.GetUserId())
+
+            };
+
+        return View(model);
+
+        }
         // GET: UserAdmin
         public ActionResult GetAllUsers()
         {
