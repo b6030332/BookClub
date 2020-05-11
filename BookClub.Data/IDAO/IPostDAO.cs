@@ -14,6 +14,7 @@ namespace BookClub.Data.IDAO
         IEnumerable<Post> GetAllPosts();
         void AddPost(Post post, Discussion discussion);
         void DeletePost(Post post);
+        void UpdatePost(Post post);
 
 
         //Ajax methods

@@ -76,29 +76,9 @@
     <Compile Include="IDAO\IPostDAO.cs" />
     <Compile Include="IDAO\IReplyDAO.cs" />
     <Compile Include="IDAO\IReviewDAO.cs" />
-    <Compile Include="Migrations\202005041529468_new migration.cs" />
-    <Compile Include="Migrations\202005041529468_new migration.Designer.cs">
-      <DependentUpon>202005041529468_new migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005071337015_added genre_id.cs" />
-    <Compile Include="Migrations\202005071337015_added genre_id.Designer.cs">
-      <DependentUpon>202005071337015_added genre_id.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005071401102_added author_id to book.cs" />
-    <Compile Include="Migrations\202005071401102_added author_id to book.Designer.cs">
-      <DependentUpon>202005071401102_added author_id to book.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005071402559_changed fk in book.cs" />
-    <Compile Include="Migrations\202005071402559_changed fk in book.Designer.cs">
-      <DependentUpon>202005071402559_changed fk in book.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005100941584_remove datetime from user.cs" />
-    <Compile Include="Migrations\202005100941584_remove datetime from user.Designer.cs">
-      <DependentUpon>202005100941584_remove datetime from user.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005101235139_post_id to PostReply.cs" />
-    <Compile Include="Migrations\202005101235139_post_id to PostReply.Designer.cs">
-      <DependentUpon>202005101235139_post_id to PostReply.cs</DependentUpon>
+    <Compile Include="Migrations\202005111934011_empty.cs" />
+    <Compile Include="Migrations\202005111934011_empty.Designer.cs">
+      <DependentUpon>202005111934011_empty.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202005111444482_added firstname and lastname.cs" />
     <Compile Include="Migrations\202005111444482_added firstname and lastname.Designer.cs">
@@ -127,23 +107,8 @@
     <Content Include="Custom_Scripts\jquery.unobtrusive-ajax.min.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005041529468_new migration.resx">
-      <DependentUpon>202005041529468_new migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005071337015_added genre_id.resx">
-      <DependentUpon>202005071337015_added genre_id.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005071401102_added author_id to book.resx">
-      <DependentUpon>202005071401102_added author_id to book.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005071402559_changed fk in book.resx">
-      <DependentUpon>202005071402559_changed fk in book.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005100941584_remove datetime from user.resx">
-      <DependentUpon>202005100941584_remove datetime from user.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005101235139_post_id to PostReply.resx">
-      <DependentUpon>202005101235139_post_id to PostReply.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005111934011_empty.resx">
+      <DependentUpon>202005111934011_empty.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005111444482_added firstname and lastname.resx">
       <DependentUpon>202005111444482_added firstname and lastname.cs</DependentUpon>

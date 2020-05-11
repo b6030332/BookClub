@@ -327,7 +327,9 @@
     <Content Include="Views\Post\_postTable.cshtml" />
     <Content Include="Views\Profile\UploadFile.cshtml" />
     <Content Include="Views\Review\DeleteReview.cshtml" />
+    <Content Include="Views\Post\UpdatePost.cshtml" />
     <Content Include="Views\UserAdmin\GetAllApplicationUsers.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -192,6 +192,26 @@ namespace BookClub.Controllers
             return PartialView("_ChallengeTable", BuildPostTable());
         }
 
+        [HttpGet]
+        public ActionResult UpdatePost(int id)
+        {
+            Post post = _postService.GetPost(id);
+            return View(post);
+        }
+        [HttpPost]
+        public ActionResult UpdatePost(int id, Post post)
+        {
+            try
+            {
+                _postService.UpdatePost(post);
+                return RedirectToAction("GetPost", "Post", new { id = post.Id });
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
 
 
 

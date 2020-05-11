@@ -104,5 +104,13 @@ namespace BookClub.Data.DAO
             _context.Replies.Add(replies);
             _context.SaveChanges();
         }
+
+        public void UpdatePost(Post post)
+        {
+            Post _post = GetPost(post.Id);
+            _post.Content = post.Content;
+            _post.Title = post.Title;
+            _context.SaveChanges();
+        }
     } 
 }

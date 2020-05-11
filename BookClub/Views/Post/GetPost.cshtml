@@ -38,11 +38,17 @@
         <div class="deletePost">
 
             @if (Model.UserId == User.Identity.GetUserId())
-                {
-                    @Html.ActionLink("Delete", "DeletePost",
-                             new { id = Model.PostId, Controller = "Post" })
-                }
-            </div>
+            {
+                <div>
+                @Html.ActionLink("Delete", "DeletePost",
+                         new { id = Model.PostId, Controller = "Post" })
+                    </div>
+                    <div>
+                @Html.ActionLink("Edit", "UpdatePost",
+                         new { id = Model.PostId, Controller = "Post" })
+                        </div>
+            }
+        </div>
 
        
     </div>

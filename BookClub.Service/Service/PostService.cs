@@ -56,5 +56,10 @@ namespace BookClub.Service.Service
         {
             _dao.AJAXAddReply(replies);
         }
+
+        public void UpdatePost(Post post)
+        {
+            _dao.UpdatePost(post);
+        }
     }
 }
