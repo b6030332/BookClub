@@ -7,13 +7,13 @@ namespace BookClub.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class next : IMigrationMetadata
+    public sealed partial class cascademigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(next));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(cascademigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202005111957570_next"; }
+            get { return "202005112103441_cascade migration"; }
         }
         
         string IMigrationMetadata.Source

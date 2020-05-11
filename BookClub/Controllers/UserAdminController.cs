@@ -28,13 +28,15 @@ namespace BookClub.Controllers
             _userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(_context));
             _roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(_context));
         }
-        public ActionResult GetAllApplicationUsers()
+        public ActionResult GetAllApplicationUsers(string roleId)
         {
             var applicationUser = _userService.GetAllApplicationUsers();
             //  string[] userId = _userManager.Users.Where(u => u.Id == Id)
             //      .FirstOrDefault();
 
-          //  var userManager = Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            //  var userManager = Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
+            //var role = _context.Roles.SingleOrDefault(r => r.Id == roleId);
 
             var userModel = applicationUser.Select(u => new NewUserModel
             {

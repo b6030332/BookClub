@@ -76,17 +76,9 @@
     <Compile Include="IDAO\IPostDAO.cs" />
     <Compile Include="IDAO\IReplyDAO.cs" />
     <Compile Include="IDAO\IReviewDAO.cs" />
-    <Compile Include="Migrations\202005111934011_empty.cs" />
-    <Compile Include="Migrations\202005111934011_empty.Designer.cs">
-      <DependentUpon>202005111934011_empty.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005111444482_added firstname and lastname.cs" />
-    <Compile Include="Migrations\202005111444482_added firstname and lastname.Designer.cs">
-      <DependentUpon>202005111444482_added firstname and lastname.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005111957570_next.cs" />
-    <Compile Include="Migrations\202005111957570_next.Designer.cs">
-      <DependentUpon>202005111957570_next.cs</DependentUpon>
+    <Compile Include="Migrations\202005112103441_cascade migration.cs" />
+    <Compile Include="Migrations\202005112103441_cascade migration.Designer.cs">
+      <DependentUpon>202005112103441_cascade migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
@@ -111,14 +103,8 @@
     <Content Include="Custom_Scripts\jquery.unobtrusive-ajax.min.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005111934011_empty.resx">
-      <DependentUpon>202005111934011_empty.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005111444482_added firstname and lastname.resx">
-      <DependentUpon>202005111444482_added firstname and lastname.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005111957570_next.resx">
-      <DependentUpon>202005111957570_next.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005112103441_cascade migration.resx">
+      <DependentUpon>202005112103441_cascade migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
