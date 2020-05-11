@@ -28,17 +28,17 @@ namespace BookClub.Data.DAO
         public IEnumerable<Discussion> GetAllDiscussions()
         {
             return _context.Discussion;
-                
-                
+
+
         }
 
         public Discussion GetDiscussionID(int id)
         {
             Discussion discussion = _context.Discussion.Find(id);
-                 //.Where(d => d.Id == id)
-                 //.Include(d => d.Posts.Select(p => p.ApplicationUser))
-                 //.Include(d => d.Posts.Select(p => p.Replies.Select(r => r.ApplicationUser)))
-                 //.FirstOrDefault();
+            //.Where(d => d.Id == id)
+            //.Include(d => d.Posts.Select(p => p.ApplicationUser))
+            //.Include(d => d.Posts.Select(p => p.Replies.Select(r => r.ApplicationUser)))
+            //.FirstOrDefault();
 
             return discussion;
         }
@@ -66,17 +66,40 @@ namespace BookClub.Data.DAO
 
         //public IEnumerable<Post> GetSearchedPosts(Discussion discussion, string searchQuery)
         //{
-            
+
         //    return string.IsNullOrEmpty(searchQuery)
         //        ? discussion.Posts 
         //        : discussion.Posts
         //        .Where(post => post.Title.Contains(searchQuery)
         //        || post.Content.Contains(searchQuery));
-                
-                
 
-            //if search query returns null, display posts or if fullfilled, find content
-             
+
+
+        //if search query returns null, display posts or if fullfilled, find content
+
+
+        public void UpdateDiscussion(Discussion discussion)
+        {
+            Discussion _discussion = GetDiscussionID(discussion.Id);
+            _discussion.Title = discussion.Title;
+            _discussion.Description = discussion.Description;
+            _context.SaveChanges();
+        }
+
+        public void DeleteDiscussion(Discussion discussion)
+        {
+            //find post instance of post to deleete
+            var deleteDiscussion = _context.Discussion.FirstOrDefault(d => d.Id == discussion.Id);
+
+            //if not null, delete post
+            if (deleteDiscussion != null)
+            {
+
+                //call remove & save changes on the post that is found above
+                _context.Discussion.Remove(deleteDiscussion);
+                _context.SaveChanges();
+            }
         }
     }
+}
 
