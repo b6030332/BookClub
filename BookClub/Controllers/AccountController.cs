@@ -156,7 +156,7 @@ namespace BookClub.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName };
+                    var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName };
                     var result = await UserManager.CreateAsync(user, model.Password);
 
                     var roleStore = new RoleStore<IdentityRole>(_context);

@@ -1,4 +1,5 @@
-﻿@model BookClub.ViewModels.AdminUsers.AllUsersViewModel
+﻿@using Microsoft.AspNet.Identity
+@model BookClub.ViewModels.AdminUsers.AllUsersViewModel
 
 
 <h3>View BookClub Members</h3>
@@ -25,7 +26,7 @@
                     @user.LastName
                 </td>
                 <td>
-                    @user.UserName
+                    @Html.ActionLink(user.UserName, "Detail", new { id = HttpContext.Current.User.Identity.GetUserId(), Controller = "Profile" })
                 </td>
                 <td>
                     @Html.ActionLink("Manage", "ManageUserRoles", "UserAdmin")
