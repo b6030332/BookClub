@@ -68,10 +68,6 @@ namespace BookClub.Data.DAO
                 //.Include(p => p.Replies)
                 //.Include(p => p.Discussion)
                 //.FirstOrDefault(p => p.Id == id);
-
-                
-
-
         }
 
         //Grab a collection of recent posts to display

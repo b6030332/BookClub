@@ -138,6 +138,24 @@ namespace BookClub.Controllers
             return RedirectToAction("GetAllDiscussions", "Discussion", new { id = discussion.Id });
 
         }
+
+        [HttpGet]
+        public ActionResult DeleteBook(int id)
+        {
+
+            return View(_bookService.GetBookId(id));
+        }
+        [HttpPost]
+        public ActionResult DeleteBook(int id, Book book)
+        {
+
+            Book _book = _bookService.GetBookId(id);
+
+            _bookService.DeleteBook(book);
+
+            return RedirectToAction("GetAllBooks", "Book", new { id = book.Id });
+
+        }
     }
 
 }

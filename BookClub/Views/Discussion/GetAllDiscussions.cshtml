@@ -7,39 +7,39 @@
         </div>
 
     <div class="discussionContent">
+        @if (User.IsInRole("Admin"))
+        {
+            @Html.ActionLink("Add Discussion", "AddDiscussion", "Admin")
+        }
 
-       @Html.ActionLink("Add Discussion", "AddDiscussion", "Admin")
-
-        <table class="table table-hover table-bordered"  id="discussionTable">
+        <table class="table table-hover table-bordered" id="discussionTable">
             <tbody>
                 @foreach (var item in Model)
                 {
                     <tr>
                         <td>
                             <div class="allDiscussionTitle">
-                            @Html.ActionLink(item.Title, "GetPostsByDiscussion",
-
-                            new { id = item.Id , Controller = "Discussion" })
-                                 </div>
+                                @Html.ActionLink(item.Title, "GetPostsByDiscussion",
+                               new { id = item.Id , Controller = "Discussion" })
+                            </div>
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Description)
                         </td>
                         <td>
-                            @Html.ActionLink("View Book", "GetBookId",
+                            @*@Html.ActionLink("View Book", "GetBookId",
+        new { id = item.Id , Controller = "Book" })*@
+                            <a><i class="glyphicon glyphicon-book" onclick="location.href='@Url.Action("GetBookId", "Book", new { id = item.Id })'"></i></a>
+                        </td>
 
-                         new { id = item.Id , Controller = "Book" })
-                        </td>
-                        <td>
-                                @*@Html.ActionLink("Edit", "UpdateDiscussion",
-        new { id = item.Id, Controller = "Admin" })*@
-                                
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <td>
                                 <a><i class="glyphicon glyphicon-edit" onclick="location.href='@Url.Action("UpdateDiscussion", "Admin", new { id = item.Id })'"></i></a>
-                                @*@Html.ActionLink("Delete", "DeleteDiscussion",
-        new { id = item.Id, Controller = "Admin" })*@
                                 <a><i class="glyphicon glyphicon-trash" onclick="location.href='@Url.Action("DeleteDiscussion", "Admin", new { id = item.Id })'"></i></a>
-                            
-                        </td>
+
+                            </td>
+                        }
                     </tr>
                 }
             </tbody>

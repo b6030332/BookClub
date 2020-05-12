@@ -23,6 +23,11 @@ namespace BookClub.Service.Service
             _dao.AddBook(book);
         }
 
+        public void DeleteBook(Book book)
+        {
+            _dao.DeleteBook(book);
+        }
+
         public IList<Book> GetAllBooks()
         {
             return _dao.GetAllBooks();

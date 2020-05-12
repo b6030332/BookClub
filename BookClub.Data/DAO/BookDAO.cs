@@ -22,6 +22,20 @@ namespace BookClub.Data.DAO
             _context.SaveChanges(); 
         }
 
+        public void DeleteBook(Book book)
+        {
+            //find first instance of book to delete
+            var deleteBook = _context.Book.FirstOrDefault(b => b.Id == book.Id);
+
+            //if not null, delete post
+            if (deleteBook != null)
+            {
+                //call remove & save changes on the post that is found above
+                _context.Book.Remove(deleteBook);
+                _context.SaveChanges();
+            }
+        }
+
         public IList<Book> GetAllBooks()
         {
             return _context.Book.ToList();

@@ -46,10 +46,24 @@
     }
 </script>
 
-@foreach (var item in Model)
-{
-    @Html.Partial("_ReviewContentPartial", item)
-}
+    @if (Model.Any())
+    {
+        foreach (var item in Model)
+        {
+           @Html.Partial("_ReviewContentPartial", item)
+        }
+    }
+    else if(!User.Identity.IsAuthenticated)
+        {
+
+<p>There are no reviews yet, become a @Html.ActionLink("Registered member", "Register", "Account", new { returnUrl = Request.Url.PathAndQuery }, null) or  @Html.ActionLink("Login", "Login", "Account", new { returnUrl = Request.Url.PathAndQuery }, null)  </p>
+    }
+    else if(User.Identity.IsAuthenticated)
+    {
+         <p>There are no reviews yet, why not <b>create one</b> below</p>
+    }
+
+
 <h3>Please enter your comments</h3>
 
 @using (Html.BeginForm("AddReview", "Review", FormMethod.Post, new { onsubmit = "return VerifyRating()" }))
