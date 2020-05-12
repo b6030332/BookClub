@@ -44,21 +44,21 @@
             }
         </div>
 
-       
+
     </div>
 
     <div class="row" id="replyDivide"></div>
-    
-    @if (User.Identity.IsAuthenticated)
-    { 
-    <div class="row" id="postReplyRow">
-        <span>
-            @Html.ActionLink("Post reply", "AddReply",
 
-      new { id = Model.PostId, Controller = "Reply" })
-        </span>
-        
-    </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="row" id="postReplyRow">
+            <span>
+                @Html.ActionLink("Post reply", "AddReply",
+
+          new { id = Model.PostId, Controller = "Reply" })
+            </span>
+
+        </div>
     }
 
     @if (Model.Replies.Any())
@@ -86,10 +86,10 @@
                 @if (reply.ReplyUserId == User.Identity.GetUserId())
                 {
                     <div class="row" id="deleteReplyRow">
-                        
+
                         <a><i class="glyphicon glyphicon-edit" onclick="location.href='@Url.Action("UpdateReply", "Reply", new { id = reply.Id })'"></i></a>
                         <a><i class="glyphicon glyphicon-trash" onclick="location.href='@Url.Action("DeleteReply", "Reply", new { id = reply.Id })'"></i></a>
-                                
+
                     </div>
                 }
 
@@ -106,6 +106,19 @@
 
             </h3>
 
+        </div>
+
+        <div class="sectionDescription">
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <p>
+                    <span>
+                        You must be a
+                        @Html.ActionLink("registered member", "Register", "Account")
+                        to reply to this post
+                    </span>
+                </p>
+            }
         </div>
     }
 </div>

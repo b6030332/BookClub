@@ -4,7 +4,7 @@
     <strong>Sign Up Today:</strong> @Html.ActionLink("Join Our Community", "GetAllDiscussions", "Book")
 </div>
 
-@if (User.Identity.IsAuthenticated)
+@if (User.IsInRole("Admin"))
 {
     <div class="row" id="postReplyRow">
         <span>
@@ -59,28 +59,34 @@
             {
                 foreach (var item in Model)
                 {
-                    <tr>
-                        
-                        <td>
-                            <img src="@item.Image" class="imageCell" />
-                        </td>
-                        <td>
-                            @Html.ActionLink(item.Title, "GetBookId",
-                                new { id = item.Id, Controller = "Book" })
-                        </td>
-                        <td>
-                            @Html.ActionLink(item.Author.Name, "GetAuthor",
-                               new { id = item.Author.Id, Controller = "Author" })
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Genre.Name)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "UpdateBook",
-                                new { id = item.Id, Controller = "Admin" })
-                        </td>
-                            
-                    </tr>
+        <tr>
+
+            <td>
+                <img src="@item.Image" class="imageCell" />
+            </td>
+            <td>
+                @Html.ActionLink(item.Title, "GetBookId",
+                    new { id = item.Id, Controller = "Book" })
+            </td>
+            <td>
+                @Html.ActionLink(item.Author.Name, "GetAuthor",
+                   new { id = item.Author.Id, Controller = "Author" })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre.Name)
+            </td>
+
+            @*Only allows Admin Users to Edit and Delete Books*@
+
+            @if (User.IsInRole("Admin"))
+            {
+                <td>
+                    <a><i class="glyphicon glyphicon-edit" onclick="location.href='@Url.Action("UpdateBook", "Admin", new { id = item.Id })'"></i></a>
+                    <a><i class="glyphicon glyphicon-trash" onclick="location.href='@Url.Action("DeleteBook", "Admin", new { id = item.Id })'"></i></a>
+                </td>
+            }
+
+        </tr>
                 }
    
             }

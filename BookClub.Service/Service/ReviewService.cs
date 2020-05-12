@@ -31,5 +31,15 @@ namespace BookClub.Service.Service
         {
             return _dao.GetReviewByBook(id);
         }
+
+        public Review GetReviewId(int id)
+        {
+            return _dao.GetReviewId(id);
+        }
+
+        public void UpdateReview(Review review)
+        {
+            _dao.UpdateReview(review);
+        }
     }
 }

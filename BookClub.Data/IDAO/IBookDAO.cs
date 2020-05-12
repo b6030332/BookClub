@@ -14,5 +14,6 @@ namespace BookClub.Data.IDAO
         IList<Discussion> GetDiscussionsByBook(int id);
         void AddBook(Book book);
         void UpdateBook(Book book);
+        void DeleteBook(Book book);
     }
 }

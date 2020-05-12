@@ -50,8 +50,18 @@ namespace BookClub.Data.DAO
                 _context.Review.Remove(deleteReview);
                 _context.SaveChanges();
             }
+        }
+        public void UpdateReview(Review review)
+        {
+            Review _review = GetReviewId(review.Id);
+            _review.ReviewContent = review.ReviewContent;
+            _review.Rating = review.Rating;
+            _context.SaveChanges();
+        }
 
-
+        public Review GetReviewId(int id)
+        {
+            return _context.Review.Find(id);
         }
     }
 }

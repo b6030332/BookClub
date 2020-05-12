@@ -10,7 +10,9 @@ namespace BookClub.Data.IDAO
     public interface IReviewDAO
     {
         Review GetReviewByBook(int id);
+        Review GetReviewId(int id);
         void AddReview(Review review);
         void DeleteReview(int id, Review review);
+        void UpdateReview(Review review);
     }
 }

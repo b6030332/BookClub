@@ -76,5 +76,25 @@ namespace BookClub.Controllers
             return RedirectToAction("GetReviewByBook", "Review", new { id = book.Id});
         }
 
+        [HttpGet]
+        public ActionResult UpdateReview(int id)
+        {
+            Review review = _reviewService.GetReviewId(id);
+            return View(review);
+        }
+        [HttpPost]
+        public ActionResult UpdateReview(int id, Review review)
+        {
+            try
+            {
+                _reviewService.UpdateReview(review);
+                return RedirectToAction("GetReviewByBook", "Review", new { id = review.Id });
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
     }
 }
