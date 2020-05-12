@@ -50,7 +50,6 @@ namespace BookClub.Controllers
                 UserId = user.Id,
                 Username = user.UserName,
                 Email = user.Email,
-                ProfileImageUrl = user.ProfileImage,
 
                 IsAdmin = User.IsInRole("Admin"),
                 IsMember = User.IsInRole("Member")

@@ -3,6 +3,9 @@
     font-family:'Libre Baskerville';
     src: url('../images/fonts/LibreBaskerville-Bold.ttf');
 }
+.body{
+    background-image: url(../images/home/stoneb.jpg)
+}
 
 .homeTitle{
     color: #f2f2f2; 
