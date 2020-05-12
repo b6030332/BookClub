@@ -233,6 +233,7 @@
     <Content Include="Content\images\home\bookShelf.jpg" />
     <Content Include="Content\images\home\community.jpg" />
     <Content Include="Content\images\home\members.jpg" />
+    <Content Include="Content\images\home\stoneb.jpg" />
     <Content Include="Content\styles\custom.css" />
     <Content Include="Content\images\fonts\LibreBaskerville-Bold.ttf" />
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
