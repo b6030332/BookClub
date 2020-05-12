@@ -40,9 +40,9 @@ namespace BookClub.Service.Service
         {
             return _dao.GetPostsByDiscussion(id);
         }
-        public void AddDiscussion(Discussion discussion, Book book)
+        public void AddDiscussion(Discussion discussion)
         {
-            _dao.AddDiscussion(discussion, book);
+            _dao.AddDiscussion(discussion);
         }
 
         public void UpdateDiscussion(Discussion discussion)

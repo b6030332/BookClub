@@ -14,7 +14,7 @@ namespace BookClub.Data.IDAO
         IEnumerable<Discussion> GetAllDiscussions();
         IEnumerable<ApplicationUser> GetActiveUsers();
 
-        void AddDiscussion(Discussion discussion, Book book);
+        void AddDiscussion(Discussion discussion);
         void UpdateDiscussion(Discussion discussion);
         void DeleteDiscussion(Discussion discussion);
 

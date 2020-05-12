@@ -8,6 +8,8 @@
 
     <div class="discussionContent">
 
+       @Html.ActionLink("Add Discussion", "AddDiscussion", "Admin")
+
         <table class="table table-hover table-bordered"  id="discussionTable">
             <tbody>
                 @foreach (var item in Model)
@@ -29,14 +31,14 @@
                          new { id = item.Id , Controller = "Book" })
                         </td>
                         <td>
-                            <div>
-                            @Html.ActionLink("Edit", "UpdateDiscussion",
-                                     new { id = item.Id, Controller = "Admin" })
-                                </div>
-                            <div>
-                            @Html.ActionLink("Delete", "DeleteDiscussion",
-                                     new { id = item.Id, Controller = "Admin" })
-                                </div>
+                                @*@Html.ActionLink("Edit", "UpdateDiscussion",
+        new { id = item.Id, Controller = "Admin" })*@
+                                
+                                <a><i class="glyphicon glyphicon-edit" onclick="location.href='@Url.Action("UpdateDiscussion", "Admin", new { id = item.Id })'"></i></a>
+                                @*@Html.ActionLink("Delete", "DeleteDiscussion",
+        new { id = item.Id, Controller = "Admin" })*@
+                                <a><i class="glyphicon glyphicon-trash" onclick="location.href='@Url.Action("DeleteDiscussion", "Admin", new { id = item.Id })'"></i></a>
+                            
                         </td>
                     </tr>
                 }

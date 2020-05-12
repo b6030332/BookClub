@@ -221,6 +221,15 @@ h4 {
     color: black;
     font-size: 1.2em;
 }
+.glyphicon-edit {
+    cursor:pointer;
+}
+.glyphicon-trash {
+    cursor: pointer;
+}
+
+
+
 
 /*Add Reply View*/
 

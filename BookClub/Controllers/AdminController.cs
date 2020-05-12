@@ -28,36 +28,32 @@ namespace BookClub.Controllers
         }
 
         [HttpGet]
-        public ActionResult AddDiscussion(int id)
+        public ActionResult AddDiscussion()
         {
-            //Find the id of book we're posting discussion in 
-            var book = _bookService.GetBookId(id);
+            ViewBag.BookId = new SelectList(_bookService.GetAllBooks(), "Id", "Title");
+            
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddDiscussion(AddDiscussionViewModel model, Book book)
+        public ActionResult AddDiscussion(Discussion discussion)
         {
-            //Map the new Discussion values for NewDiscussion model to be pushed into database
-
-            if (ModelState.IsValid)
-
+            
+            try
             {
-                Discussion discussion = new Discussion();
-                discussion.Title = model.DiscussionTitle;
-                discussion.Description = model.DiscussionContent;
-                discussion.Created = DateTime.Now;
 
-                //logic for adding discussion with user and book id is processed in the DiscussionDAO 
+                _discussionService.AddDiscussion(discussion);
 
-                _discussionService.AddDiscussion(discussion, book);
 
-                return RedirectToAction("GetB", "Book", new { id = discussion.BookId });
+                return RedirectToAction("GetAllDiscussions", "Discussion", discussion);
             }
-
-            return View(model);
+            catch
+            {
+                return View();
+            }
         }
+
         [HttpGet]
         public ActionResult AddBook()
         {

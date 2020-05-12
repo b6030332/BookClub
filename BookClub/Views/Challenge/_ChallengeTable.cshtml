@@ -63,14 +63,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Book.Title)
                 </td>*@
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @*@Html.ActionLink("Delete", "DeleteChallenge",
-                    new { id = item.Id , Controller = "Challenge" })*@
-
-                <i class="glyphicon glyphicon-trash" onclick="location.href='@Url.Action("DeleteChallenge", "Challenge", new { id = item.Id })';return false;"/>
-            </td>
-        </tr>
+                <td>
+                    <a><i class="glyphicon glyphicon-trash" onclick="location.href='@Url.Action("DeleteChallenge", "Challenge", new { id = item.Id })'"></i></a> </td>
+            </tr>
     }
     
 
