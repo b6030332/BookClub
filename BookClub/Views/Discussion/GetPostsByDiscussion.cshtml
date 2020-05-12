@@ -66,13 +66,14 @@
 
                                         <div class="deletePost">
                                             @if (!User.Identity.IsAuthenticated)
-                                                
+
                                             {
                                                 @Html.ActionLink("Delete", "DeletePost",
-                                                         new { id = post.Id, Controller = "Post" })
-                                               
+                                                    new { id = post.Id, Controller = "Post" })
+                                                <i class="glyphicon glyphicon-trash" onclick="location.href='@Url.Action("DeletePost", "Post", new { id = post.Id })';return false;" />
+
                                             }
-                                            </div>
+                                        </div>
 
                                     </div>
                                 </div>

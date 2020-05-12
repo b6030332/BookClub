@@ -64,7 +64,7 @@ namespace BookClub.Controllers
 
                 _replyService.AddReply(reply, post);
 
-                return RedirectToAction("GetPost", "Post", new { id = post.Id });
+                return RedirectToAction("GetPost", "Post", new { id = model.PostId });
 
             }
 

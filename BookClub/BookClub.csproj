@@ -306,7 +306,6 @@
     <Content Include="Views\Challenge\AddChallenge.cshtml" />
     <Content Include="Views\Challenge\_ChallengeTable.cshtml" />
     <Content Include="Views\Post\AddPost.cshtml" />
-    <Content Include="Views\Admin\AddDiscussion.cshtml" />
     <Content Include="Views\Discussion\GetPostsByDiscussion.cshtml" />
     <Content Include="Views\Book\GetB.cshtml" />
     <Content Include="Views\Community\Index.cshtml" />
@@ -334,6 +333,7 @@
     <Content Include="Views\Admin\UpdateBook.cshtml" />
     <Content Include="Views\Admin\UpdateDiscussion.cshtml" />
     <Content Include="Views\Admin\DeleteDiscussion.cshtml" />
+    <Content Include="Views\Admin\AddDiscussion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
