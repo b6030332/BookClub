@@ -26,7 +26,7 @@ namespace BookClub.Controllers
         }
         // GET: Post
         
-        public ActionResult GetPost(int id)
+        public ActionResult GetPost(int id) 
         {
             Post post = _postService.GetPost(id);
 
@@ -60,56 +60,11 @@ namespace BookClub.Controllers
                 ReplyUserId = reply.ApplicationUser.Id,
                 ReplyUserName = reply.ApplicationUser.UserName,
                 ReplyContent = reply.Content,
-                ReplyPosted = reply.Created,
-
-                    
-
+                ReplyPosted = reply.Created
+                
             });
             
         }
-
-        //    var replies = post.Replies;
-
-        //    var listofReplies = replies.Select(reply => new NewPostReplyModel
-        //    {
-        //        Id = reply.Id,
-        //        ReplyPosted = reply.Created,
-        //        ReplyContent = reply.Content,
-        //        ReplyUserId = reply.ApplicationUser.Id,
-        //        ReplyUserName = reply.ApplicationUser.UserName
-
-        //    });
-
-        //    var model = new GetPostViewModel
-        //    {
-
-        //        Replies = listofReplies,
-        //        Posts = BuildNewPost(post)
-        //    };
-
-        //    return View(model);
-
-        //    //return View("GetPost", post);
-
-        //}
-
-        //private NewPostModel BuildNewPost(Post post)
-        //{
-        //    return new NewPostModel
-        //    {
-        //        PostId = post.Id,
-        //        PostContent = post.Content,
-        //        PostTitle = post.Title,
-        //        DatePosted = post.Created.ToString(),
-        //        DiscussionName = post.Discussion.Title,
-        //        DiscussionId = post.Discussion.Id,
-        //        UserId = post.ApplicationUser.Id,
-        //        UserName = post.ApplicationUser.UserName,
-
-
-        //    };
-        //}
-
         [HttpGet]
         public ActionResult AddPost(int id)
         {
@@ -148,7 +103,7 @@ namespace BookClub.Controllers
             return View(_postService.GetPost(id));
         }
         [HttpPost]
-        public ActionResult DeletePost(int id, Post post)
+        public ActionResult DeletePost(int id,Post post) //taken out int id
         {
 
             Post posts = _postService.GetPost(id);

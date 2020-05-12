@@ -16,7 +16,7 @@
             </div>
             <div class="mdl-card__actions mdl-card--border">
                 <a class="mdl-button mdl-button--colored mdl-js-button">
-                    View Our BookShelf
+                   @Html.ActionLink("View Our BookShelf", "GetAllBooks", "Book")
                 </a>
             </div>
         </div>
@@ -31,11 +31,11 @@
                 <h2 class="mdl-card__title-text homeLabel">Community</h2>
             </div>
             <div class="mdl-card__supporting-text">
-                Joing the latest discussions about the books you love.
+                Join the latest discussions about the books you love.
             </div>
             <div class="mdl-card__actions mdl-card--border">
                 <a class="mdl-button mdl-button--colored mdl-js-button">
-                    Join the conversation
+                    @Html.ActionLink("Join the Conversation", "Index", "Community")
                 </a>
             </div>
         </div>

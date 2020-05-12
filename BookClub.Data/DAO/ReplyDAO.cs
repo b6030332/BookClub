@@ -41,13 +41,10 @@ namespace BookClub.Data.DAO
 
         public void DeleteReply(int id, PostReply reply, Post posts)
         {
-
-                var currentPost = _context.Post.FirstOrDefault(p => p.Id == posts.Id);
-
-                reply.Post = currentPost;
-
+            //find first or default instance of reply to delete
                 var replytoDelete = _context.Replies.FirstOrDefault(r => r.Id == id);
 
+            //if result is not null, remove from database & save changes 
                 if (replytoDelete != null)
                 {
 
@@ -56,11 +53,7 @@ namespace BookClub.Data.DAO
                 }
          }
 
-        public ICollection<PostReply> GetAllReplies()
-        {
-            return _context.Replies.ToArray();
-        }
-
+        
         public PostReply GetReply(int id)
         {
             return _context.Replies.Find(id);
