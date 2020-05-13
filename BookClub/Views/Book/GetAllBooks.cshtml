@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<BookClub.Data.Models.Book>
 
 <div class="alert alert-success">
-    <strong>Sign Up Today:</strong> @Html.ActionLink("Join Our Community", "GetAllDiscussions", "Book")
+    <strong>Sign Up Today:</strong> @Html.ActionLink("Join Our Community", "Register", "Account")
 </div>
 
 @if (User.IsInRole("Admin"))

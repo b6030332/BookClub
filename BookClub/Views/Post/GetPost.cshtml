@@ -10,6 +10,7 @@
             </span>
 
             <h4>
+                @*Allows User to return to the previous Discussion quickly *@
                 Go back to the
                 @Html.ActionLink(Model.DiscussionName, "GetPostsByDiscussion",
 
@@ -37,6 +38,8 @@
 
         <div class="deletePost">
 
+            @*Only allows logged in Users to delete/edit their own posts by showing icons for Delete & Edit*@
+
             @if (Model.UserId == User.Identity.GetUserId())
             {
                 <a><i class="glyphicon glyphicon-edit" onclick="location.href='@Url.Action("UpdatePost", "Post", new { id = Model.PostId })'"></i></a>
@@ -48,6 +51,8 @@
     </div>
 
     <div class="row" id="replyDivide"></div>
+
+    @*Allows only Registered and Logged in Users to see Post reply link to add a Reply *@
 
     @if (User.Identity.IsAuthenticated)
     {
@@ -61,6 +66,7 @@
         </div>
     }
 
+    @*If there are any replies, the content, username, and update/delete icons will be displayed for that User *@
     @if (Model.Replies.Any())
     {
         foreach (var reply in Model.Replies)
@@ -70,7 +76,7 @@
 
                     @Html.ActionLink(reply.ReplyUserName, "Detail",
 
-             new { id = reply.ReplyUserId, Controller = "Profile" })
+          new { id = reply.ReplyUserId, Controller = "Profile" })
 
                     <span class="postData">@reply.ReplyPosted</span>
                 </div>
@@ -82,6 +88,7 @@
                     </div>
                 </div>
 
+                @*Only allows Users who are logged in to see edit/delete icons for their own post replies*@
                 <div class="row" id="deleteReply"></div>
                 @if (reply.ReplyUserId == User.Identity.GetUserId())
                 {
@@ -99,6 +106,7 @@
     }
     else
     {
+        //if there are no replies to the post, this message will be shown 
         <div class="noPosts">
 
             <h3>
@@ -107,20 +115,22 @@
             </h3>
 
         </div>
+    }
 
+    @*If User is not registered, will be promted to Register or Login to add a new Post*@
         <div class="sectionDescription">
             @if (!User.Identity.IsAuthenticated)
             {
                 <p>
                     <span>
                         You must be a
-                        @Html.ActionLink("registered member", "Register", "Account")
+                        @Html.ActionLink("Registered Member", "Register", "Account") or
+                        @Html.ActionLink("Login", "Login", "Account", new { returnUrl = Request.Url.PathAndQuery }, null)
                         to reply to this post
                     </span>
                 </p>
             }
         </div>
-    }
 </div>
 
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
