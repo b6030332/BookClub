@@ -3,13 +3,13 @@
 <div class="reviewContent">
     <table style="width: 100%; border: 1px solid black">
         <tr>
-            <td>
+            <td class="reviewCreated">
                 @Model.DateCreated  @*.ToString("dd-MM-yyyy HH:mm")*@
             </td>
         </tr>
         <tr>
             <td class="reviewComment">
-                @Model.ReviewContent
+                <b>@Model.ReviewContent</b>
             </td>
         </tr>
         <tr>
@@ -36,7 +36,8 @@
 
         <tr>
             <td>
-                <i class="glyphicon glyphicon-trash" onclick="location.href='@Url.Action("DeleteReview", "Review", new { id = Model.Id })';return false;" />
+                <a><i class="glyphicon glyphicon-edit" id="deleteReview" onclick="location.href='@Url.Action("UpdateReview", "Review", new { id = Model.Id })'"></i></a>
+                <a><i class="glyphicon glyphicon-trash" id="deleteReview" onclick="location.href='@Url.Action("DeleteReview", "Review", new { id = Model.Id })'"></i></a>
             </td>
         </tr>
 

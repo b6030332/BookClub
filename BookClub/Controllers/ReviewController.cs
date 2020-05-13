@@ -67,19 +67,19 @@ namespace BookClub.Controllers
             return View(_reviewService.GetReviewByBook(id));
         }
         [HttpPost]
-        public ActionResult DeleteReview(int id, Review review, Book book)
+        public ActionResult DeleteReview(int id, Review review)
 
         {
             var _reviews = new Review();
 
             _reviewService.DeleteReview(id, review);
-            return RedirectToAction("GetReviewByBook", "Review", new { id = book.Id});
+            return RedirectToAction("GetReviewByBook", "Review", new { id = review.Book.Id});
         }
 
         [HttpGet]
         public ActionResult UpdateReview(int id)
         {
-            Review review = _reviewService.GetReviewId(id);
+            Review review = _reviewService.GetReviewByBook(id);
             return View(review);
         }
         [HttpPost]
@@ -88,7 +88,7 @@ namespace BookClub.Controllers
             try
             {
                 _reviewService.UpdateReview(review);
-                return RedirectToAction("GetReviewByBook", "Review", new { id = review.Id });
+                return RedirectToAction("GetReviewByBook", "Review", new { id = review.Book.Id });
             }
             catch
             {

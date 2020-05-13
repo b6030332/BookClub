@@ -34,8 +34,6 @@ namespace BookClub.Controllers
         {
             var discussion = _discussionService.GetDiscussionID(id);
             
-           
-
             var posts = discussion.Posts;
             
 

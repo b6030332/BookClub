@@ -16,6 +16,8 @@ namespace BookClub.ViewModels.Book
         public string Format { get; set; }
         public string Blurb { get; set; }
         public int Year { get; set; }
+        public string GenreName { get; set; }
+        public string AuthorName { get; set; }
 
         public int PostId { get; set; }
         public int DiscussionId { get; set; }

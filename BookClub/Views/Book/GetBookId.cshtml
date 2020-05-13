@@ -16,8 +16,8 @@
 
         <div class="col-md-4">
             <p id="bookTitle">@Model.BookTitle</p>
-            @*<p id="bookAuthor">@Model.Author.Name</p>*@
-            @*<p id="bookAuthor">@Model.Genre.Name</p>*@
+            <p id="bookAuthor">@Model.AuthorName</p>
+            <p id="bookGenre">@Model.GenreName</p>
         </div>
         <div class="col-md-4 detailInfo">
             <table>
@@ -46,34 +46,15 @@
 
         <div class="col-md-8">
             <p id="bookBlurb">@Model.Blurb</p>
-        </div>
-        View 
+        <div> 
+            View 
         @Html.ActionLink("discussions", "GetPostsByDiscussion", new { id = Model.Id, Controller = "Discussion" })
         about this book
+        </div>
     </div>
+</div>
 
 
-    <button class="btn btn-warning" onclick="location.href='@Url.Action("GetReviewByBook", "Review", new { id = Model.Id })';return false;">See Reviews</button>
+    <button class="btn btn-warning" id="reviewButton" onclick="location.href='@Url.Action("GetReviewByBook", "Review", new { id = Model.Id })'">See Reviews</button>
 
-    @*@Html.ActionLink("See Reviews", "GetReviewByBook", new { id = Model.Id, Controller = "Review" })*@
-
-    @* <p>
-                            @Html.ActionLink("Add Review", "AddReview",
-                                  new { id = Model.Id, Controller = "Book" })
-                    </p>
-                <p><input id="reviewButton" class="btn btn-lg btn-info" type="button" value="Add Review" asp-controller="Book" asp-action="AddReview" asp-route-id="@Model.Id" /></p>
-
-                <p>@Html.ActionLink("Reviews", "Details", "Book")</p>
-            </div>
-
-        @if (Model.Review.Count != 0)
-            {
-                <tr>
-                    <td></td>
-                    <td colspan="12">
-                        @Html.Partial("~/Views/Book/GetReviews.cshtml", Model.Review)
-                    </td>
-                </tr>
-            }*@
-    
 </div>

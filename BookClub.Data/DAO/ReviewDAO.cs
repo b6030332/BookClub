@@ -53,7 +53,7 @@ namespace BookClub.Data.DAO
         }
         public void UpdateReview(Review review)
         {
-            Review _review = GetReviewId(review.Id);
+            Review _review = GetReviewByBook(review.Id);
             _review.ReviewContent = review.ReviewContent;
             _review.Rating = review.Rating;
             _context.SaveChanges();
