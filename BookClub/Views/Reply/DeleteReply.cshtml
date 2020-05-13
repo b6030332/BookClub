@@ -29,8 +29,11 @@
 
     </dl>
 
-    @using (Html.BeginForm("DeleteReply", "Reply"))
+    @using (Html.BeginForm("DeleteReply", "Reply", new { Id = Model.Id }, FormMethod.Post, null))
     {
+        @Html.HiddenFor(m => m.Post.Id)
+        @*@Html.HiddenFor(m => m.Id)*@
+   
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

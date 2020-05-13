@@ -11,6 +11,6 @@ namespace BookClub.ViewModels.JointViewModels
     {
         public IEnumerable<ListPostsModel> Posts { get; set; }
         public NewDiscussionModel Discussion { get; set; }
-        public string SearchQuery { get; set; }
+       
     }
 }

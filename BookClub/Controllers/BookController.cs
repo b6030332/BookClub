@@ -17,10 +17,12 @@ namespace BookClub.Controllers
     {
         private ApplicationDbContext _context;
         private IBookDAO _bookService;
+        private IDiscussionDAO _discussionService;
         public BookController()
         {
             _context = new ApplicationDbContext();
             _bookService = new BookService();
+            _discussionService = new DiscussionService();
         }
         
         public ActionResult GetAllBooks(string option, string search)
@@ -53,6 +55,8 @@ namespace BookClub.Controllers
                 Format = books.Format,
                 Blurb = books.Blurb,
                 Year = books.Year
+                
+                
             };
 
             return View(bookDetail);

@@ -4,8 +4,9 @@
 <div class="container body-content">
     <div class="row allDiscussionsHeader">
         <span class="discussionTitle">Discussion Boards</span>
-        </div>
+    </div>
 
+    @*Only allows Admin Users to add a new Book*@
     <div class="discussionContent">
         @if (User.IsInRole("Admin"))
         {
@@ -27,10 +28,10 @@
                             @Html.DisplayFor(modelItem => item.Description)
                         </td>
                         <td>
-                            @*@Html.ActionLink("View Book", "GetBookId",
-        new { id = item.Id , Controller = "Book" })*@
                             <a><i class="glyphicon glyphicon-book" onclick="location.href='@Url.Action("GetBookId", "Book", new { id = item.Id })'"></i></a>
                         </td>
+
+                        @*Only allows Admin Users to see 'UpdateDiscussion' & 'DeleteDiscussion' icons*@
 
                         @if (User.IsInRole("Admin"))
                         {

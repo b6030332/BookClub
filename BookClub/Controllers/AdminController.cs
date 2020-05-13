@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace BookClub.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private readonly IPostDAO _postService;
@@ -16,7 +17,7 @@ namespace BookClub.Controllers
         private readonly IGenreDAO _genreService;
         private readonly IAuthorDAO _authorService;
 
-
+        
         public AdminController()
         {
             _postService = new PostService();
@@ -27,6 +28,7 @@ namespace BookClub.Controllers
             _authorService = new AuthorService();
         }
 
+       
         [HttpGet]
         public ActionResult AddDiscussion()
         {

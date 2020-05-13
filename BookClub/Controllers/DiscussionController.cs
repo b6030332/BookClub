@@ -30,23 +30,14 @@ namespace BookClub.Controllers
             return View("GetAllDiscussions", discussions);
         }
         
-        public ActionResult GetPostsByDiscussion(int id, string searchQuery)
+        public ActionResult GetPostsByDiscussion(int id)
         {
             var discussion = _discussionService.GetDiscussionID(id);
-            //var posts = new List<Post>();
-
-            // posts = _discussionService.GetSearchedPosts(discussion, searchQuery).ToList();
+            
            
 
             var posts = discussion.Posts;
-
-            //var posts = new List<Post>();
-
-            //if(!String.IsNullOrEmpty(searchQuery))
-            //{
-            //    posts = _discussionService.GetSearchedPosts(id, searchQuery).ToList();
-            //}
-            // posts = discussion.Posts.ToList();
+            
 
             //Map values given in new model to respective values in raw entities
             var listofPosts = posts.Select(post => new ListPostsModel
@@ -70,7 +61,8 @@ namespace BookClub.Controllers
             {
                 //Map values given in custom models
                 Posts = listofPosts,
-                Discussion = BuildNewDiscussion(discussion)
+                Discussion = BuildNewDiscussion(discussion),
+                
 
             };
 

@@ -33,7 +33,7 @@ namespace BookClub.Controllers
             
             _replyService.DeleteReply(id, reply, post);
 
-            return RedirectToAction("GetPost", "Post", new { id = post.Id });
+            return RedirectToAction("GetPost", "Post", new { id = reply.Post.Id });
         }
         [HttpGet]
         public ActionResult AddReply(int id)
@@ -65,7 +65,7 @@ namespace BookClub.Controllers
 
                 _replyService.AddReply(reply, post);
 
-                return RedirectToAction("GetPost", "Post", new { id = model.PostId });
+                return RedirectToAction("GetPost", "Post", new { id = post.Id });
 
             }
 
