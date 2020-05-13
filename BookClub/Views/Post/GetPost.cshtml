@@ -4,20 +4,33 @@
 
 <div class="containter body-content">
     <div class="row postHeader">
+        <h4 id="backLink">
+            @*Allows User to return to the previous Discussion quickly *@
+            Go back to the
+            @Html.ActionLink(Model.DiscussionName, "GetPostsByDiscussion",
+
+         new { id = Model.DiscussionId , Controller = "Discussion" })
+            discussion
+        </h4>
+        
         <div class="postHeading">
             <span class="postTitle">
-                @Model.PostTitle
+                Post Title: <b>@Model.PostTitle</b>
             </span>
 
-            <h4>
-                @*Allows User to return to the previous Discussion quickly *@
-                Go back to the
-                @Html.ActionLink(Model.DiscussionName, "GetPostsByDiscussion",
-
-             new { id = Model.DiscussionId , Controller = "Discussion" })
-                discussion
-            </h4>
-
+            @*If User is not registered, will be promted to Register or Login to add a new Post*@
+            
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <p>
+                        <span class="promptLogin">
+                            You must be a
+                            @Html.ActionLink("Registered Member", "Register", "Account") or
+                            @Html.ActionLink("Logged in", "Login", "Account", new { returnUrl = Request.Url.PathAndQuery }, null)
+                            to reply to this post
+                        </span>
+                    </p>
+                }
         </div>
     </div>
 
@@ -47,7 +60,6 @@
             }
         </div>
 
-
     </div>
 
     <div class="row" id="replyDivide"></div>
@@ -58,9 +70,10 @@
     {
         <div class="row" id="postReplyRow">
             <span>
-                @Html.ActionLink("Post reply", "AddReply",
+                <button class="btn btn-success" id="addButton" onclick="location.href='@Url.Action("AddReply", "Reply", new { id = Model.PostId})'">Post Reply</button>
+                @*@Html.ActionLink("Post reply", "AddReply",
 
-          new { id = Model.PostId, Controller = "Reply" })
+          new { id = Model.PostId, Controller = "Reply" })*@
             </span>
 
         </div>
@@ -92,7 +105,7 @@
                 <div class="row" id="deleteReply"></div>
                 @if (reply.ReplyUserId == User.Identity.GetUserId())
                 {
-                    <div class="row" id="deleteReplyRow">
+                    <div id="deleteReplyRow">
 
                         <a><i class="glyphicon glyphicon-edit" onclick="location.href='@Url.Action("UpdateReply", "Reply", new { id = reply.Id })'"></i></a>
                         <a><i class="glyphicon glyphicon-trash" onclick="location.href='@Url.Action("DeleteReply", "Reply", new { id = reply.Id })'"></i></a>
@@ -117,42 +130,6 @@
         </div>
     }
 
-    @*If User is not registered, will be promted to Register or Login to add a new Post*@
-        <div class="sectionDescription">
-            @if (!User.Identity.IsAuthenticated)
-            {
-                <p>
-                    <span>
-                        You must be a
-                        @Html.ActionLink("Registered Member", "Register", "Account") or
-                        @Html.ActionLink("Login", "Login", "Account", new { returnUrl = Request.Url.PathAndQuery }, null)
-                        to reply to this post
-                    </span>
-                </p>
-            }
-        </div>
 </div>
 
-<script src="~/Scripts/jquery-3.3.1.min.js"></script>
-
-<script>
-    function Delete(id) {
-        if (confirm('Are you sure you want to delte this post'))
-        {
-            $.ajax({
-                type: "POST",
-                url: '@Url.Action("DeletePost","Post")/' + id,
-                success: function (data) {
-                    if (data.success) {
-                        dataTable.ajax.reload();
-                        $.notify(data.message, {
-                            globalPosition: "top center",
-                            className: "success"
-                        })
-                    }
-                }
-            });
-        }
-    }
-</script>
 

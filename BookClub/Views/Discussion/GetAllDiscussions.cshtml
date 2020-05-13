@@ -1,16 +1,17 @@
 ﻿@model IEnumerable<BookClub.Data.Models.Discussion>
 
 
-<div class="container body-content">
-    <div class="row allDiscussionsHeader">
-        <span class="discussionTitle">Discussion Boards</span>
+<div class="container">
+    <div class="allDiscussionsHeader">
+        <div class="discussionTitle">Discussion Boards</div>
     </div>
 
     @*Only allows Admin Users to add a new Book*@
     <div class="discussionContent">
         @if (User.IsInRole("Admin"))
         {
-            @Html.ActionLink("Add Discussion", "AddDiscussion", "Admin")
+            <button class="btn btn-success" id="addButton" onclick="location.href='@Url.Action("AddDiscussion", "Admin")'">Add Discussion</button>
+           
         }
 
         <table class="table table-hover table-bordered" id="discussionTable">

@@ -18,8 +18,6 @@
     padding: 10px;
     margin: 0 5px 10px;
     font-family:'Libre Baskerville', serif;
-    
-
 }
 
 #marginCard{
@@ -52,27 +50,22 @@
     height: 147px;
 }
 
-
-
-
 /*GetBookId View*/
 #bookBlurb {
-    font-size:18px;
-    line-height: 20px;
+    font-size:12px;
+    line-height: 25px;
+    margin-top:35px;
 }
-
 .navbar{
     box-shadow: 0 5px 4px -6px #000;
 }
 h4 {
     font-size: 0.8em;
 }
-
 .detailImage {
     width: 200px;
     padding: 6px;
 }
-
 .imageCell {
     width: 140px;
     height: 200px;
@@ -84,13 +77,12 @@ h4 {
     border:solid;
     height: 120px; 
 }
-
-#bookBlurb {
-    font-size: 0.8em;
-}
-
-#bookLabel {
+.bookLabel {
     word-spacing: 2px;
+    padding-top: 5px;
+}
+.bookValue {
+    padding-top:5px;
 }
 #bookCatalogue {
     background: bottom right 15% no-repeat #555;
@@ -102,22 +94,35 @@ h4 {
     color: #333;
     margin: 4px 0 16px 0;
 }
+.text-muted {
+    font-size:20px;
+    margin-bottom: 10px;
+    margin-top:10px;
+}
+.detailHeading {
+    margin-top:5px;
+    margin-bottom:5px;
+    padding-bottom:2px;
+}
 
 /*GetAllBooks View*/
-
+#addBookRow {
+    margin-left: 0px;
+}
 
 
 /*GetPost View*/
 
 .postHeader {
     background-color: #E6E5E8;
-    padding: 8px 0px 24px 24px;
+    padding: 5px 0px 5px 5px;
 }
 .postTitle {
     font-family: Candara;
     font-weight: lighter;
     color: black;
-    font-size: 1.6em;
+    font-size: 25px;
+    outline-color: red;
 }
 .postData{
     display: inline-block;
@@ -144,7 +149,13 @@ h4 {
 #postContent{
     background-color: white;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 9px;
 
+}
+#backLink {
+    font-size: 12px;
+    font-family:monospace;
+    margin-top:5px;
 }
 .replyContentContainer {
     font-family: 'Comic Sans MS';
@@ -164,15 +175,19 @@ h4 {
     margin-left:30px;
     border-bottom:dotted;
 }
-#postReplyRow {
-    background-color:lightcyan;
-    padding:8px;
-        
+#deleteReplyRow {
+    margin-left: 0px;
+   
 }
+
 /*Get PostsByDiscussion View*/
 .sectionHeader {
     background-color: #E6E5E8;
     padding: 8px 0px 24px 24px;
+}
+.promptLogin {
+    position:absolute;
+    right:80px;
 }
 .discussionTitle {
     font-family: Microsoft Sans Serif;
@@ -208,18 +223,24 @@ h4 {
     width: 60%;
     background-color: #fff;
     }
+#addButton {
+    margin-bottom: 4px;
+}
 
-/*Get All Discussions View*/
+/*GetAllDiscussions View*/
 
 .allDiscussionsHeader {
     background-color: #E6E5E8;
-    padding: 8px 0px 24px 24px;
+    padding: 8px 5px 24px 24px;
 }
 .allDiscussionTitle {
     font-family: Microsoft Sans Serif;
     font-weight: bold;
     color: black;
     font-size: 1.2em;
+}
+.discussionContent {
+    margin-top: 5px;
 }
 .glyphicon-edit {
     cursor:pointer;
@@ -232,8 +253,6 @@ h4 {
 }
 
 
-
-
 /*Add Reply View*/
 
 
@@ -244,39 +263,68 @@ h4 {
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
     font-size: 30px;
 }
-.reviewContent {
-    background-color: white;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px rgba(0, 0, 0, 0.3);
-    margin-bottom:5px;
-    font:bold;
+.reviewHeading {
+    padding: 5px 0px 5px 5px;
 }
 .reviewHeader {
     background-color: #E6E5E8;
-    padding: 8px 0px 24px 24px;
-    margin-bottom:5px;
+    padding: 5px 0px 5px 5px;
+    margin-bottom:10px;
+}
+.reviewTitle {
+    font-family: Candara;
+    font-weight: lighter;
+    color: black;
+    font-size: 25px;
+    padding: 5px 0px 5px 5px;
+}
+#reviewSubmit {
+    margin-top:10px;
+}
+.reviewCommentTitle {
+    font-size: 20px;
+    font-family: NSimSun;
+    margin-top:8px;
+    margin-bottom:2px;
+}
+
+/*_ReviewContentPartial View*/
+.reviewContent {
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 5px;
+    font: bold;
 }
 .reviewComment {
     font-family: 'Comic Sans MS';
-    font-size:15px;
+    font-size: 15px;
     margin-bottom: 20px;
+    padding-left: 3px;
+}
+.reviewCreated{
+    padding-left: 3px;
 }
 .reviewAuthorName {
     color: black;
     font: bold;
-    font-family:'Comic Sans MS';
-    font-style:italic;
-    font-size:12px;
+    font-family: 'Comic Sans MS';
+    font-style: italic;
+    font-size: 12px;
+    padding-left: 3px;
 }
 #partialReviewStar {
     color: yellow;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    padding-left:5px;
 }
-
+#deleteReview {
+    padding-left: 3px;
+}
 /*GetBookbyAuthor View*/
-
 .partViewTitle {
-    font-family:'Cambria Math'
+    font-family: 'Cambria Math'
 }
+
 /*GetAuthor View*/
 .authorImage {
     width: 300px;
@@ -285,11 +333,13 @@ h4 {
 }
 #authorBio {
     font-size:14px;
-    line-height:30px;
-    
+    line-height:30px;  
 }
 .jumbotron {
     border:solid 2px;
+}
+.partialBooks {
+    cursor: pointer;
 }
 
 /*_ChallengeTable View*/ 
@@ -311,13 +361,11 @@ h4 {
     color: #2569d5;
     font-family: 'Roboto';
     font-size: 1.7em;
-
 }
 
 .profileSectionHeading {
     background-color: #E6E5E8;
     padding: 8px 0px 24px 24px;
-    
 }
 
 .userProfile {
@@ -331,7 +379,7 @@ b.discussionName {
     color:royalblue;
 }
 
-/*-ChallengeTable View*/
+/*_ChallengeTable View*/
 
 .completedChallenge {
     text-decoration: line-through;
@@ -376,10 +424,13 @@ b.discussionName {
     
 }
 
+/*GetChallenges View*/
+#challengeDescription {
+    margin-left: 0px;
+}
 /*GetAllApplicationUsers View*/
 #userTable {
     font-size: 1.3em;
-    
 }
 
 #userTable td {
@@ -400,3 +451,35 @@ b.discussionName {
     font-size: 1.3em;
 }
 
+/*GetRecentPosts View*/
+.recentHeading {
+    background-color: #E6E5E8;
+    padding: 8px 0px 10px 5px;
+}
+.recentTitle {
+    font-family: 'Comic Sans MS';
+    font-weight: lighter;
+    font: bold;
+    color: black;
+    font-size: 1.6em;
+    margin-bottom: 10px;
+}
+.recentSubtitle {
+    font-family: 'Segoe Print';
+    font-size: 16px;
+}
+#recentTitle2 {
+    font-family: Candara;
+    font-weight: lighter;
+    font-size: 1.6em;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.communityContent {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#Search {
+    color:black;
+}

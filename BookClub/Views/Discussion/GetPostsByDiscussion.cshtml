@@ -1,45 +1,46 @@
 ﻿@using Microsoft.AspNet.Identity
+@using BookClub.Models
 @model BookClub.ViewModels.JointViewModels.DiscussionPostViewModel
+
 <div class="container body-content">
-    <div class="row sectionHeader">
-        <span class="discussionTitle">@Model.Discussion.Title Discussion</span>
-        <div class="sectionHeading">
-
-            @*If the user is verified as a member, give them the ability to add a new post, by showing the post button*@
-
-            @if (Context.User.Identity.IsAuthenticated)
-            {
-                <span id="headingBtn">
-                    @Html.ActionLink("Add Post", "AddPost",
-                                 new { id = Model.Discussion.Id, Controller = "Post" }, null)
-                </span>
-
-            }
-
-        <input type="text" id="Search" value="Search" placeholder="Search..." class="searchBar" onfocus="clearThis(this)" />
-            <button type="submit" class="btn btn-discussionSearch">
-                <i class="material-icons">search</i>
-            </button>
-
-        <input asp-for="@Model.Discussion.Id" name="id" type="hidden" />
-
-            <div class="sectionDescription">
-                @if (!User.Identity.IsAuthenticated)
-                {
-                    <p>
-                        <span>
-                            You must be a
-                            @Html.ActionLink("Registered Member", "Register", "Account", routeValues: null, htmlAttributes: new {id = "registerLink"})
-                        @*returnUrl = Url.Action("GetPostsByDiscussion", "Discussion", Model.Discussion.Id) })*@
-                            or @Html.ActionLink("Login", "Login", "Account", new { returnUrl = Request.Url.PathAndQuery }, null)
-                            to create a new post
-                        </span>
-                    </p>
-                }
-            </div>
+    <div class="sectionHeader">
+        <div class="discussionTitle">@Model.Discussion.Title Discussion</div>
+        
         </div>
-  </div>
 
+    <div class="sectionDescription">
+        <input type="text" id="Search" value="Search" placeholder="Search..." class="searchBar" onfocus="clearThis(this)" />
+        <button type="submit" class="btn btn-discussionSearch">
+            <i class="material-icons">search</i>
+        </button>
+
+     @*If the user is verified as a member, give them the ability to add a new post, by showing the post button*@
+    <div>
+        @if (Context.User.Identity.IsAuthenticated)
+        {
+        <span>
+            <button class="btn btn-success" id="addPostButton" onclick="location.href='@Url.Action("AddPost", "Post", new { id = Model.Discussion.Id })'">Add Post</button>
+        </span>
+
+        }
+        
+        <input asp-for="@Model.Discussion.Id" name="id" type="hidden" />
+    </div>
+
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <p>
+                <span>
+                    You must be a
+                    @Html.ActionLink("Registered Member", "Register", "Account", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                    @*returnUrl = Url.Action("GetPostsByDiscussion", "Discussion", Model.Discussion.Id) })*@
+                    or @Html.ActionLink("Logged in", "Login", "Account", new { returnUrl = Request.Url.PathAndQuery }, null)
+                    to create a new post
+                </span>
+            </p>
+        }
+    </div>
+        
     <div class="discussionContent">
         @if (Model.Posts.Any())
         {
