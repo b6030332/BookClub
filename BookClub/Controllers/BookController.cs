@@ -56,7 +56,9 @@ namespace BookClub.Controllers
                 Blurb = books.Blurb,
                 Year = books.Year,
                 GenreName = books.Genre.Name,
-                AuthorName = books.Author.Name
+                AuthorName = books.Author.Name,
+                AuthorId = books.Author.Id
+                
                 
                 
             };

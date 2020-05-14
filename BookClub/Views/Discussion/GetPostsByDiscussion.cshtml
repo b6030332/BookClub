@@ -50,48 +50,49 @@
                     @foreach (var post in Model.Posts)
 
                     {
-                        <tr class="Search">
-                            <td>
-                                <div class="postData">
-                                    <div class="postTitle">
-                                        @Html.ActionLink(post.Title, "GetPost",
+                    <tr class="Search">
+                        <td>
+                            <div class="postData">
+                                <div class="postTitle">
+                                    @Html.ActionLink(post.Title, "GetPost",
 
-                                         new { id = post.Id, Controller = "Post" })
-                                    </div>
+                                     new { id = post.Id, Controller = "Post" })
+                                </div>
 
-                                    <div class="discussionSubtitle">
-                                        <div>
+                                <div class="discussionSubtitle">
+                                    <div>
 
-                                            <span class="postAuthor">
-                                                @Html.ActionLink(post.AuthorName, "Detail",
+                                        <span class="postAuthor">
+                                            @Html.ActionLink(post.AuthorName, "Detail",
 
-                                                 new { id = post.AuthorId, Controller = "Profile" })
-                                            </span>
+                                             new { id = post.AuthorId, Controller = "Profile" })
+                                        </span>
 
-                                            <div class="deletePost">
-                                                @if (post.AuthorId == User.Identity.GetUserId())
-
-                                                {
-                                                    <a><i class="glyphicon glyphicon-trash" onclick="location.href='@Url.Action("DeletePost", "Post", new { id = post.Id })'"></i></a>
-                                                }
-                                            </div>
-
-                                        </div>
                                     </div>
                                 </div>
-                            </td>
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="discussionPostCount">
-                                    Replies: @post.RepliesCount
-                                </div>
-                            </td>
+                        <td>
+                            <div class="discussionPostCount">
+                                Replies: @post.RepliesCount
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="postDate">@post.DatePosted</div>
-                            </td>
+                        <td>
+                            <div class="postDate">@post.DatePosted</div>
+                        
+                        <div class="trashPost">
+                            @if (post.AuthorId == User.Identity.GetUserId())
 
-                        </tr>
+                            {
+                                <a><i class="glyphicon glyphicon-edit" onclick="location.href='@Url.Action("UpdatePost", "Post", new { id = post.Id })'"></i></a>
+                                <a><i class="glyphicon glyphicon-trash" onclick="location.href='@Url.Action("DeletePost", "Post", new { id = post.Id })'"></i></a>
+                            }
+                        </div>
+                        </td>
+
+                    </tr>
 
                     }
 

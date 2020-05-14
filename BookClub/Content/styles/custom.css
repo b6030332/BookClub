@@ -121,8 +121,7 @@ h4 {
     font-family: Candara;
     font-weight: lighter;
     color: black;
-    font-size: 25px;
-    outline-color: red;
+    font-size: 17px;
 }
 .postData{
     display: inline-block;
@@ -225,6 +224,11 @@ h4 {
     }
 #addButton {
     margin-bottom: 4px;
+}
+.trashPost {
+    position:absolute;
+    right:60px;
+    
 }
 
 /*GetAllDiscussions View*/
@@ -483,3 +487,16 @@ b.discussionName {
 #Search {
     color:black;
 }
+
+/*NavBar*/
+
+.navbar-nav {
+    color:white;
+}
+
+.navbar-fixed-top {
+    background-color: darkblue;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
+    
+}
+

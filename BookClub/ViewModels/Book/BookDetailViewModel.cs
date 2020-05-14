@@ -21,6 +21,7 @@ namespace BookClub.ViewModels.Book
 
         public int PostId { get; set; }
         public int DiscussionId { get; set; }
+        public int AuthorId { get; set; }
     
     }
 }

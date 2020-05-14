@@ -84,7 +84,7 @@ namespace BookClub.Controllers
             try
             {
                 _replyService.UpdateReply(reply);
-                return RedirectToAction("GetPost", "Post", new { id = reply.Id });
+                return RedirectToAction("GetPost", "Post", new { id = reply.Post.Id});
             }
             catch
             {

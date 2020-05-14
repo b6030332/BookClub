@@ -8,6 +8,7 @@
 
 @using (Html.BeginForm())
 {
+    @Html.HiddenFor(model => model.Post.Id)
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
