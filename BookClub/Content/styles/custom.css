@@ -432,6 +432,9 @@ b.discussionName {
 #challengeDescription {
     margin-left: 0px;
 }
+#Description {
+    padding-left:0px;
+}
 /*GetAllApplicationUsers View*/
 #userTable {
     font-size: 1.3em;

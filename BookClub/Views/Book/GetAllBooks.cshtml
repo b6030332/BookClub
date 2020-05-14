@@ -1,4 +1,7 @@
-﻿@model IEnumerable<BookClub.Data.Models.Book>
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<BookClub.Data.Models.Book>
 
 <div class="alert alert-success">
     <strong>Sign Up Today:</strong> @Html.ActionLink("Join Our Community", "Register", "Account")
@@ -90,5 +93,13 @@
    
             }
 </table>
+
+@*Shows User Page Listing icon with certain Display functions seen below...*@ 
+@Html.PagedListPager(Model, page => Url.Action("GetAllBooks",
+    //Allows User to search and won't refresh the search once a new page is selected
+    new { page, option = Request.QueryString["option"], search = Request.QueryString["search"] }),
+    new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true}) 
+    
+
 
 
