@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -28,14 +29,14 @@ namespace BookClub.Controllers
             _userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(_context));
             _roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(_context));
         }
-        public ActionResult GetAllApplicationUsers(string roleId)
+        public ActionResult GetAllApplicationUsers(string userId)
         {
             var applicationUser = _userService.GetAllApplicationUsers();
             //  string[] userId = _userManager.Users.Where(u => u.Id == Id)
             //      .FirstOrDefault();
 
-            //  var userManager = Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
-
+            //var userManager = _userManager.FindByIdAsync(userId);
+                    
             //var role = _context.Roles.SingleOrDefault(r => r.Id == roleId);
 
             var userModel = applicationUser.Select(u => new NewUserModel
@@ -44,7 +45,7 @@ namespace BookClub.Controllers
                 FirstName = u.FirstName,
                 LastName = u.LastName,
                 UserName = u.UserName,
-               // Rolesforthisuser = _userManager.GetRoles(u.Id)
+                //Rolesforthisuser = _userManager.GetRoles(userId)
 
             }).ToList();
 
@@ -56,9 +57,29 @@ namespace BookClub.Controllers
 
             };
 
-        return View(model);
+            return View(model);
 
         }
+        public ActionResult GetUserRole_(string userId)
+        {
+            ViewBag.UserId = userId;
+
+            var userManager = _userManager.FindByIdAsync(userId);
+
+            var model = new List<NewUserModel>();
+
+            foreach (var role in _roleManager.Roles)
+            {
+                var newUserModel = new NewUserModel
+                {
+                    RoleId = role.Id,
+                    RoleName = role.Name
+                };
+            }
+
+            return View(model);
+
+            }
         // GET: UserAdmin
         public ActionResult GetAllUsers()
         {
@@ -144,6 +165,43 @@ namespace BookClub.Controllers
             }
 
             return View("GetRolesforUserConfirmed");
+        }
+        [HttpGet]
+        public async Task<ActionResult> ManageRoles(string userId)
+        {
+            ViewBag.userId = userId;
+
+            var user = await _userManager.FindByIdAsync(userId);
+
+            if (user == null)
+            {
+                ViewBag.ErrorMessage = $"User with Id = {userId} cannot be found";
+                return View("NotFound");
+            }
+
+            var model = new List<UserRolesViewModel>();
+
+            foreach(var role in _roleManager.Roles)
+            {
+                var userRolesViewModel = new UserRolesViewModel
+                {
+                    RoleId = role.Id,
+                    RoleName = role.Name
+                };
+
+                if (await _userManager.IsInRoleAsync(user.ToString(), role.Name))
+                {
+                    userRolesViewModel.IsSelected = true;
+                }
+                else
+                {
+                    userRolesViewModel.IsSelected = false;
+                
+                }
+                model.Add(userRolesViewModel);
+            }
+
+            return View(model);
         }
 
     }
