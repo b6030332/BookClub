@@ -13,11 +13,17 @@
     font-size: 20px;
     line-height: 19px;
     font-weight: 300;
-    margin: 0 5px 10px; 
     float: left;
-    padding: 10px;
-    margin: 0 5px 10px;
+    padding-right: 500px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
     font-family:'Libre Baskerville', serif;
+    margin-top: 0px;
+}
+.homeHeader{
+   margin-left: 0px;
+
 }
 
 #marginCard{
@@ -46,6 +52,11 @@
 }
 #members {
     background-image: url('../images/home/members.jpg');
+    background-size: cover;
+    height: 147px;
+}
+#challenges {
+    background-image: url('../images/home/challenges.png');
     background-size: cover;
     height: 147px;
 }

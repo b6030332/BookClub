@@ -231,6 +231,7 @@
     <Content Include="Content\images\books\the_handmaids_tale.jpg" />
     <Content Include="Content\images\books\the_shining.jpg" />
     <Content Include="Content\images\home\bookShelf.jpg" />
+    <Content Include="Content\images\home\challenges.png" />
     <Content Include="Content\images\home\community.jpg" />
     <Content Include="Content\images\home\members.jpg" />
     <Content Include="Content\images\home\stoneb.jpg" />
@@ -321,8 +322,6 @@
     <Content Include="Views\Admin\AddBook.cshtml" />
     <Content Include="Views\Post\DeletePost.cshtml" />
     <Content Include="Views\Reply\DeleteReply.cshtml" />
-    <Content Include="Views\Post\AjaxPost.cshtml" />
-    <Content Include="Views\Post\_postTable.cshtml" />
     <Content Include="Views\Profile\UploadFile.cshtml" />
     <Content Include="Views\Review\DeleteReview.cshtml" />
     <Content Include="Views\Post\UpdatePost.cshtml" />

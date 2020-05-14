@@ -12,15 +12,13 @@ namespace BookClub.Data.IDAO
         Discussion GetDiscussionID(int id);
 
         IEnumerable<Discussion> GetAllDiscussions();
-        IEnumerable<ApplicationUser> GetActiveUsers();
-
+        
         void AddDiscussion(Discussion discussion);
         void UpdateDiscussion(Discussion discussion);
         void DeleteDiscussion(Discussion discussion);
 
-        
         IEnumerable<Post> GetPostsByDiscussion(int id);
 
-        //IEnumerable<Post> GetSearchedPosts(Discussion discussion, string searchQuery);
+       
     }
 }

@@ -14,13 +14,12 @@ namespace BookClub.Data.IDAO
 
         IEnumerable<Challenges> GetMyChallenges();
         IEnumerable<Challenges> BuildChallengeTable();
+
         Challenges GetChallenge(int id);
+
         void AJAXAddChallenge(Challenges challenges, ApplicationUser User);
-
         void AddChallenge(Challenges challenges, ApplicationUser user);
-
         void EditChallenge(Challenges challenges);
-
         void DeleteChallenge(int id, Challenges challenges);
 
         // void AJAXEditChallenge(int? id, bool value);

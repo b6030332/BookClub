@@ -63,11 +63,7 @@ namespace BookClub.Data.DAO
         {
             return _context.Post.Find(id);
 
-                //.Where(p => p.Id == id)
-                //.Include(p => p.ApplicationUser)
-                //.Include(p => p.Replies)
-                //.Include(p => p.Discussion)
-                //.FirstOrDefault(p => p.Id == id);
+              
         }
 
         //Grab a collection of recent posts to display
@@ -76,31 +72,6 @@ namespace BookClub.Data.DAO
             //Order them by descencing using the date attribute in Post table
             return GetAllPosts().OrderByDescending(post => post.Created).Take(nofposts);
         }
-        public IEnumerable<PostReply> BuildPostTable()
-        {
-            string currentUserId = HttpContext.Current.User.Identity.GetUserId();
-            ApplicationUser currentUser = _context.Users.FirstOrDefault
-                (x => x.Id == currentUserId);
-
-            return _context.Replies.ToList();
-        }
-        public Post AjaxPost(int id)
-        {
-             return _context.Post.Find(id);
-          
-        }
-        public void AJAXAddReply(PostReply replies)
-        {
-            string currentUserId = HttpContext.Current.User.Identity.GetUserId();
-            ApplicationUser currentUser = _context.Users.FirstOrDefault
-                (x => x.Id == currentUserId);
-
-            replies.ApplicationUser = currentUser;
-
-            _context.Replies.Add(replies);
-            _context.SaveChanges();
-        }
-
         public void UpdatePost(Post post)
         {
             Post _post = GetPost(post.Id);

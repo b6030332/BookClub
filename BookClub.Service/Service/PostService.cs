@@ -42,21 +42,7 @@ namespace BookClub.Service.Service
         {
             return _dao.GetRecentPosts(nofposts);
         }
-        public IEnumerable<PostReply> BuildPostTable()
-        {
-            return _dao.BuildPostTable();
-        }
-
-        public Post AjaxPost(int id)
-        {
-            return _dao.AjaxPost(id);
-        }
-
-        public void AJAXAddReply(PostReply replies)
-        {
-            _dao.AJAXAddReply(replies);
-        }
-
+       
         public void UpdatePost(Post post)
         {
             _dao.UpdatePost(post);
