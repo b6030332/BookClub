@@ -9,7 +9,8 @@ using BookClub.ViewModels.Book;
 using BookClub.ViewModels.JointViewModels;
 using System.Linq;
 using System.Web.Mvc;
-
+using PagedList;
+using PagedList.Mvc;
 
 namespace BookClub.Controllers
 {
@@ -25,19 +26,23 @@ namespace BookClub.Controllers
             _discussionService = new DiscussionService();
         }
         
-        public ActionResult GetAllBooks(string option, string search)
+        public ActionResult GetAllBooks(string option, string search, int? page)
         {
+            //Returns certain list of books on the condition the user searches by: Genre, Author, Title
             if (option == "Genre")
             {
-                return View(_context.Book.Where(b => b.Genre.Name == search || search == null).ToList());
+                //'ToPagedList...' - If the page parameter has got value of null, then use value of 1
+                //Otherwise uses whatever value is present within page parameter
+                //5 = number of items per page
+                return View(_context.Book.Where(b => b.Genre.Name == search || search == null).ToList().ToPagedList(page ?? 1, 5));
             }
             else if (option == "Author")
             {
-                return View(_context.Book.Where(b => b.Author.Name == search || search == null).ToList());
+                return View(_context.Book.Where(b => b.Author.Name == search || search == null).ToList().ToPagedList(page ?? 1, 5));
             }
             else
             {
-                return View(_context.Book.Where(b => b.Title.StartsWith(search) || search == null).ToList());
+                return View(_context.Book.Where(b => b.Title.StartsWith(search) || search == null).ToList().ToPagedList(page ?? 1, 5)); 
             }
         }
         public ActionResult GetBookId(int id)
