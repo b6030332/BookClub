@@ -60,26 +60,6 @@ namespace BookClub.Controllers
             return View(model);
 
         }
-        public ActionResult GetUserRole_(string userId)
-        {
-            ViewBag.UserId = userId;
-
-            var userManager = _userManager.FindByIdAsync(userId);
-
-            var model = new List<NewUserModel>();
-
-            foreach (var role in _roleManager.Roles)
-            {
-                var newUserModel = new NewUserModel
-                {
-                    RoleId = role.Id,
-                    RoleName = role.Name
-                };
-            }
-
-            return View(model);
-
-            }
         // GET: UserAdmin
         public ActionResult GetAllUsers()
         {
@@ -166,43 +146,5 @@ namespace BookClub.Controllers
 
             return View("GetRolesforUserConfirmed");
         }
-        [HttpGet]
-        public async Task<ActionResult> ManageRoles(string userId)
-        {
-            ViewBag.userId = userId;
-
-            var user = await _userManager.FindByIdAsync(userId);
-
-            if (user == null)
-            {
-                ViewBag.ErrorMessage = $"User with Id = {userId} cannot be found";
-                return View("NotFound");
-            }
-
-            var model = new List<UserRolesViewModel>();
-
-            foreach(var role in _roleManager.Roles)
-            {
-                var userRolesViewModel = new UserRolesViewModel
-                {
-                    RoleId = role.Id,
-                    RoleName = role.Name
-                };
-
-                if (await _userManager.IsInRoleAsync(user.ToString(), role.Name))
-                {
-                    userRolesViewModel.IsSelected = true;
-                }
-                else
-                {
-                    userRolesViewModel.IsSelected = false;
-                
-                }
-                model.Add(userRolesViewModel);
-            }
-
-            return View(model);
-        }
-
     }
 }

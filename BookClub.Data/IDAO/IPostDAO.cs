@@ -15,11 +15,6 @@ namespace BookClub.Data.IDAO
         void AddPost(Post post, Discussion discussion);
         void DeletePost(Post post);
         void UpdatePost(Post post);
-
-
-        //Ajax methods
-        IEnumerable<PostReply> BuildPostTable();
-        Post AjaxPost(int id);
-        void AJAXAddReply(PostReply replies);
+        
     }
 }

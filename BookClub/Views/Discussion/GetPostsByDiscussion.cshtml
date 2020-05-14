@@ -2,11 +2,13 @@
 @using BookClub.Models
 @model BookClub.ViewModels.JointViewModels.DiscussionPostViewModel
 
+
+
 <div class="container body-content">
     <div class="sectionHeader">
         <div class="discussionTitle">@Model.Discussion.Title Discussion</div>
-        
-        </div>
+
+    </div>
 
     <div class="sectionDescription">
         <input type="text" id="Search" value="Search" placeholder="Search..." class="searchBar" onfocus="clearThis(this)" />
@@ -14,25 +16,25 @@
             <i class="material-icons">search</i>
         </button>
 
-     @*If the user is verified as a member, give them the ability to add a new post, by showing the post button*@
-    <div>
-        @if (Context.User.Identity.IsAuthenticated)
-        {
-        <span>
-            <button class="btn btn-success" id="addPostButton" onclick="location.href='@Url.Action("AddPost", "Post", new { id = Model.Discussion.Id })'">Add Post</button>
-        </span>
+        @*If the user is verified as a member, give them the ability to add a new post, by showing the post button*@
+        <div>
+            @if (Context.User.Identity.IsAuthenticated)
+            {
+                <span>
+                    <button class="btn btn-success" id="addPostButton" onclick="location.href='@Url.Action("AddPost", "Post", new { id = Model.Discussion.Id })'">Add Post</button>
+                </span>
 
-        }
-        
-        <input asp-for="@Model.Discussion.Id" name="id" type="hidden" />
-    </div>
+            }
+
+            <input asp-for="@Model.Discussion.Id" name="id" type="hidden" />
+        </div>
 
         @if (!User.Identity.IsAuthenticated)
         {
             <p>
                 <span>
                     You must be a
-                    @Html.ActionLink("Registered Member", "Register", "Account", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                    @Html.ActionLink("Registered Member", "Register", "Account", new { returnUrl = Request.Url.PathAndQuery }, null))
                     @*returnUrl = Url.Action("GetPostsByDiscussion", "Discussion", Model.Discussion.Id) })*@
                     or @Html.ActionLink("Logged in", "Login", "Account", new { returnUrl = Request.Url.PathAndQuery }, null)
                     to create a new post
@@ -40,7 +42,7 @@
             </p>
         }
     </div>
-        
+
     <div class="discussionContent">
         @if (Model.Posts.Any())
         {
@@ -50,49 +52,49 @@
                     @foreach (var post in Model.Posts)
 
                     {
-                    <tr class="Search">
-                        <td>
-                            <div class="postData">
-                                <div class="postTitle">
-                                    @Html.ActionLink(post.Title, "GetPost",
+                        <tr class="Search">
+                            <td>
+                                <div class="postData">
+                                    <div class="postTitle">
+                                        @Html.ActionLink(post.Title, "GetPost",
 
-                                     new { id = post.Id, Controller = "Post" })
-                                </div>
+                                         new { id = post.Id, Controller = "Post" })
+                                    </div>
 
-                                <div class="discussionSubtitle">
-                                    <div>
+                                    <div class="discussionSubtitle">
+                                        <div>
 
-                                        <span class="postAuthor">
-                                            @Html.ActionLink(post.AuthorName, "Detail",
+                                            <span class="postAuthor">
+                                                @Html.ActionLink(post.AuthorName, "Detail",
 
-                                             new { id = post.AuthorId, Controller = "Profile" })
-                                        </span>
+                                                 new { id = post.AuthorId, Controller = "Profile" })
+                                            </span>
 
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </td>
+                            </td>
 
-                        <td>
-                            <div class="discussionPostCount">
-                                Replies: @post.RepliesCount
-                            </div>
-                        </td>
+                            <td>
+                                <div class="discussionPostCount">
+                                    Replies: @post.RepliesCount
+                                </div>
+                            </td>
 
-                        <td>
-                            <div class="postDate">@post.DatePosted</div>
-                        
-                        <div class="trashPost">
-                            @if (post.AuthorId == User.Identity.GetUserId())
+                            <td>
+                                <div class="postDate">@post.DatePosted</div>
 
-                            {
-                                <a><i class="glyphicon glyphicon-edit" onclick="location.href='@Url.Action("UpdatePost", "Post", new { id = post.Id })'"></i></a>
-                                <a><i class="glyphicon glyphicon-trash" onclick="location.href='@Url.Action("DeletePost", "Post", new { id = post.Id })'"></i></a>
-                            }
-                        </div>
-                        </td>
+                                <div class="trashPost">
+                                    @if (post.AuthorId == User.Identity.GetUserId())
 
-                    </tr>
+                                    {
+                                        <a><i class="glyphicon glyphicon-edit" onclick="location.href='@Url.Action("UpdatePost", "Post", new { id = post.Id })'"></i></a>
+                                        <a><i class="glyphicon glyphicon-trash" onclick="location.href='@Url.Action("DeletePost", "Post", new { id = post.Id })'"></i></a>
+                                    }
+                                </div>
+                            </td>
+
+                        </tr>
 
                     }
 
@@ -101,7 +103,7 @@
             </table>
 
         }
-        
+
         else if (User.Identity.IsAuthenticated)
         {
             <div class="noPosts">
@@ -125,20 +127,20 @@
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
 <script>
     $(document).ready(function () {
-            function Contains(text_one, text_two) {
-                if (text_one.indexOf(text_two) != -1)
-                    return true;
-            }
+        function Contains(text_one, text_two) {
+            if (text_one.indexOf(text_two) != -1)
+                return true;
+        }
         $("#Search").keyup(function () {
-                var searchText = $("#Search").val().toLowerCase();
+            var searchText = $("#Search").val().toLowerCase();
             $(".Search").each(function () {
-                    if (!Contains($(this).text().toLowerCase(), searchText)) {
+                if (!Contains($(this).text().toLowerCase(), searchText)) {
                     $(this).hide();
-                    }
-                    else {
+                }
+                else {
                     $(this).show();
-                    }
-                })
+                }
+            })
 
         })
     });
@@ -150,7 +152,6 @@
             target.value = "";
         }
 
-        </script>
-    } 
+    </script>
+}
 
-        

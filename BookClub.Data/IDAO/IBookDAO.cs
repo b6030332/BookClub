@@ -10,8 +10,10 @@ namespace BookClub.Data.IDAO
     public interface IBookDAO
     {
         IList<Book> GetAllBooks();
-        Book GetBookId(int id);
         IList<Discussion> GetDiscussionsByBook(int id);
+
+        Book GetBookId(int id);
+        
         void AddBook(Book book);
         void UpdateBook(Book book);
         void DeleteBook(Book book);

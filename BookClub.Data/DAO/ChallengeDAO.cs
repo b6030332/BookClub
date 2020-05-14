@@ -22,17 +22,21 @@ namespace BookClub.Data.DAO
         }
         public void AddChallenge(Challenges challenges, ApplicationUser user)
         {
+            //Grab id of user that is logged in 
             string currentUserId = HttpContext.Current.User.Identity.GetUserId();
             ApplicationUser currentUser = _context.Users.FirstOrDefault
                 (x => x.Id == currentUserId);
 
+            //Map it to column in database
             challenges.User = currentUser;
 
+            //Add and save changes to database
             _context.Challenges.Add(challenges);
             _context.SaveChanges();
         }
         public void AJAXAddChallenge(Challenges challenges, ApplicationUser user)
         {
+            //Grab id of user that is logged in 
             string currentUserId = HttpContext.Current.User.Identity.GetUserId();
             ApplicationUser currentUser = _context.Users.FirstOrDefault
                 (x => x.Id == currentUserId);
@@ -45,6 +49,7 @@ namespace BookClub.Data.DAO
 
         public IList<Challenges> GetChallenges()
         {
+            //Grab id of user that is logged in 
             string currentUserId = HttpContext.Current.User.Identity.GetUserId();
             ApplicationUser currentUser = _context.Users.FirstOrDefault
                 (x => x.Id == currentUserId);
@@ -59,6 +64,7 @@ namespace BookClub.Data.DAO
 
         public void DeleteChallenge(int id, Challenges challenges)
         {
+            //Find first or default challenge to delete
             var deleteChallenge = _context.Challenges.FirstOrDefault(c => c.Id == id);
 
             if (deleteChallenge != null)
@@ -66,16 +72,16 @@ namespace BookClub.Data.DAO
                 _context.Challenges.Remove(deleteChallenge);
                 _context.SaveChanges();
             }
-            
-            
         }
 
         public IEnumerable<Challenges> GetMyChallenges()
         {
+            //Grab id of user that is logged in 
             string currentUserId = HttpContext.Current.User.Identity.GetUserId();
             ApplicationUser currentUser = _context.Users.FirstOrDefault
              (x => x.Id == currentUserId);
 
+            //Only show list of challenges which the user logged in has posted
             return _context.Challenges.ToList().Where(x => x.User == currentUser);
         }
 
@@ -86,10 +92,12 @@ namespace BookClub.Data.DAO
 
         public IEnumerable<Challenges> BuildChallengeTable()
         {
+            //Grab id of user that is logged in 
             string currentUserId = HttpContext.Current.User.Identity.GetUserId();
             ApplicationUser currentUser = _context.Users.FirstOrDefault
              (x => x.Id == currentUserId);
 
+            //Only show list of challenges which the user logged in has posted
             return _context.Challenges.ToList().Where(x => x.User == currentUser);
         }
 

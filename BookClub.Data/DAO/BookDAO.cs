@@ -54,6 +54,7 @@ namespace BookClub.Data.DAO
 
         public void UpdateBook(Book book)
         {
+            
             Book _book = GetBookId(book.Id);
             _book.Image = book.Image;
             _book.Title = book.Title;
