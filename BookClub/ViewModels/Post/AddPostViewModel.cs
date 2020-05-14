@@ -19,6 +19,8 @@ namespace BookClub.ViewModels.Post
         public DateTime Created { get; set; }
 
         public string DicussionName { get; set; }
+
+        public int DiscussionId { get; set; }
        
     }
 }

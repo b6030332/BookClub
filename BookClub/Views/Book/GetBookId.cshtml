@@ -16,7 +16,8 @@
 
         <div class="col-md-4">
             <p id="bookTitle">@Model.BookTitle</p>
-            <p id="bookAuthor">@Model.AuthorName</p>
+            <p id="bookAuthor">@Html.ActionLink(Model.AuthorName, "GetAuthor",
+                new { id = Model.AuthorId, Controller = "Author" })</p>
             <p id="bookGenre">@Model.GenreName</p>
         </div>
         <div class="col-md-4 detailInfo">
@@ -48,13 +49,10 @@
             <p id="bookBlurb">@Model.Blurb</p>
         <div> 
             View 
-        @Html.ActionLink("discussions", "GetPostsByDiscussion", new { id = Model.Id, Controller = "Discussion" })
+        @Html.ActionLink("discussions", "GetB", new { id = Model.Id, Controller = "Book" })
         about this book
         </div>
     </div>
 </div>
-
-
     <button class="btn btn-warning" id="reviewButton" onclick="location.href='@Url.Action("GetReviewByBook", "Review", new { id = Model.Id })'">See Reviews</button>
-
 </div>

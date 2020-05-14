@@ -68,11 +68,13 @@ namespace BookClub.Controllers
         [HttpGet]
         public ActionResult AddPost(int id)
         {
-            //Find the id of discussion we're posting in 
+            //Find the id of discussion to be posted in 
             var discussion = _discussionService.GetDiscussionID(id);
 
+            //Call on new model and get values outside of raw Post entity
             AddPostViewModel addPost = new AddPostViewModel();
             addPost.DicussionName = discussion.Title;
+            addPost.DiscussionId = discussion.Id;
 
             return View(addPost);
         }
