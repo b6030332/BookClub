@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace BookClub.Controllers
 {
+    [Authorize(Roles = "Admin, Member")]
     public class ReviewController : Controller
     {
         private readonly IReviewDAO _reviewService;
@@ -18,6 +19,7 @@ namespace BookClub.Controllers
             _bookService = new BookService();
         }
         // GET: Review
+        [AllowAnonymous]
         public ActionResult GetReviewByBook(int id)
         {
             //First, finding the Id of a Book needed to add a Review.

@@ -7,7 +7,7 @@
 
     
 
-    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp customTable" id="userTable">
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp customTable" id="userTable">
         <thead>
             <tr>
                 <th>Username</th>
@@ -24,7 +24,7 @@
             {
                 <tr>
                     <td>
-                        @user.UserName
+                        @user.UserName |
                     </td>
                     <td>
                         @Html.ActionLink("Details", "UserDetails", new { id = user.Id }) |

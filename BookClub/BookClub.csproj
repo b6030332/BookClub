@@ -189,7 +189,6 @@
     <Compile Include="Controllers\ChallengeController.cs" />
     <Compile Include="Controllers\CommunityController.cs" />
     <Compile Include="Controllers\DiscussionController.cs" />
-    <Compile Include="Controllers\FavouritesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostController.cs" />

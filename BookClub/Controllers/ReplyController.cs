@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace BookClub.Controllers
 {
-   
+    [Authorize(Roles = "Admin, Member")]
     public class ReplyController : Controller
     {
         private readonly IPostDAO _postService;

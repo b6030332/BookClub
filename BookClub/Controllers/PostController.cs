@@ -13,11 +13,13 @@ using System.Collections.Generic;
 
 namespace BookClub.Controllers
 {
+    [Authorize(Roles = "Admin, Member")]
     public class PostController : Controller
     {
         private readonly IPostDAO _postService;
         private readonly IReplyDAO _replyService;
         private readonly IDiscussionDAO _discussionService;
+
         public PostController()
         {
             _postService = new PostService();
@@ -25,7 +27,7 @@ namespace BookClub.Controllers
             _discussionService = new DiscussionService();
         }
         // GET: Post
-        
+        [AllowAnonymous]
         public ActionResult GetPost(int id) 
         {
             Post post = _postService.GetPost(id);
@@ -50,7 +52,7 @@ namespace BookClub.Controllers
             };
             return View(model);
         }
-
+        [AllowAnonymous]
         private IEnumerable<NewPostReplyModel> BuildPostReplies(ICollection<PostReply> replies)
         {
         //return set of PostReply View Models back to GetPostViewModel so it can use Replies property
@@ -65,6 +67,7 @@ namespace BookClub.Controllers
             });
             
         }
+        
         [HttpGet]
         public ActionResult AddPost(int id)
         {
