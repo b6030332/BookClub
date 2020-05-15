@@ -45,29 +45,35 @@
                             <li>@Html.ActionLink("Recent Posts", "Index", "Community")</li>
                         </ul>
 
-                    <li class="dropdown">
+
+                        @if (User.IsInRole("Member"))
+                        {
+                                <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 @Html.ActionLink("My Profile", "Detail", new { id = HttpContext.Current.User.Identity.GetUserId(), Controller = "Profile" })
                             </li>
                         </ul>
+                      </li>
+                        }
 
-                        
 
+                        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                        {
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-
-                                @if (Request.IsAuthenticated && User.IsInRole("Admin"))
-                                {
-                                    <li> @Html.ActionLink("See All Users", "GetAllUsers", "UserAdmin")</li>
-                                    <li>@Html.ActionLink("Manage Roles", "GetAllRoles", "UserAdmin")</li>
-
-                                }
-                                </ul>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
 
 
+                            <li> @Html.ActionLink("See All Users", "GetAllUsers", "UserAdmin")</li>
+                            <li>@Html.ActionLink("Manage Roles", "GetAllRoles", "UserAdmin")</li>
+
+                        </ul>
+                        </li>
+
+                         }
+                      
                     </ul>
                         
                         @Html.Partial("_LoginPartial")
