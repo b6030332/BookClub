@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -16,6 +17,7 @@ using System.Web.Security;
 
 namespace BookClub.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class UserAdminController : Controller
     {
         private ApplicationDbContext _context;
@@ -31,13 +33,15 @@ namespace BookClub.Controllers
         }
         public ActionResult GetAllApplicationUsers(string userId)
         {
-            var applicationUser = _userService.GetAllApplicationUsers();
-            //  string[] userId = _userManager.Users.Where(u => u.Id == Id)
-            //      .FirstOrDefault();
+            //if (userId == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
 
-            //var userManager = _userManager.FindByIdAsync(userId);
-                    
-            //var role = _context.Roles.SingleOrDefault(r => r.Id == roleId);
+            var applicationUser = _userService.GetAllApplicationUsers();
+
+           // var user = _userManager.FindById(userId);
+           // ViewBag.RoleNames = _userManager.GetRoles(user.Id);
 
             var userModel = applicationUser.Select(u => new NewUserModel
             {
@@ -45,9 +49,11 @@ namespace BookClub.Controllers
                 FirstName = u.FirstName,
                 LastName = u.LastName,
                 UserName = u.UserName,
-                //Rolesforthisuser = _userManager.GetRoles(userId)
+              //  Rolesforthisuser = ViewBag.RoleNames = _userManager.GetRoles(user.Id)
 
             }).ToList();
+
+
 
             var model = new AllUsersViewModel()
             {
@@ -60,7 +66,24 @@ namespace BookClub.Controllers
             return View(model);
 
         }
-        // GET: UserAdmin
+       public async Task<ActionResult> UserDetails(string id)
+        {
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+
+            var user = await _userManager.FindByIdAsync(id);
+
+            ViewBag.RoleNames = await _userManager.GetRolesAsync(user.Id);
+
+            return View(user);
+        }
+        
+
+
+
+        
         public ActionResult GetAllUsers()
         {
             return View(_context.Users.ToList());
@@ -69,29 +92,146 @@ namespace BookClub.Controllers
         {
             return View(_context.Roles.ToList());
         }
+
+        //method used to take string name id as an input parameter & attempts to find a role based on this Id
+        public async Task<ActionResult> Details(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var role = await _roleManager.FindByIdAsync(id);
+
+            //get a list of users in this Role
+
+            var users = new List<ApplicationUser>();
+
+            //get the list of users in this role
+            foreach (var user in _userManager.Users.ToList())
+            {
+                if (await _userManager.IsInRoleAsync(user.Id, role.Name))
+                {
+                    users.Add(user);
+                }
+            }
+
+            ViewBag.Users = users;
+            ViewBag.UserCount = users.Count();
+            return View(role);
+        }
         [HttpGet]
         public ActionResult AddRole()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult AddRole(FormCollection collection)
+        public async Task<ActionResult> AddRole(RoleViewModel model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                IdentityRole role = new IdentityRole();
+                var role = new IdentityRole(model.RoleName);
 
-                role.Name = collection["RoleName"];
-                _context.Roles.Add(role);
-                _context.SaveChanges();
-                return RedirectToAction("GetRoles");
+                //attempts to create new role based on IdentityRole object
+                var roleresult = await _roleManager.CreateAsync(role);
 
+                if (!roleresult.Succeeded)
+                {
+                    ModelState.AddModelError("", roleresult.Errors.First());
+                    return View();
+                }
+                return RedirectToAction("GetAllRoles");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View();
         }
+        public async Task<ActionResult> EditRole(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var role = await _roleManager.FindByIdAsync(id);
+            if (role == null)
+            {
+                return HttpNotFound();
+            }
+
+            RoleViewModel model = new RoleViewModel { RoleId = role.Id, RoleName = role.Name };
+
+            return View(model);
+               
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> EditRole(RoleViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var role = await _roleManager.FindByIdAsync(model.RoleId);
+                role.Name = model.RoleName;
+
+                //updates role with any new property values assigned to it 
+                await _roleManager.UpdateAsync(role);
+
+                return RedirectToAction("GetAllRoles");
+            }
+
+            return View();
+        }
+        public async Task<ActionResult> DeleteRole(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            }
+
+            var role = await _roleManager.FindByIdAsync(id);
+
+                if (role == null)
+                {
+                return HttpNotFound();
+                }
+
+            return View(role);
+        }
+        [HttpPost, ActionName("DeleteRole")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteConfirmed(string id)
+        {
+            if (ModelState.IsValid)
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+                var role = await _roleManager.FindByIdAsync(id);
+
+                if (role == null)
+                {
+                    return HttpNotFound();
+                }
+
+                //take IdentityRole object as input parameter& then attempts to delete the role 
+                IdentityResult result = await _roleManager.DeleteAsync(role);
+
+                if (!result.Succeeded)
+                {
+                    ModelState.AddModelError("", result.Errors.First());
+                    return View();
+                }
+
+                return RedirectToAction("GetAllRoles");
+                
+            }
+            return View();
+
+        }
+
+
         [HttpGet]
         public ActionResult ManageUserRoles()
         {
@@ -146,5 +286,6 @@ namespace BookClub.Controllers
 
             return View("GetRolesforUserConfirmed");
         }
+
     }
 }

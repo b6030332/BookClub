@@ -49,6 +49,6 @@ namespace BookClub.Data
             return new ApplicationDbContext();
         }
 
-       
+        
     }
 }

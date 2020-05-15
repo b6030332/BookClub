@@ -15,7 +15,8 @@ namespace BookClub.ViewModels.AdminUsers
         public int RoleId { get; set; }
         public string RoleName { get; set; }
 
-        //public IList<string> Rolesforthisuser { get; set; }
+       
+        //public string Rolesforthisuser { get; set; }
 
     }
 }

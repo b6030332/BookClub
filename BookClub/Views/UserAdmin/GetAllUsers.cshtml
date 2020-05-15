@@ -3,14 +3,47 @@
     ViewBag.Title = "GetAllUsers";
 }
 
-<h2>List of Users</h2>
+<div id="userPage">
 
-@foreach (var user in Model)
-{
-    <p>
-        @user.UserName |
-        @Html.ActionLink("Edit", "EditUser", new { id = user.Id }) |
-        @Html.ActionLink("Delete", "DeleteUser", new { id = user.Id })
-    </p>
-}
-@Html.ActionLink("Add User", "Register", new { controller = "Account" })
+    
+
+    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp customTable" id="userTable">
+        <thead>
+            <tr>
+                <th>Username</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <h2>List of Users</h2>
+
+            @Html.ActionLink("Add User", "Register", new { controller = "Account" })
+
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>
+                        @user.UserName
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "UserDetails", new { id = user.Id }) |
+
+                        @Html.ActionLink("Edit", "EditUser", new { id = user.Id }) |
+
+                        @Html.ActionLink("Delete", "DeleteUser", new { id = user.Id })
+                    </td>
+
+                </tr>
+
+
+
+
+
+            }
+
+        </tbody>
+    </table>
+</div>
+
+

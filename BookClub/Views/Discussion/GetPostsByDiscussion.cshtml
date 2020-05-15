@@ -2,7 +2,10 @@
 @using BookClub.Models
 @model BookClub.ViewModels.JointViewModels.DiscussionPostViewModel
 
+@*@{
 
+    ViewBag.ReturnUrl = returnUrl;
+}*@
 
 <div class="container body-content">
     <div class="sectionHeader">
@@ -34,8 +37,11 @@
             <p>
                 <span>
                     You must be a
-                    @Html.ActionLink("Registered Member", "Register", "Account", new { returnUrl = Request.Url.PathAndQuery }, null))
-                    @*returnUrl = Url.Action("GetPostsByDiscussion", "Discussion", Model.Discussion.Id) })*@
+
+                    @Html.ActionLink("Registered member", "Register", "Account", new { returnUrl = Request.Url.PathAndQuery }, null)
+                    @*@Html.ActionLink("Registered Member", "Register", new { ReturnUrl = ViewBag.ReturnUrl , Controller = "Account" })*@
+
+
                     or @Html.ActionLink("Logged in", "Login", "Account", new { returnUrl = Request.Url.PathAndQuery }, null)
                     to create a new post
                 </span>
