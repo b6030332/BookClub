@@ -105,32 +105,21 @@ namespace BookClub.Controllers
             return View(_postService.GetPost(id));
         }
         [HttpPost]
-        public ActionResult DeletePost(int id,Post post) //taken out int id
+        public ActionResult DeletePost(int id, Post post) 
         {
-
             Post posts = _postService.GetPost(id);
-
-            // if (posts.ApplicationUser.Id == HttpContext.User.Identity.GetUserId())
-            //{
-
-            //var posts = new Post();
-
             _postService.DeletePost(post);
 
-            return RedirectToAction("GetAllDiscussions", "Discussion");
-            
+            return RedirectToAction("GetPostsByDiscussion", "Discussion", new { id = post.Discussion.Id }); 
         }
         
-        public ActionResult BuildPostTable()
-        {
-            return PartialView("_postTable", BuildPostTable());
-        }
         [HttpGet]
         public ActionResult UpdatePost(int id)
         {
             Post post = _postService.GetPost(id);
             return View(post);
         }
+
         [HttpPost]
         public ActionResult UpdatePost(int id, Post post)
         {

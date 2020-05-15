@@ -2,15 +2,16 @@
 @using BookClub.Models
 @model BookClub.ViewModels.JointViewModels.DiscussionPostViewModel
 
-@*@{
-
-    ViewBag.ReturnUrl = returnUrl;
-}*@
-
 <div class="container body-content">
     <div class="sectionHeader">
         <div class="discussionTitle">@Model.Discussion.Title Discussion</div>
+        <h4 id="backLink">
+            @*Allows User to see GetAllDiscussions page*@
+            Go to 
+            @Html.ActionLink("All Discussions", "GetAllDiscussions",
 
+         new { id = Model.Discussion.Id , Controller = "Discussion" })
+        </h4>
     </div>
 
     <div class="sectionDescription">
@@ -26,9 +27,8 @@
                 <span>
                     <button class="btn btn-success" id="addPostButton" onclick="location.href='@Url.Action("AddPost", "Post", new { id = Model.Discussion.Id })'">Add Post</button>
                 </span>
-
             }
-
+            
             <input asp-for="@Model.Discussion.Id" name="id" type="hidden" />
         </div>
 
@@ -38,8 +38,10 @@
                 <span>
                     You must be a
 
+
                     @Html.ActionLink("Registered member", "Register", "Account", new { returnUrl = Request.Url.PathAndQuery }, null)
                     @*@Html.ActionLink("Registered Member", "Register", new { ReturnUrl = ViewBag.ReturnUrl , Controller = "Account" })*@
+
 
 
                     or @Html.ActionLink("Logged in", "Login", "Account", new { returnUrl = Request.Url.PathAndQuery }, null)
@@ -52,35 +54,29 @@
     <div class="discussionContent">
         @if (Model.Posts.Any())
         {
-
             <table class="table table-hover table-bordered" id="discussionPage">
                 <tbody>
                     @foreach (var post in Model.Posts)
-
                     {
                         <tr class="Search">
                             <td>
                                 <div class="postData">
                                     <div class="postTitle">
                                         @Html.ActionLink(post.Title, "GetPost",
-
-                                         new { id = post.Id, Controller = "Post" })
+                                       new { id = post.Id, Controller = "Post" })
                                     </div>
-
+                                    
                                     <div class="discussionSubtitle">
                                         <div>
-
                                             <span class="postAuthor">
                                                 @Html.ActionLink(post.AuthorName, "Detail",
-
-                                                 new { id = post.AuthorId, Controller = "Profile" })
+                                               new { id = post.AuthorId, Controller = "Profile" })
                                             </span>
-
                                         </div>
                                     </div>
                                 </div>
                             </td>
-
+                            
                             <td>
                                 <div class="discussionPostCount">
                                     Replies: @post.RepliesCount
@@ -92,42 +88,33 @@
 
                                 <div class="trashPost">
                                     @if (post.AuthorId == User.Identity.GetUserId())
-
                                     {
                                         <a><i class="glyphicon glyphicon-edit" onclick="location.href='@Url.Action("UpdatePost", "Post", new { id = post.Id })'"></i></a>
                                         <a><i class="glyphicon glyphicon-trash" onclick="location.href='@Url.Action("DeletePost", "Post", new { id = post.Id })'"></i></a>
                                     }
                                 </div>
                             </td>
-
                         </tr>
-
                     }
-
+                
                 </tbody>
-
             </table>
-
         }
-
         else if (User.Identity.IsAuthenticated)
         {
             <div class="noPosts">
                 <i class="material-icons md-72">question_answer</i>
             </div>
-            <h4>
-
-                It looks like there are no @Model.Discussion.Title posts yet. <br />
-                Why not
-
-                @Html.ActionLink("Create", "AddPost",
-                 new { id = Model.Discussion.Id, Controller = "Post" }, null)
-
-                one?
-            </h4>
+        
+            <h4>It looks like there are no @Model.Discussion.Title posts yet.
+        <br />
+        Why not
+        @Html.ActionLink("Create", "AddPost",
+       new { id = Model.Discussion.Id, Controller = "Post" }, null)
+        one?
+        </h4>
         }
     </div>
-
 </div>
 
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>

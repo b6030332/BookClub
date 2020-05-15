@@ -37,6 +37,7 @@ namespace BookClub.Controllers
                 AuthorName = review.User.UserName,
                 DateCreated = review.Created.ToString(),
                 Rating = review.Rating,
+                UserId = review.User.Id
             });
 
             ViewBag.BookId = id;

@@ -4,7 +4,8 @@
     src: url('../images/fonts/LibreBaskerville-Bold.ttf');
 }
 .body{
-    background-image: url(../images/home/stoneb.jpg)
+    background-image: url(../images/home/stoneb.jpg);
+    
 }
 
 .homeTitle{
@@ -68,7 +69,7 @@
     margin-top:35px;
 }
 .navbar{
-    box-shadow: 0 5px 4px -6px #000;
+    box-shadow: 0 5px 4px -6px /*#000*/;
 }
 h4 {
     font-size: 0.8em;
@@ -81,12 +82,6 @@ h4 {
     width: 140px;
     height: 200px;
     padding: 10px;
-}
-#bookAuthorCell {
-    width: 90px;
-    padding: 10px;
-    border:solid;
-    height: 120px; 
 }
 .bookLabel {
     word-spacing: 2px;
@@ -121,9 +116,7 @@ h4 {
     margin-left: 0px;
 }
 
-
 /*GetPost View*/
-
 .postHeader {
     background-color: #E6E5E8;
     padding: 5px 0px 5px 5px;
@@ -163,9 +156,10 @@ h4 {
 
 }
 #backLink {
-    font-size: 12px;
+    font-size: 15px;
     font-family:monospace;
     margin-top:5px;
+    margin-bottom:0px;
 }
 .replyContentContainer {
     font-family: 'Comic Sans MS';
@@ -193,7 +187,7 @@ h4 {
 /*Get PostsByDiscussion View*/
 .sectionHeader {
     background-color: #E6E5E8;
-    padding: 8px 0px 24px 24px;
+    padding: 8px 0px 0px 5px;
 }
 .promptLogin {
     position:absolute;
@@ -227,7 +221,6 @@ h4 {
     transition: ease .3s;
     border: none;
 }
-
 .searchBar:focus{
     color: black;
     width: 60%;
@@ -269,10 +262,11 @@ h4 {
 
 
 /*Add Reply View*/
-
+#addReplyButton {
+    margin-left: 0px;
+}
 
 /*GetReviewByBook View*/
-
 #starRating {
     color: yellow;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
@@ -339,6 +333,16 @@ h4 {
 .partViewTitle {
     font-family: 'Cambria Math'
 }
+#bookAuthorCell {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 90px;
+    padding: 10px;
+    height: 120px;
+}
+#bookAuthorCell:hover {
+    transform: scale(1.2);
+}
 
 /*GetAuthor View*/
 .authorImage {
@@ -356,6 +360,8 @@ h4 {
 .partialBooks {
     cursor: pointer;
 }
+
+
 
 /*_ChallengeTable View*/ 
 .progress {
@@ -513,4 +519,18 @@ b.discussionName {
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
     
 }
+.nav li a:hover {
+    border-bottom: 2px solid White;
+    transform: scale(1.1);
+    text-decoration: none;
+}
+a {
+    color:dodgerblue;
+    transition: transform .3s;
+    
+}
+a:hover {
+   transform: scale(1.5);
+}
+
 
