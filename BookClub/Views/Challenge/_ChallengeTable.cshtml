@@ -7,6 +7,7 @@
         </div>
     </div>
 
+@*Adds progres bar which calculates percentage when checkbox is ticked from the Viewbag established in the Controller *@
 <div id="progressBarComplete">
     <p>@(ViewBag.Percent)%</p>
     <div class="progress progress-bar-info">
@@ -20,18 +21,6 @@
         <th>
             Challenge
         </th>
-        @*<th>
-                @Html.DisplayNameFor(model => model.Completed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.From)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Until)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Book.Title)
-            </th>*@
         <th></th>
         <th></th>
 
@@ -54,21 +43,12 @@
             <td>
                 @Html.CheckBoxFor(modelItem => item.Completed, new { id = item.Id, @class = "ActiveCheck" })
             </td>
-            @*<td>
-                    @Html.DisplayFor(modelItem => item.From)
+                <td>
+                    <a><i class="glyphicon glyphicon-trash" onclick="location.href='@Url.Action("DeleteChallenge", "Challenge", new { id = item.Id })'"></i></a>
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Until)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Book.Title)
-                </td>*@
-                <td>
-                    <a><i class="glyphicon glyphicon-trash" onclick="location.href='@Url.Action("DeleteChallenge", "Challenge", new { id = item.Id })'"></i></a> </td>
             </tr>
     }
     
-
 </table>
 
     </div>

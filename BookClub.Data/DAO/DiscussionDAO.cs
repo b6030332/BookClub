@@ -37,12 +37,15 @@ namespace BookClub.Data.DAO
         }
         public void AddDiscussion(Discussion discussion)
         {
+            //Find the firstordefault instance of User through identity framework, given with MVC startup
             string currentUserId = HttpContext.Current.User.Identity.GetUserId();
             ApplicationUser currentUser = _context.Users.FirstOrDefault
                (x => x.Id == currentUserId);
 
+            //Map the values above to their respective properties in Discussion entity 
             discussion.ApplicationUser = currentUser;
-            
+
+            //Push and save values to database 
             _context.Discussion.Add(discussion);
             _context.SaveChanges();
         }
@@ -56,7 +59,7 @@ namespace BookClub.Data.DAO
 
         public void DeleteDiscussion(Discussion discussion)
         {
-            //find post instance of post to deleete
+            //find post instance of post to delete
             var deleteDiscussion = _context.Discussion.FirstOrDefault(d => d.Id == discussion.Id);
 
             //if not null, delete post

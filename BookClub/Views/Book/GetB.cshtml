@@ -5,31 +5,33 @@
         <span class="discussionTitle">@Model.Book.Title Discussion</span>
         <div class="sectionHeading">
 
-            @*If the user is verified as a memeber, give them the ability to add a new post, by showing the post button*@
+            @*User can only add discussion if user is Admin*@
 
-            @if (Context.User.Identity.IsAuthenticated)
+            @if (User.IsInRole("Admin"))
             {
                 <span id="headingBtn">
                     @Html.ActionLink("Add Discussion", "AddDiscussion",
                                  new { id = Model.Book.Id, Controller = "Admin" }, null)
                 </span>
-
             }
+
         </div>
     </div>
-
-            <div class="sectionDescription">
-                @if (!User.Identity.IsAuthenticated)
-                {
-                    <p>
-                        <span>
-                            You must be a
-                            @Html.ActionLink("registered member", "Register", "Account")
-                            to create a new discussion
-                        </span>
-                    </p>
-                }
-            </div>
+   
+    @*<div class="sectionDescription">
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <p>
+                <span>
+                    You must be a
+                    @Html.ActionLink("registered member", "Register", "Account", new { returnUrl = Request.Url.PathAndQuery }, null) or
+                    @Html.ActionLink("Logged in", "Login", "Account", new { returnUrl = Request.Url.PathAndQuery }, null)
+                    to reply to this post
+                    to create a new discussion
+                </span>
+            </p>
+        }
+    </div>*@
 
     <div class="discussionContent">
         @if (Model.Discussions.Any())

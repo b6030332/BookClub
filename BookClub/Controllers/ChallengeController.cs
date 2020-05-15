@@ -52,7 +52,6 @@ namespace BookClub.Controllers
 
         public ActionResult BuildChallengeTable()
         {
-          
             return PartialView("_ChallengeTable", GetMyChallenges());
         }
 
@@ -84,7 +83,6 @@ namespace BookClub.Controllers
                 challenges.Completed = false;
                 challenges.From = null;
                 challenges.Until = null;
-                // return RedirectToAction("GetChallenges");
             }
             return PartialView("_ChallengeTable", GetMyChallenges());
         }
@@ -123,25 +121,7 @@ namespace BookClub.Controllers
                 return PartialView("_ChallengeTable", GetMyChallenges());
             }
         }
-
-        // [HttpPost]
-        // public ActionResult AJAXEditChallenge(int? id, bool value)
-        // {
-        //    if (id == null)
-        //    {
-        //       return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-
-        //   }
-        //   _challengeService.AJAXEditChallenge(id, value);
-        //  if (_challengeService == null)
-        //  {
-        //     return HttpNotFound();
-        // }
-
-        //  return PartialView("_ChallengeTable", GetMyChallenges());
-
-        //  }
-
+        
         [HttpGet]
         public ActionResult DeleteChallenge(int id)
         {
