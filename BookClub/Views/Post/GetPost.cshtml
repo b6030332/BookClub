@@ -71,11 +71,7 @@
         <div class="row" id="postReplyRow">
             <span>
                 <button class="btn btn-success" id="addButton" onclick="location.href='@Url.Action("AddReply", "Reply", new { id = Model.PostId})'">Post Reply</button>
-                @*@Html.ActionLink("Post reply", "AddReply",
-
-          new { id = Model.PostId, Controller = "Reply" })*@
             </span>
-
         </div>
     }
 
@@ -84,36 +80,36 @@
     {
         foreach (var reply in Model.Replies)
         {
-            <div class="row" id="replyContent">
-                <div class="col-md-3 replyAuthorContainer">
+        <div class="row" id="replyContent">
+            <i class="material-icons md-72">keyboard_return</i>
+            <div class="col-md-3 replyAuthorContainer">
 
-                    @Html.ActionLink(reply.ReplyUserName, "Detail",
+                @Html.ActionLink(reply.ReplyUserName, "Detail",
 
-          new { id = reply.ReplyUserId, Controller = "Profile" })
+      new { id = reply.ReplyUserId, Controller = "Profile" })
 
-                    <span class="postData">@reply.ReplyPosted</span>
-                </div>
-
-
-                <div class="col-md-9 replyContentContainer">
-                    <div class="replypostContent">
-                        @Html.Raw(reply.ReplyContent)
-                    </div>
-                </div>
-
-                @*Only allows Users who are logged in to see edit/delete icons for their own post replies*@
-                <div class="row" id="deleteReply"></div>
-                @if (reply.ReplyUserId == User.Identity.GetUserId())
-                {
-                    <div id="deleteReplyRow">
-
-                        <a><i class="glyphicon glyphicon-edit" onclick="location.href='@Url.Action("UpdateReply", "Reply", new { id = reply.Id })'"></i></a>
-                        <a><i class="glyphicon glyphicon-trash" onclick="location.href='@Url.Action("DeleteReply", "Reply", new { id = reply.Id })'"></i></a>
-
-                    </div>
-                }
-
+                <span class="postData">@reply.ReplyPosted</span>
             </div>
+
+            <div class="col-md-9 replyContentContainer">
+                <div class="replypostContent">
+                    @Html.Raw(reply.ReplyContent)
+                </div>
+            </div>
+
+            @*Only allows Users who are logged in to see edit/delete icons for their own post replies*@
+            <div class="row" id="deleteReply"></div>
+            @if (reply.ReplyUserId == User.Identity.GetUserId())
+            {
+                <div id="deleteReplyRow">
+
+                    <a><i class="glyphicon glyphicon-edit" onclick="location.href='@Url.Action("UpdateReply", "Reply", new { id = reply.Id })'"></i></a>
+                    <a><i class="glyphicon glyphicon-trash" onclick="location.href='@Url.Action("DeleteReply", "Reply", new { id = reply.Id })'"></i></a>
+
+                </div>
+            }
+
+        </div>
         }
 
     }

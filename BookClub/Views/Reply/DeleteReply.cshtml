@@ -33,14 +33,13 @@
     {
         @Html.HiddenFor(m => m.Post.Id)
         @*@Html.HiddenFor(m => m.Id)*@
-   
+
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-
             <input type="submit" value="Delete" class="btn btn-default" />
-            |
-            @Html.ActionLink("Back to List", "Index")
         </div>
+
+        @Html.ActionLink("Back to Replies", "GetPost", new { id = Model.PostId, Controller = "Post" })
     }
 </div>

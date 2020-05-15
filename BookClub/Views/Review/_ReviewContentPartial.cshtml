@@ -1,4 +1,7 @@
-﻿@model BookClub.ViewModels.Review.ReviewViewModel
+﻿@using Microsoft.AspNet.Identity
+
+@model BookClub.ViewModels.Review.ReviewViewModel
+
 
 <div class="reviewContent">
     <table style="width: 100%; border: 1px solid black">
@@ -18,7 +21,6 @@
             </td>
         </tr>
 
-
         <tr>
             @*Displays the confirmed rating for each Users Review*@
 
@@ -34,12 +36,16 @@
             </td>
         </tr>
 
+        @*Only gives logged in Users the ability to Edit/Delete their own Reviews*@ 
+        @if (Model.UserId == User.Identity.GetUserId())
+        {
         <tr>
             <td>
                 <a><i class="glyphicon glyphicon-edit" id="deleteReview" onclick="location.href='@Url.Action("UpdateReview", "Review", new { id = Model.Id })'"></i></a>
                 <a><i class="glyphicon glyphicon-trash" id="deleteReview" onclick="location.href='@Url.Action("DeleteReview", "Review", new { id = Model.Id })'"></i></a>
             </td>
         </tr>
+        }
 
     </table>
 </div>

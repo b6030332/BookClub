@@ -1,49 +1,30 @@
 ﻿@model BookClub.ViewModels.Reply.AddReplyViewModel
 
-
-<h2>Replying to: @Model.PostTitle</h2>
-
 <div class="containter body-content">
-    <div class="row postHeader">
-        <div class="postHeading">
-            <span class="postTitle">
-                @Model.PostTitle
-            </span>
-
-            </div>
+    <h3>Replying to: @Model.PostTitle</h3>
+    
+    <div class="col-md-9 postContentContainer">
+        <div class="postContent">
+            @Html.Raw(Model.PostContent)
+        </div>
     </div>
+    
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-            <div class="col-md-9 postContentContainer">
-                <div class="postContent">
-                    @Html.Raw(Model.PostContent)
-                </div>
-            </div>
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="col-md-5" id="replyTextArea">
+            @Html.TextAreaFor(model => model.ReplyContent, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ReplyContent, "", new { @class = "text-danger" })
+
+        <div class="form-group" id="addReplyButton">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+            @Html.ActionLink("Back to Replies", "GetPost", new { id = Model.PostId, Controller = "Post" })
+        </div>
     </div>
-
-            @using (Html.BeginForm())
-            {
-                @Html.AntiForgeryToken()
-
-                <div class="form-horizontal">
-                    <hr />
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.ReplyContent, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10" id="replyTextArea">
-                            @Html.TextAreaFor(model => model.ReplyContent, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.ReplyContent, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Create" class="btn btn-default" />
-                        </div>
-                    </div>
-                </div>
-            }
-
-            <div>
-                @Html.ActionLink("Back to Replies", "GetPost", new { id = Model.PostId, Controller = "Post" })
-            </div>
+    }
+</div>
+    
