@@ -7,7 +7,6 @@
     background-image: url(../images/home/stoneb.jpg);
     
 }
-
 .homeTitle{
     color: #f2f2f2; 
     background: #ff4a4a;
@@ -24,10 +23,12 @@
 }
 .homeHeader{
    margin-left: 0px;
-
+}
+#homePageContainer {
+    margin-right: 0px;
 }
 
-#marginCard{
+#marginCard {
     margin-top: 60px;
 }
 

@@ -4,6 +4,12 @@
     <div class="page-header clearfix detailHeading">
         <h2 class="text-muted">Book View</h2>
     </div>
+    <h4 id="backLink">
+        @*Allows User to return to the previous Book list view*@
+        Back to 
+        @Html.ActionLink("bookshelf", "GetAllBooks",
+       new { id = Model.Id , Controller = "Book" })
+    </h4>
 </div>
 
 <div class="jumbotron">
