@@ -80,18 +80,103 @@ namespace BookClub.Controllers
             return View(user);
         }
         
-
-
-
-        
         public ActionResult GetAllUsers()
         {
             return View(_context.Users.ToList());
         }
+        public async Task<ActionResult> EditUser(string id)
+        {
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+
+            var user = await _userManager.FindByIdAsync(id);
+
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+
+            var userRoles = await _userManager.GetRolesAsync(user.Id);
+
+            return View(new EditUserViewModel()
+            {
+                Id = user.Id,
+                UserName = user.UserName,
+                Email = user.Email,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+
+                RolesList = _roleManager.Roles.ToList().Select(x => new SelectListItem()
+                {
+                    Selected = userRoles.Contains(x.Name),
+                    Text = x.Name,
+                    Value = x.Name
+                })
+            });
+        }
+            
+       [HttpPost]
+       [ValidateAntiForgeryToken]
+       public async Task<ActionResult> EditUser(EditUserViewModel model, params string[]  selectedRole)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByIdAsync(model.Id);
+
+                if (user == null)
+                {
+                    return HttpNotFound();
+                }
+
+                user.UserName = model.UserName;
+                user.FirstName = model.FirstName;
+                user.LastName = model.LastName;
+
+                var userRoles = await _userManager.GetRolesAsync(user.Id);
+
+                selectedRole = selectedRole ?? new string[] { };
+
+                var result = await _userManager.AddToRoleAsync(user.Id,
+                    selectedRole.Except(userRoles).ToArray().ToString()); // may not be right
+
+                if (!result.Succeeded)
+                {
+                    ModelState.AddModelError("", result.Errors.First());
+                    return View();
+                }
+
+                result = await _userManager.RemoveFromRoleAsync(user.Id, userRoles.Except(selectedRole).ToArray().ToString()); // put to string
+
+                if (!result.Succeeded)
+                {
+                    ModelState.AddModelError("", result.Errors.First());
+                    return View();
+                }
+
+                return RedirectToAction("Index");
+
+            }
+
+            ModelState.AddModelError("", "Something's failed.");
+            return View();
+
+
+        }
+
+        
+
+
+
+
+
+
         public ActionResult GetAllRoles()
         {
             return View(_context.Roles.ToList());
         }
+
 
         //method used to take string name id as an input parameter & attempts to find a role based on this Id
         public async Task<ActionResult> Details(string id)
