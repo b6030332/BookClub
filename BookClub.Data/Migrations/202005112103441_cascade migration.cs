@@ -57,7 +57,7 @@ namespace BookClub.Data.Migrations
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUser_Id)
-                .ForeignKey("dbo.Books", t => t.BookId)
+                .ForeignKey("dbo.Books", t => t.BookId, cascadeDelete: true)
                 .Index(t => t.BookId)
                 .Index(t => t.ApplicationUser_Id);
             
