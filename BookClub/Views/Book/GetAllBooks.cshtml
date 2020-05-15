@@ -30,6 +30,7 @@
 
 @using (Html.BeginForm("GetAllBooks", "Book", FormMethod.Get))
 {
+    //Displays a radio button & search box which allows User to select search term & input text 
     <b> Search By </b>
     @Html.RadioButton("option", "Title") <text>Title</text>
     @Html.RadioButton("option", "Genre") <text>Genre</text>
@@ -46,10 +47,10 @@
             <th>Author</th>
             <th>Genre</th>
             <th></th>
-
         </tr>
     </thead>
 
+    @*If search results return empty, message below displays*@
     @if (Model.Count() == 0)
     {
         <tr>
@@ -78,7 +79,7 @@
                         @Html.DisplayFor(modelItem => item.Genre.Name)
                     </td>
 
-            @*Only allows Admin Users to Edit and Delete Books*@
+            @*Only allows Admin Users to see Edit/Delete icon to Edit/Delete Books*@
 
             @if (User.IsInRole("Admin"))
             {
@@ -94,7 +95,7 @@
             }
 </table>
 
-@*Shows User Page Listing icon with certain Display functions seen below...*@ 
+@*Shows User Page Listing icon with certain Display features seen below...*@ 
 @Html.PagedListPager(Model, page => Url.Action("GetAllBooks",
     //Allows User to search and won't refresh the search once a new page is selected
     new { page, option = Request.QueryString["option"], search = Request.QueryString["search"] }),

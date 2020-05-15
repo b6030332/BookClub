@@ -1,62 +1,8 @@
 ﻿@model BookClub.ViewModels.JointViewModels.BookDiscussionViewModel
 
-@*<h2>View Discussions | @Model.Book.Title</h2>
-
-
-     <p>
-            <img src="@Model.Book.BookImage" class="imageCell" />
-        </p>
-
-
-
-    <p>
-        @Html.ActionLink("Create New", "AddDiscussion", "Admin", new { id = Model.Book.Id }, null)
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                Forum
-            </th>
-            <th>
-                Descrition
-            </th>
-            <th>
-                Created
-            </th>
-
-            <th></th>
-        </tr>
-
-        @foreach (var discussion in Model.Discussions)
-        {
-            <tr>
-                <td>
-
-                    @Html.ActionLink(discussion.Title, "GetPostsByDiscussion",
-
-                        new { id = discussion.Id , Controller = "Discussion" })
-                </td>
-                <td>
-                    @discussion.Content
-                </td>
-                <td>
-                    @discussion.DatePosted
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = discussion.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = discussion.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = discussion.Id })
-                </td>
-                <td></td>
-            </tr>
-        }
-
-
-    </table>*@
-
-<div class="container body-content">
-    <div class="row sectionHeader">
-        <span class="bookTitle">@Model.Book.Title Discussion</span>
+<div class="container">
+    <div class="sectionHeader">
+        <span class="discussionTitle">@Model.Book.Title Discussion</span>
         <div class="sectionHeading">
 
             @*If the user is verified as a memeber, give them the ability to add a new post, by showing the post button*@
@@ -69,21 +15,8 @@
                 </span>
 
             }
-
-            @*The search function, user can search through posts on a partiular discussion*@
-
-            @using (Html.BeginForm("Search", "Discussion", FormMethod.Post))
-            {
-
-                @*@Html.TextBox("SearchQuery")*@
-                <input type="text" name="submit" value="Search" placeholder="Search..." class="searchBar" onfocus="clearThis(this)" />
-                <button type="submit" class="btn btn-discussionSearch">
-                    <i class="material-icons">search</i>
-                </button>
-
-                <input asp-for="@Model.Book.Id" name="id" type="hidden" />
-
-            }
+        </div>
+    </div>
 
             <div class="sectionDescription">
                 @if (!User.Identity.IsAuthenticated)
@@ -95,11 +28,8 @@
                             to create a new discussion
                         </span>
                     </p>
-
                 }
             </div>
-        </div>
-    </div>
 
     <div class="discussionContent">
         @if (Model.Discussions.Any())
