@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Owin;
+using System.Web;
 
 [assembly: OwinStartupAttribute(typeof(BookClub.Startup))]
 namespace BookClub
@@ -13,59 +14,82 @@ namespace BookClub
         {
             ConfigureAuth(app);
         }
-       
-        //method to create default User Roles and Admin User for login
-        private void createRolesandUsers()
+
+        public static void InitializeIdentityForEF(ApplicationDbContext _context)
         {
-            ApplicationDbContext _context = new ApplicationDbContext();
 
-           var _userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(_context));
-           var _roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(_context));
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(_context));
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(_context));
 
+           // const string username = "admin@admin.com";
 
-            //create default admin role if it doesn't exist
-            if (_roleManager.RoleExists("Admin"))
+            const string name = "admin@admin.com";
+
+            const string password = "admin12@admin.com";
+
+            const string roleName = "Admin";
+
+            //Create Role Admin if it does not exist    
+
+            var role = roleManager.FindByName(roleName);
+
+            if (role == null)
+
             {
 
-                //first create Admin Role
-                var role = new IdentityRole();
-                role.Name = "Admin";
-                _roleManager.Create(role);
+                role = new IdentityRole(roleName);
 
-
-                //Here create Admin Super User
-
-                var user = new ApplicationUser();
-                user.FirstName = "Admin";
-                user.LastName = "Admin";
-                user.UserName = "Admin";
-                user.Email = "admin@admin.com";
-
-
-                string userPwd = "Wright12!";
-
-                var checkUser = _userManager.Create(user, userPwd);
-
-                //add default User to Admin Role
-                if (checkUser.Succeeded)
-                {
-                    var result = _userManager.AddToRole(user.Id, "Admin");
-                }
-
-                //create Member role
-
-                if (!_roleManager.RoleExists("Member"))
-                {
-                    var memberRole = new IdentityRole();
-
-                    role.Name = "Member";
-                    _roleManager.Create(memberRole);
-                }
+                var roleresult = roleManager.Create(role);
             }
 
+            var user = userManager.FindByName(name);
 
+            if (user == null)
+            {
+                user = new ApplicationUser
+                {
+                    UserName = name,
+                    Email = name,
+                    FirstName = "Admin",
+                    LastName = "Admin"
+                };
+
+                var result = userManager.Create(user, password);
+
+                result = userManager.SetLockoutEnabled(user.Id, false);
+            }
+
+            // Add user admin to Role Admin if not already added    
+
+            var rolesForUser = userManager.GetRoles(user.Id);
+
+            if (!rolesForUser.Contains(role.Name))
+
+            {
+
+                var result = userManager.AddToRole(user.Id, role.Name);
+
+            }
+
+            //Create Member role                  
+
+            const string userRoleName = "Member";
+
+            role = roleManager.FindByName(userRoleName);
+
+            if (role == null)
+
+            {
+
+                role = new IdentityRole(userRoleName);
+
+                var roleresult = roleManager.Create(role);
+            }
+            _context.SaveChanges();
+           
         }
-
         
     }
-}
+        
+    }
+

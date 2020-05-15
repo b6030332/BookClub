@@ -47,8 +47,10 @@ namespace BookClub.Controllers
         }
         public ActionResult GetBookId(int id)
         {
+            //Grab id of book
             Book books = _bookService.GetBookId(id);
 
+            //Map properties of custom view model to raw database entities
             BookDetailViewModel bookDetail = new BookDetailViewModel()
             {
                 Id = books.Id,
@@ -74,10 +76,13 @@ namespace BookClub.Controllers
         
         public ActionResult GetB(int id)
         {
+            //find id of book
             var book = _bookService.GetBookId(id);
 
+            //set new properties for ICollection<Discussions> for the view 
             var discussions = book.Discussions;
 
+            //map custome view model properties to raw entity models 
             var listofDiscussions = discussions.Select(discussion => new ListofDiscussions
             {
                 Id = discussion.Id,
@@ -93,6 +98,7 @@ namespace BookClub.Controllers
 
             });
 
+            //create custom model to wrap 'ListofDiscussions' to IEnumerable for view
             var model = new BookDiscussionViewModel
             {
                 Discussions = listofDiscussions,
@@ -102,6 +108,7 @@ namespace BookClub.Controllers
             return View(model);
         }
 
+        //Map customer model to properties in raw entity models to access in the view
         private NewBook BuildNewBook(Book book)
         {
             return new NewBook

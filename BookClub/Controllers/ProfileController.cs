@@ -16,6 +16,7 @@ using System.Web.Security;
 
 namespace BookClub.Controllers
 {
+    [Authorize(Roles = "Admin, Member")]
     public class ProfileController : Controller
     {
 
