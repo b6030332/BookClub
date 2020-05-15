@@ -18,7 +18,7 @@
         <tbody>
             <h2>List of Users</h2>
 
-            @Html.ActionLink("Add User", "Register", new { controller = "Account" })
+            @Html.ActionLink("Add User", "Register", "Account", new { returnUrl = Request.Url.PathAndQuery }, null)
 
             @foreach (var user in Model)
             {
@@ -29,9 +29,7 @@
                     <td>
                         @Html.ActionLink("Details", "UserDetails", new { id = user.Id }) |
 
-                        @Html.ActionLink("Edit", "EditUser", new { id = user.Id }) |
-
-                        @Html.ActionLink("Delete", "DeleteUser", new { id = user.Id })
+                        @Html.ActionLink("Edit", "EditUser", new { id = user.Id })
                     </td>
 
                 </tr>

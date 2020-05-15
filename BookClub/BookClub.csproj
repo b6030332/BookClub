@@ -203,6 +203,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\JointViews\BookDiscussionModel.cs" />
     <Compile Include="ViewModels\AdminUsers\AllUsersViewModel.cs" />
+    <Compile Include="ViewModels\AdminUsers\EditUserViewModel.cs" />
     <Compile Include="ViewModels\AdminUsers\NewUserModel.cs" />
     <Compile Include="ViewModels\AdminUsers\RoleViewModel.cs" />
     <Compile Include="ViewModels\Book\NewBook.cs" />
@@ -357,6 +358,7 @@
     <Content Include="Views\UserAdmin\EditRole.cshtml" />
     <Content Include="Views\UserAdmin\DeleteRole.cshtml" />
     <Content Include="Views\UserAdmin\UserDetails.cshtml" />
+    <Content Include="Views\UserAdmin\EditUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
