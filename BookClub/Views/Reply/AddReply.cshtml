@@ -1,30 +1,31 @@
 ﻿@model BookClub.ViewModels.Reply.AddReplyViewModel
 
 <div class="containter body-content">
-    <h3>Replying to: @Model.PostTitle</h3>
-    
+    <p><i>Replying to:</i> <b class="discussionName">@Model.PostTitle</b> Discussion</p>
+    @*<h3>Replying to: @Model.PostTitle</h3>*@
+
     <div class="col-md-9 postContentContainer">
         <div class="postContent">
             @Html.Raw(Model.PostContent)
         </div>
     </div>
-    
+
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="col-md-5" id="replyTextArea">
-            @Html.TextAreaFor(model => model.ReplyContent, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.ReplyContent, "", new { @class = "text-danger" })
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="col-md-5" id="replyTextArea">
+                @Html.TextAreaFor(model => model.ReplyContent, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ReplyContent, "", new { @class = "text-danger" })
 
-        <div class="form-group" id="addReplyButton">
-            <input type="submit" value="Create" class="btn btn-default" />
+                <div class="form-group" id="addReplyButton">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+                @Html.ActionLink("Back to Replies", "GetPost", new { id = Model.PostId, Controller = "Post" })
+            </div>
         </div>
-            @Html.ActionLink("Back to Replies", "GetPost", new { id = Model.PostId, Controller = "Post" })
-        </div>
-    </div>
     }
 </div>
     

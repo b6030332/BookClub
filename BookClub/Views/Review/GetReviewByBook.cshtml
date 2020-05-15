@@ -9,6 +9,7 @@
         </div>
     </div>
 
+    @*As User hovers over stars they will be highlighted and confirmed if clicked*@
     <script type="text/javascript">
     function CRateOut(rating) {
         for (var i = 1; i <= rating; i++) {
@@ -50,18 +51,7 @@
     }
     </script>
 
-    @*@if (Model.Any() &&!User.Identity.IsAuthenticated)
-        {
-            foreach (var item in Model)
-            {
-                @Html.Partial("_ReviewContentPartial", item)
-            }
-                <p>There are no reviews yet, become a @Html.ActionLink("Registered member", "Register", "Account", new { returnUrl = Request.Url.PathAndQuery }, null)
-                or  @Html.ActionLink("Login", "Login", "Account", new { returnUrl = Request.Url.PathAndQuery }, null)  </p>
-        }*@
-
-
-
+    @*If there are any reviews in the Database, each item will be displayed via partial link*@
     @if (Model.Any())
     {
         foreach (var item in Model)
@@ -70,10 +60,14 @@
         }
     }
 
+    @*If there are no reviews and the User isnt registered, prompt for Register/Login will show*@ 
     else if (!User.Identity.IsAuthenticated)
     {
-        <p>There are no reviews yet, become a @Html.ActionLink("Registered member", "Register", "Account", new { returnUrl = Request.Url.PathAndQuery }, null) or  @Html.ActionLink("Login", "Login", "Account", new { returnUrl = Request.Url.PathAndQuery }, null)  </p>
+        <p>There are no reviews yet, become a @Html.ActionLink("Registered member", "Register", "Account", new { returnUrl = Request.Url.PathAndQuery }, null) 
+        or  @Html.ActionLink("Login", "Login", "Account", new { returnUrl = Request.Url.PathAndQuery }, null)  </p>
     }
+
+    @*If there are no reviews and the User is registered, will prompt them to create a view*@
     else if (User.Identity.IsAuthenticated)
     {
         <p>There are no reviews yet, why not <b>create one</b> below</p>
@@ -87,7 +81,7 @@
 
         <textarea rows="6" cols="100" name="bookContent" id="txtBookContent"></textarea>
 
-        @*Displays 5 stars which the user can click*@
+        @*Displays 5 empyty stars with different roles for the javascript to process*@
 
         <div onmouseout="CRateSelected()" id="starRating">
             <span id="span1" onmouseout="CRateOut(1)" onmouseover="CRateOver(1)" onclick="CRateClick(1)" class="glyphicon glyphicon-star-empty"></span>

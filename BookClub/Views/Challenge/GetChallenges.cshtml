@@ -1,15 +1,17 @@
-﻿@model BookClub.Data.Models.Challenges
+﻿@using Microsoft.AspNet.Identity;
+
+@model BookClub.Data.Models.Challenges
 
 @{
     ViewBag.Title = "GetChallenges";
 }
 
-
+@*'<divs> where partial views will be called and implemented'*@
 <div id="tableDiv"></div>
 <div id="challengeCreateForm">
 
     @*Calls the 'AJAXAddChallenge' method in the Controller which replaces the contents of 'tableDiv'*@
-    
+
     @using (Ajax.BeginForm("AJAXAddChallenge", "Challenge", new AjaxOptions
     {
         InsertionMode = InsertionMode.Replace,
@@ -18,39 +20,35 @@
 
     }))
     {
-        <div class="form-group" id="challengeDescription">
-            @Html.AntiForgeryToken()
-            <p>Add Challenges</p>
-            @*@Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })*@
-            <div>
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-         @*<div class="form-group">
+        //If user is registered will show add challenge box
+        if (User.Identity.IsAuthenticated)
+        {
+            <div class="form-group" id="challengeDescription">
                 @Html.AntiForgeryToken()
-                @Html.LabelFor(model => model.From, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.From, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.From, "", new { @class = "text-danger" })
+                <p>Add Challenges</p>
+                
+                <div>
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                 </div>
             </div>
+        }
 
-            <div class="form-group">
-                @Html.AntiForgeryToken()
-                @Html.LabelFor(model => model.Until, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Until, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Until, "", new { @class = "text-danger" })
+        //If User isn;t register will prompt them to Register or Login 
+        else if (!User.Identity.IsAuthenticated)
+        {
+             <div class="promptLogin">
+                    You must be a
+                    @Html.ActionLink("Registered Member", "Register", "Account", new { returnUrl = Request.Url.PathAndQuery }, null) or
+                    @Html.ActionLink("Logged in", "Login", "Account", new { returnUrl = Request.Url.PathAndQuery }, null)
+                    to reply to add/view your challenges
                 </div>
-            </div>*@ 
-        
+        }
+       
     }
 </div>
 
-
- @*Scripts used to call J-Query function e.g. ChallengeTable.js*@
+@*Scripts used to call J-Query function e.g. ChallengeTable.js*@
 
 @section Scripts {
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
