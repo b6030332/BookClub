@@ -59,6 +59,7 @@ namespace BookClub.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -77,7 +78,7 @@ namespace BookClub.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -139,8 +140,9 @@ namespace BookClub.Controllers
         //
         // GET: /Account/Register
         [AllowAnonymous]
-        public ActionResult Register()
+        public ActionResult Register(string returnUrl)
         {
+            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
 
@@ -149,45 +151,35 @@ namespace BookClub.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model, string returnUrl)
         {
 
-            using (var _context = new ApplicationDbContext())
-            {
+            //using (var _context = new ApplicationDbContext())
+            //{
                 if (ModelState.IsValid)
                 {
                     var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName };
                     var result = await UserManager.CreateAsync(user, model.Password);
+               
+                 UserManager.AddToRole(user.Id, "Member");
 
-                    var roleStore = new RoleStore<IdentityRole>(_context);
-                    var roleManager = new RoleManager<IdentityRole>(roleStore);
-
-                    var userStore = new UserStore<ApplicationUser>(_context);
-                    var userManager = new UserManager<ApplicationUser>(userStore);
-
-
-                    //Once a user registers, they are immediatley added to a Member role 
-
-                    userManager.AddToRole(user.Id, "Member");
-
-                    if (result.Succeeded)
+                if (result.Succeeded)
                     {
-                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
-                        return RedirectToAction("Index", "Home");
-                    }
-                    else
-                    {
-                        AddErrors(result);
-                    }
+                    //After registering returns back to previous page
+                    return RedirectToLocal(returnUrl);
+                     
+                    };
 
-
+                ViewBag.ReturnUrl = returnUrl;
+                AddErrors(result);
                 }
 
                 // If we got this far, something failed, redisplay form
                 return View(model);
             }
-        }
+        
 
         //
         // GET: /Account/ConfirmEmail

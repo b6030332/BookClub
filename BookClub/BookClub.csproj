@@ -204,6 +204,7 @@
     <Compile Include="Models\JointViews\BookDiscussionModel.cs" />
     <Compile Include="ViewModels\AdminUsers\AllUsersViewModel.cs" />
     <Compile Include="ViewModels\AdminUsers\NewUserModel.cs" />
+    <Compile Include="ViewModels\AdminUsers\RoleViewModel.cs" />
     <Compile Include="ViewModels\Book\NewBook.cs" />
     <Compile Include="ViewModels\Community\CommunityViewModel.cs" />
     <Compile Include="ViewModels\Discussion\ListofDiscussions.cs" />
@@ -321,7 +322,6 @@
     <Content Include="Views\Reply\AddReply.cshtml" />
     <Content Include="Views\Profile\Detail.cshtml" />
     <Content Include="Views\UserAdmin\GetAllUsers.cshtml" />
-    <Content Include="Views\UserAdmin\AddRole.cshtml" />
     <Content Include="Views\UserAdmin\GetAllRoles.cshtml" />
     <Content Include="Views\UserAdmin\ManageUserRoles.cshtml" />
     <Content Include="Views\UserAdmin\GetRolesforUser.cshtml" />
@@ -332,7 +332,6 @@
     <Content Include="Views\Profile\UploadFile.cshtml" />
     <Content Include="Views\Review\DeleteReview.cshtml" />
     <Content Include="Views\Post\UpdatePost.cshtml" />
-    <Content Include="Views\UserAdmin\GetAllApplicationUsers.cshtml" />
     <Content Include="Views\Reply\UpdateReply.cshtml" />
     <Content Include="Views\Admin\UpdateBook.cshtml" />
     <Content Include="Views\Admin\UpdateDiscussion.cshtml" />
@@ -340,6 +339,11 @@
     <Content Include="Views\Admin\AddDiscussion.cshtml" />
     <Content Include="Views\Admin\DeleteBook.cshtml" />
     <Content Include="Views\Review\UpdateReview.cshtml" />
+    <Content Include="Views\UserAdmin\Details.cshtml" />
+    <Content Include="Views\UserAdmin\AddRole.cshtml" />
+    <Content Include="Views\UserAdmin\EditRole.cshtml" />
+    <Content Include="Views\UserAdmin\DeleteRole.cshtml" />
+    <Content Include="Views\UserAdmin\UserDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
