@@ -14,6 +14,8 @@
         </h4>
     </div>
 
+    @*Inputs a search bar for the User to input search terms*@
+    @*'onfocus' - uses Jquery to delete contents once the searchbar is clicked*@ 
     <div class="sectionDescription">
         <input type="text" id="Search" value="Search" placeholder="Search..." class="searchBar" onfocus="clearThis(this)" />
         <button type="submit" class="btn btn-discussionSearch">
@@ -32,18 +34,13 @@
             <input asp-for="@Model.Discussion.Id" name="id" type="hidden" />
         </div>
 
+        @*If the user isn't verified as registered, register/login prompt will be shown*@
         @if (!User.Identity.IsAuthenticated)
         {
             <p>
                 <span>
                     You must be a
-
-
                     @Html.ActionLink("Registered member", "Register", "Account", new { returnUrl = Request.Url.PathAndQuery }, null)
-                    @*@Html.ActionLink("Registered Member", "Register", new { ReturnUrl = ViewBag.ReturnUrl , Controller = "Account" })*@
-
-
-
                     or @Html.ActionLink("Logged in", "Login", "Account", new { returnUrl = Request.Url.PathAndQuery }, null)
                     to create a new post
                 </span>
@@ -100,6 +97,8 @@
                 </tbody>
             </table>
         }
+
+        //If there are no posts & user isn't registered, displays icon and a prompt to add a new post
         else if (User.Identity.IsAuthenticated)
         {
             <div class="noPosts">
@@ -117,6 +116,7 @@
     </div>
 </div>
 
+
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
 <script>
     $(document).ready(function () {
@@ -124,12 +124,17 @@
             if (text_one.indexOf(text_two) != -1)
                 return true;
         }
+
+        //Uses the name 'Search' from '<tr class>' above
+        //If search doesnt contain words used hide list,
         $("#Search").keyup(function () {
             var searchText = $("#Search").val().toLowerCase();
             $(".Search").each(function () {
                 if (!Contains($(this).text().toLowerCase(), searchText)) {
                     $(this).hide();
                 }
+
+                //If search does contain keywords used show list
                 else {
                     $(this).show();
                 }

@@ -4,7 +4,7 @@
 @model IPagedList<BookClub.Data.Models.Book>
 
 <div class="alert alert-success">
-    <strong>Sign Up Today:</strong> @Html.ActionLink("Join Our Community", "Register", "Account")
+    <strong>Sign Up Today:</strong> @Html.ActionLink("Join Our Community", "Register", "Account", new { returnUrl = Request.Url.PathAndQuery }, null)
 </div>
 
 @*Only allows Admin to Add a Book*@
@@ -18,16 +18,6 @@
     </div>
 }
 
-@*<div class="dropdown">
-        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-            Filter By
-            <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-            <li><a>@Html.ActionLink("New Releases", "NewReleases", "Book")</a></li>
-        </ul>
-    </div>*@
-
 @using (Html.BeginForm("GetAllBooks", "Book", FormMethod.Get))
 {
     //Displays a radio button & search box which allows User to select search term & input text 
@@ -38,6 +28,7 @@
     @Html.TextBox("search")
     <input type="submit" name="submit" value="Search" />
 }
+
 <table class="table table-hover" id="allBookTable">
     <tr>
     <thead>
