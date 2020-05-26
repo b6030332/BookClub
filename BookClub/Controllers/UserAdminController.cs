@@ -138,8 +138,8 @@ namespace BookClub.Controllers
 
                 selectedRole = selectedRole ?? new string[] { };
 
-                var result = await _userManager.AddToRoleAsync(user.Id,
-                    selectedRole.Except(userRoles).ToArray().ToString()); // may not be right
+                var result = await _userManager.AddToRolesAsync(user.Id,
+                    selectedRole.Except(userRoles).ToArray<string>()); 
 
                 if (!result.Succeeded)
                 {
@@ -147,7 +147,7 @@ namespace BookClub.Controllers
                     return View();
                 }
 
-                result = await _userManager.RemoveFromRoleAsync(user.Id, userRoles.Except(selectedRole).ToArray().ToString()); // put to string
+                result = await _userManager.RemoveFromRolesAsync(user.Id, userRoles.Except(selectedRole).ToArray<string>()); // put to string
 
                 if (!result.Succeeded)
                 {
@@ -155,7 +155,7 @@ namespace BookClub.Controllers
                     return View();
                 }
 
-                return RedirectToAction("Index");
+                return RedirectToAction("GetAllUsers");
 
             }
 
@@ -166,11 +166,6 @@ namespace BookClub.Controllers
         }
 
         
-
-
-
-
-
 
         public ActionResult GetAllRoles()
         {
