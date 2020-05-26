@@ -1,10 +1,7 @@
 ﻿@model BookClub.Data.Models.PostReply
 
-@{
-    ViewBag.Title = "UpdateReply";
-}
 
-<h2>UpdateReply</h2>
+<h2>Update Reply</h2>
 
 @using (Html.BeginForm())
 {
@@ -12,7 +9,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>PostReply</h4>
+      
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)

@@ -1,10 +1,8 @@
 ﻿@model BookClub.Data.Models.Review
 
-@{
-    ViewBag.Title = "UpdateReview";
-}
 
-<h2>UpdateReview</h2>
+
+<h2>Update Review</h2>
 
 @using (Html.BeginForm("UpdateReview", "Review", new { Id = Model.Id }, FormMethod.Post, null))
 {
@@ -12,7 +10,7 @@
     
     @Html.HiddenFor(model => model.Book.Id)
     <div class="form-horizontal">
-        <h4>Review</h4>
+      
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
