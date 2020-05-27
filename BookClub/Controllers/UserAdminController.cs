@@ -120,7 +120,7 @@ namespace BookClub.Controllers
                     return View();
                 }
 
-                return RedirectToAction("GetAllUsers");
+                return RedirectToAction("GetAllRoles");
 
             }
 

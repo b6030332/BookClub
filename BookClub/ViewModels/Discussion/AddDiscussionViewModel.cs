@@ -15,5 +15,7 @@ namespace BookClub.ViewModels.Discussion
         public string BookTitle { get; set; }
 
 
+
+
     }
 }

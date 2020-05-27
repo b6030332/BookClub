@@ -44,6 +44,7 @@ namespace BookClub.Controllers
             
             try
             {
+                discussion.Created = DateTime.Now;
 
                 _discussionService.AddDiscussion(discussion);
 
@@ -96,7 +97,7 @@ namespace BookClub.Controllers
             try
             {
                 _bookService.UpdateBook(book);
-                return RedirectToAction("GetAllBooks", "Book", new { id = book.Id });
+                return RedirectToAction("GetBookId", "Book", new { id = book.Id });
             }
             catch
             {
