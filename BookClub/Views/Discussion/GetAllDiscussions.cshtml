@@ -30,7 +30,7 @@
 
                         @*Small book icon so the User can go to the book details view if needed*@ 
                         <td>
-                            <a><i class="glyphicon glyphicon-book" onclick="location.href='@Url.Action("GetBookId", "Book", new { id = item.Id })'"></i></a>
+                            <a><i class="glyphicon glyphicon-book" onclick="location.href='@Url.Action("GetBookId", "Book", new { id = item.BookId })'"></i></a>
                         </td>
 
                         @*Only allows Admin Users to see 'UpdateDiscussion' & 'DeleteDiscussion' icons*@
