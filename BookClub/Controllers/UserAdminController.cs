@@ -31,47 +31,12 @@ namespace BookClub.Controllers
             _userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(_context));
             _roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(_context));
         }
-        public ActionResult GetAllApplicationUsers(string userId)
-        {
-            //if (userId == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
-
-            var applicationUser = _userService.GetAllApplicationUsers();
-
-           // var user = _userManager.FindById(userId);
-           // ViewBag.RoleNames = _userManager.GetRoles(user.Id);
-
-            var userModel = applicationUser.Select(u => new NewUserModel
-            {
-                Id = u.Id,
-                FirstName = u.FirstName,
-                LastName = u.LastName,
-                UserName = u.UserName,
-              //  Rolesforthisuser = ViewBag.RoleNames = _userManager.GetRoles(user.Id)
-
-            }).ToList();
-
-
-
-            var model = new AllUsersViewModel()
-            {
-
-                AppUsers = userModel,
-                //Rolesforthisuser = _userManager.GetRoles(User.Identity.GetUserId())
-
-            };
-
-            return View(model);
-
-        }
        public async Task<ActionResult> UserDetails(string id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
 
             var user = await _userManager.FindByIdAsync(id);
 
@@ -86,10 +51,10 @@ namespace BookClub.Controllers
         }
         public async Task<ActionResult> EditUser(string id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
 
             var user = await _userManager.FindByIdAsync(id);
 
